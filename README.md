@@ -1,5 +1,12 @@
-# llm-trust-lens
-Open Intent Classification [Before Merging into Final Branch]
+# Open Intent Classification [Before Merging into Final Branch]
+
+## Usage
+
+```python
+!python3 /workspaces/llm-trust-lens/main.py
+```
+
+
 
 # LLM-TrustLens  
 
