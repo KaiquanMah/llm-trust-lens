@@ -1,7 +1,6 @@
 import argparse
 import yaml
 import os
-import ollama
 import pandas as pd
 from tqdm import tqdm
 from pathlib import Path
@@ -9,6 +8,11 @@ import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
+import re
+
+# Import our custom utility functions
+from data_utils import load_dataset_and_labels
+from ollama_utils import initialize_ollama
 
 # --- Helper Functions ---
 
@@ -27,31 +31,47 @@ def format_zero_shot_prompt(template: str, text_input: str, labels: list) -> str
     label_list_str = ", ".join(f'"{label}"' for label in labels)
     return template.format(labels=label_list_str, text_input=text_input)
 
+def format_few_shot_prompt(template: str, text_input: str, labels: list, few_shot_examples: list) -> str:
+    """Injects data and formatted few-shot examples into a prompt template."""
+    label_list_str = ", ".join(f'"{label}"' for label in labels)
+    example_str = "\n\n".join([f"Query: \"{ex['query']}\"\nIntent: \"{ex['intent']}\"" for ex in few_shot_examples])
+    return template.format(labels=label_list_str, few_shot_examples=example_str, text_input=text_input)
+
+def load_few_shot_examples(file_path: str) -> list:
+    """Loads and parses a file of few-shot examples."""
+    examples = []
+    with open(file_path, 'r') as f:
+        content = f.read()
+    pattern = re.compile(r'Query:\s*"(.*?)"\s*\nIntent:\s*"(.*?)"', re.DOTALL)
+    matches = pattern.findall(content)
+    for query, intent in matches:
+        examples.append({'query': query, 'intent': intent})
+    print(f"Loaded {len(examples)} few-shot examples from {file_path}")
+    return examples
+
 def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: Path):
     """Calculates metrics and saves all evaluation artifacts."""
-    true_labels = df_results['true_label']
-    predicted_labels = df_results['predicted_label']
+    valid_results = df_results[df_results['predicted_label'].isin(labels)]
+    if len(valid_results) == 0:
+        print("\nWarning: No valid predictions found to evaluate. Skipping metrics generation.")
+        return
 
-    # 1. Classification Report
+    true_labels = valid_results['true_label']
+    predicted_labels = valid_results['predicted_label']
+
     report = classification_report(true_labels, predicted_labels, labels=labels, output_dict=True, zero_division=0)
     report_df = pd.DataFrame(report).transpose()
     report_path = output_dir / "classification_report.csv"
     report_df.to_csv(report_path)
-    print(f"\nClassification Report:\n{pd.DataFrame(report).transpose()}")
-    print(f"Classification report saved to {report_path}")
+    print(f"\nClassification Report saved to {report_path}")
 
-    # 2. Confusion Matrix
     cm = confusion_matrix(true_labels, predicted_labels, labels=labels)
     cm_df = pd.DataFrame(cm, index=labels, columns=labels)
-    
-    # Save CM to CSV
     cm_csv_path = output_dir / "confusion_matrix.csv"
     cm_df.to_csv(cm_csv_path)
     print(f"Confusion matrix saved to {cm_csv_path}")
 
-    # Save CM to PNG
-    # larger confusion matrix for non-overlapping figures, especially for large CLINC150-oos dataset which has 151 classes (150 non-oos classes + 1 oos class)
-    plt.figure(figsize=(80, 80))
+    plt.figure(figsize=(20, 20))
     sns.heatmap(cm_df, annot=False, fmt='d', cmap='Blues')
     plt.title('Confusion Matrix')
     plt.ylabel('Actual')
@@ -78,57 +98,56 @@ def main():
     
     print("--- Starting Experiment ---")
     print(f"Experiment Config: {args.config}")
-    print(f"Dataset: {dataset_config['name']}")
-    print(f"Model: {exp_config['model_name']}")
-    print(f"Technique: {exp_config['technique']}")
-    print("---------------------------")
-
+    print(f"Dataset: {dataset_config['name']}, Model: {exp_config['model_name']}, Technique: {exp_config['technique']}")
+    
     # 2. Setup Output Directory
     output_dir = project_root / exp_config['output_dir']
     os.makedirs(output_dir, exist_ok=True)
     print(f"Results will be saved to: {output_dir}")
 
-    # 3. Load Data and Prompt Template
-    # Note: We need to import data_utils here to avoid circular dependencies if it ever needed to import from experiment
-    from data_utils import load_dataset_and_labels
+    # 3. Initialize Ollama Server and Client
+    client = initialize_ollama(exp_config)
+
+    # 4. Load Data, Labels, and Prompt Template
     df, labels = load_dataset_and_labels(dataset_config)
     prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
 
-    # 4. Initialize Model Client
-    try:
-        client = ollama.Client(host=exp_config['ollama_host'])
-    except Exception as e:
-        print(f"ERROR: Could not connect to Ollama host at {exp_config['ollama_host']}.")
-        print("Please ensure Ollama is running and accessible.")
-        print(f"Details: {e}")
-        return
+    # 5. Prepare for the main loop based on technique
+    few_shot_examples = []
+    if exp_config['technique'] == 'few-shot':
+        examples_path = project_root / exp_config['few_shot']['examples_path']
+        few_shot_examples = load_few_shot_examples(examples_path)
 
-    # 5. Run Inference Loop
+    # 6. Main Inference Loop (This is where the `predict_class.py` logic lives)
+    print("\n--- Running Inference ---")
     results = []
-    # Using a small sample for demonstration. Remove .head(10) to run on the full dataset.
-    sample_df = df.head(10) 
+    sample_df = df.head(10) # Using a small sample. Remove .head(10) for a full run.
     for index, row in tqdm(sample_df.iterrows(), total=sample_df.shape[0], desc="Classifying Intents"):
         text_input = row[dataset_config['text_column']]
         true_label = row[dataset_config['label_column']]
         
+        # A. Format the prompt based on the chosen technique
         prompt = ""
         if exp_config['technique'] == 'zero-shot':
             prompt = format_zero_shot_prompt(prompt_template, text_input, labels)
-        # Add elif for 'few-shot' here in the future
+        elif exp_config['technique'] == 'few-shot':
+            prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
         else:
             raise ValueError(f"Technique '{exp_config['technique']}' not supported.")
 
+        # B. Get the prediction from the LLM (The core "predict_class" action)
         try:
             response = client.chat(
                 model=exp_config['model_name'],
                 messages=[{'role': 'user', 'content': prompt}],
-                options={'temperature': 0.0} # Hardcoding for reproducibility
+                options={'temperature': 0.0}
             )
             prediction = response['message']['content'].strip().replace('"', '')
         except Exception as e:
             print(f"\nERROR during API call for row {index}: {e}")
             prediction = "API_ERROR"
 
+        # C. Store the result
         results.append({
             'index': index,
             'text': text_input,
@@ -136,13 +155,14 @@ def main():
             'predicted_label': prediction
         })
 
-    # 6. Process and Save Results
+    # 7. Process and Save Raw Predictions
     results_df = pd.DataFrame(results)
     predictions_path = output_dir / "predictions.json"
     results_df.to_json(predictions_path, orient='records', indent=4)
     print(f"\nRaw predictions saved to {predictions_path}")
 
-    # 7. Evaluate and Save Metrics
+    # 8. Evaluate and Save Metrics
+    print("\n--- Generating Evaluation Metrics ---")
     save_evaluation_results(results_df, labels, output_dir)
 
     print("\n--- Experiment Finished ---")
