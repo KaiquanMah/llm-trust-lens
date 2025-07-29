@@ -40,33 +40,34 @@ def format_zero_shot_prompt(template: str, text_input: str, labels: list) -> str
                            question=text_input)
     
 
-def format_few_shot_prompt(template: str, text_input: str, labels: list, few_shot_examples: list) -> str:
+def load_few_shot_examples(file_path: str) -> list:
+    """
+    Loads the entire content of the few-shot examples file as a single string.
+    """
+    print(f"Loading few-shot examples content directly from: {file_path}")
+    try:
+        with open(file_path, 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        print(f"ERROR: Few-shot examples file not found at {file_path}")
+        return "" # Return an empty string to prevent crashes
+
+
+def format_few_shot_prompt(template: str, text_input: str, labels: list, few_shot_examples_str: str) -> str:
     """
     Injects data and formatted few-shot examples into a prompt template by
     mapping the code's variable names to the prompt file's placeholder names.
     """
     # 1. Prepare the data strings, same as before.
     category_list_str = ", ".join(f'"{label}"' for label in labels)
-    example_str = "\n\n".join([f"Query: \"{ex['query']}\"\nIntent: \"{ex['intent']}\"" for ex in few_shot_examples])
     
     # 2. Use the correct keys ('categories', 'question') that match the .txt file.
     return template.format(
         categories=category_list_str,      # Maps to {categories}
-        fewshot_examples=example_str,      # Maps to {fewshot_examples}
+        fewshot_examples=few_shot_examples_str,      # Maps to {fewshot_examples}
         question=text_input                # Maps to {question}
     )
     
-def load_few_shot_examples(file_path: str) -> list:
-    """Loads and parses a file of few-shot examples."""
-    examples = []
-    with open(file_path, 'r') as f:
-        content = f.read()
-    pattern = re.compile(r'Query:\s*"(.*?)"\s*\nIntent:\s*"(.*?)"', re.DOTALL)
-    matches = pattern.findall(content)
-    for query, intent in matches:
-        examples.append({'query': query, 'intent': intent})
-    print(f"Loaded {len(examples)} few-shot examples from {file_path}")
-    return examples
 
 def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: Path):
     """Calculates metrics and saves all evaluation artifacts."""
@@ -177,10 +178,10 @@ def main():
 
     
     # 5. Prepare for the main loop based on technique
-    few_shot_examples = []
+    few_shot_examples_string = ""
     if exp_config['technique'] == 'fewshot':
         examples_path = project_root / exp_config['few_shot']['examples_path']
-        few_shot_examples = load_few_shot_examples(examples_path)
+        few_shot_examples_string = load_few_shot_examples(examples_path)
 
     # 6. Main Inference Loop
     print("\n--- Running Inference ---")
@@ -209,7 +210,7 @@ def main():
         true_label = row[dataset_config['label_column']]
         
         # A. Format the prompt based on the chosen technique
-        prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
+        prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples_string)
 
         if i == 0:
             print("\n--- Example Prompt (for first item) ---")
@@ -221,12 +222,13 @@ def main():
             response = client.chat(
                 model=exp_config['model_name'],
                 messages=[{'role': 'user', 'content': prompt}],
-                format='json', # Tell Ollama to enforce JSON output
+                # format='json', # Tell Ollama to enforce JSON output
+                format = IntentSchema.model_json_schema(),
                 options={'temperature': 0.0}
-            )
+            )           
             msg = response['message']['content']
             # Validate the response with our dynamic Pydantic model
-            parsed_data = IntentSchema.model_validate_json(msg)
+            parsed_data = json.loads(msg)
             prediction = parsed_data.category
             confidence = parsed_data.confidence
         except (json.JSONDecodeError, Exception) as e:
