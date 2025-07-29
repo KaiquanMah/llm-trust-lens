@@ -1,7 +1,7 @@
 # Defines a Few-shot experiment using an Ollama model on the Banking77 dataset.
 
 # 1. DATASET CONFIGURATION
-dataset_config: "configs/dataset/banking77.yaml"
+dataset_config: "config/dataset/banking77.yaml"
 # The starting row index from the dataset to process (0-based)
 start_index: 0
 # The ending row index. Use 'null' to process to the end of the dataset
