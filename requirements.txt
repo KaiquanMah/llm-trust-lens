@@ -1,6 +1,10 @@
 pandas
-# numpy
-pydantic
-typing
-# enum
-huggingface-hub
+pydantic      # to enforce schema for LLM outputs
+typing        # to enforce schema for LLM outputs
+# huggingface-hub
+ollama
+tqdm          # progress bar for each experiment
+PyYAML
+scikit-learn  # to get the classification metrics, classification_report, confusion_matrix
+seaborn       # to visualise results in Jupyter notebook
+matplotlib    # to visualise results in Jupyter notebook
