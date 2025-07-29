@@ -23,7 +23,7 @@ def load_dataset_and_labels(dataset_config: dict):
 
     # Load the main data and the label map
     try:
-        df = pd.read_csv(data_path)
+        df = pd.read_csv(data_path, sep='\t')
         labels_df = pd.read_csv(label_map_path)
     except FileNotFoundError as e:
         print(f"ERROR: Could not find a file. Make sure your paths in the config are correct.")
