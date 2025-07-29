@@ -1,5 +1,5 @@
 # Defines the paths and properties for the Banking77 dataset.
-name: "banking77"
+name: "banking"    # options: 'banking', 'stackoverflow', 'oos'
 
 # Paths are relative to the project root directory (llm-trust-lens/)
 path: "data/banking/train.tsv"
@@ -8,3 +8,5 @@ label_map_path: "data/banking/banking77_idx2label.csv"
 # The names of the columns in train.csv
 text_column: "text"
 label_column: "label"
+
+
