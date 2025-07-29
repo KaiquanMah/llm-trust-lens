@@ -33,7 +33,7 @@ few_shot:
 # Parameters that control the behavior and scope of this specific experiment
 run_control:
   # How often to log progress updates (e.g., every N examples)
-  log_every_n_examples: 10
+  log_every_n_examples: 2 # 10
 
 
 # 5. DATA SUBSET TO TEST IMPACT OF OOS THRESHOLD ON METRICS
