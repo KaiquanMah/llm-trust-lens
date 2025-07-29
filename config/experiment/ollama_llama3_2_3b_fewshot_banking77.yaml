@@ -42,7 +42,7 @@ threshold:
   # to process questions to check non-oos classes vs oos (out-of-scope) class
   filter_oos_qns_only: false
   # where we filter the dataframe later to keep only the 1st non-oos class as examples to input to LLM
-  first_class_banking = 'activate_my_card' # following idx2label
+  first_class_banking: 'activate_my_card' # following idx2label
   # The number of questions to filter and keep if the 'filter_oos_qns_only' flag is true
   n_oos_qns: 100
 
