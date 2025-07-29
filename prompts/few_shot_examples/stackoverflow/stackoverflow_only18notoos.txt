@@ -1,0 +1,143 @@
+Example 1:
+Question: "Advantages and disadvantages of using Ajax update panels in ASP.NET application"
+Category:
+{{
+  "category": "ajax",
+  "confidence": 10.68
+}}
+
+Example 2:
+Question: "Apache mod-rewrite for shorter urls"
+Category:
+{{
+  "category": "apache",
+  "confidence": 64.49
+}}
+
+Example 3:
+Question: "redirect stdout and stderr to a single file with prefixes"
+Category:
+{{
+  "category": "bash",
+  "confidence": 36.69
+}}
+
+Example 4:
+Question: "UIWebView in multithread ViewController"
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 25.82
+}}
+
+Example 5:
+Question: "Drupal node_seach"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 79.8
+}}
+
+Example 6:
+Question: "How to allow ink in a protected worksheet?"
+Category:
+{{
+  "category": "excel",
+  "confidence": 57.97
+}}
+
+Example 7:
+Question: "Sampling sequences of random numbers in Haskell"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 5.25
+}}
+
+Example 8:
+Question: "Strategies for designing a database (being accessed by hibernate) which will have alot of archivial data."
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 17.25
+}}
+
+Example 9:
+Question: "What OR/M tool that supports Linq/Iqueryable would you recommend?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 80.48
+}}
+
+Example 10:
+Question: "Magento & Subversion (SVN) - Getting a Development Environment Started?"
+Category:
+{{
+  "category": "magento",
+  "confidence": 47.77
+}}
+
+Example 11:
+Question: "Plot Overlay Matlab"
+Category:
+{{
+  "category": "matlab",
+  "confidence": 13.42
+}}
+
+Example 12:
+Question: "How to see what label color is on a file/folder from within Termnal (Mac OS X)"
+Category:
+{{
+  "category": "osx",
+  "confidence": 1.57
+}}
+
+Example 13:
+Question: "Windows 7, Visual Studio 2008 and Qt 4.6, 32 OR 64 bit?"
+Category:
+{{
+  "category": "qt",
+  "confidence": 67.18
+}}
+
+Example 14:
+Question: "Why is the + operator for List deprecated in Scala?"
+Category:
+{{
+  "category": "scala",
+  "confidence": 87.07
+}}
+
+Example 15:
+Question: "Sharepoint ItemStyle.xsl for CQWP using images from a content type"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 49.91
+}}
+
+Example 16:
+Question: "Problem migrating Spring Web App from tomcat 5.5 to tomcat 6.0"
+Category:
+{{
+  "category": "spring",
+  "confidence": 49.51
+}}
+
+Example 17:
+Question: "SVN Update of multiple files"
+Category:
+{{
+  "category": "svn",
+  "confidence": 51.34
+}}
+
+Example 18:
+Question: "How to programmatically cancel an embedded MsBuild build"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 70.15
+}}

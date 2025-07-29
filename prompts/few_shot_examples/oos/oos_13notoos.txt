@@ -1,0 +1,103 @@
+Example 1:
+Question: "can you do a math problem"
+Category:
+{{
+  "category": "calculator",
+  "confidence": 99.62
+}}
+
+Example 2:
+Question: "don't do this process"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 36.97
+}}
+
+Example 3:
+Question: "i am camile"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 54.67
+}}
+
+Example 4:
+Question: "put volume setting on number 4"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 78.61
+}}
+
+Example 5:
+Question: "what's the definition of luminescent"
+Category:
+{{
+  "category": "definition",
+  "confidence": 45.13
+}}
+
+Example 6:
+Question: "what's the least payment i can make on my cable bill"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 26.07
+}}
+
+Example 7:
+Question: "tell me my miles per gallon on my car"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 63.25
+}}
+
+Example 8:
+Question: "i need to know how long until the next day off"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 36.95
+}}
+
+Example 9:
+Question: "what is the total number of days that i have taken off work since january"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 99.74
+}}
+
+Example 10:
+Question: "what are some good vegan restaurants in broadripple"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 38.43
+}}
+
+Example 11:
+Question: "tell my bank i'm going to france"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 60.72
+}}
+
+Example 12:
+Question: "what are some fun, tourist sites to see in nyc"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 60.47
+}}
+
+Example 13:
+Question: "add welcome to the jungle to my workout mix"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 32.34
+}}

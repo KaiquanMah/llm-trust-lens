@@ -1,0 +1,9 @@
+              precision    recall  f1-score   support
+
+      matlab       0.26      0.97      0.42      1000
+         oos       0.99      0.85      0.92     18000
+  sharepoint       0.89      0.86      0.88      1000
+
+    accuracy                           0.86     20000
+   macro avg       0.72      0.89      0.74     20000
+weighted avg       0.95      0.86      0.89     20000

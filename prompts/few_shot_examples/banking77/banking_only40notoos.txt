@@ -1,0 +1,319 @@
+Example 1:
+Question: "I need my refund"
+Category:
+{{
+  "category": "Refund_not_showing_up",
+  "confidence": 39.69
+}}
+
+Example 2:
+Question: "Can I order a disposable virtual card?"
+Category:
+{{
+  "category": "get_disposable_virtual_card",
+  "confidence": 69.51
+}}
+
+Example 3:
+Question: "I can't find the card PIN."
+Category:
+{{
+  "category": "get_physical_card",
+  "confidence": 46.86
+}}
+
+Example 4:
+Question: "Do you send more than one card?"
+Category:
+{{
+  "category": "getting_spare_card",
+  "confidence": 18.52
+}}
+
+Example 5:
+Question: "What are the steps to getting a virtual card?"
+Category:
+{{
+  "category": "getting_virtual_card",
+  "confidence": 34.66
+}}
+
+Example 6:
+Question: "My card is lost! What can I do?"
+Category:
+{{
+  "category": "lost_or_stolen_card",
+  "confidence": 61.93
+}}
+
+Example 7:
+Question: "I'm not sure where my phone is.  Can someone else use the app?"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 87.57
+}}
+
+Example 8:
+Question: "tell me how I can order my card."
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 3.96
+}}
+
+Example 9:
+Question: "I don't know what my passcode is, can you help?"
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 11.74
+}}
+
+Example 10:
+Question: "How long does a payment show as pending before i should worry about it?"
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 2.73
+}}
+
+Example 11:
+Question: "Why is my cash withdrawal still pending?"
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 96.51
+}}
+
+Example 12:
+Question: "why isn't my top-up going through?"
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 20.28
+}}
+
+Example 13:
+Question: "When will the transfer be completed?"
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 83.81
+}}
+
+Example 14:
+Question: "How do I unblock my pin after entering it wrong too many times?"
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 36.83
+}}
+
+Example 15:
+Question: "Can I receive my salary with this in another currency?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 21.28
+}}
+
+Example 16:
+Question: "I bought something online a week ago and i never got it in the mail.Can I just get my money back now I don't want to keep waiting on something that isn't going to show up."
+Category:
+{{
+  "category": "request_refund",
+  "confidence": 34.83
+}}
+
+Example 17:
+Question: "Seems like my card payment has been cancelled"
+Category:
+{{
+  "category": "reverted_card_payment?",
+  "confidence": 60.51
+}}
+
+Example 18:
+Question: "Do you accept other currencies besides US Dollars?"
+Category:
+{{
+  "category": "supported_cards_and_currencies",
+  "confidence": 48.12
+}}
+
+Example 19:
+Question: "Please delete my account right now!"
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 76.28
+}}
+
+Example 20:
+Question: "How much am I charged for a SEPA transfer?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 68.04
+}}
+
+Example 21:
+Question: "Will you assess me more fees if I top up with an international card?"
+Category:
+{{
+  "category": "top_up_by_card_charge",
+  "confidence": 37.65
+}}
+
+Example 22:
+Question: "Where would I find top up by cash deposit?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 66.0
+}}
+
+Example 23:
+Question: "I tried to top-up, why didn't it work?"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 61.62
+}}
+
+Example 24:
+Question: "Is there a limit for the amount I can top up?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 36.41
+}}
+
+Example 25:
+Question: "My top-up has been reverted and I would like to know why."
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 43.31
+}}
+
+Example 26:
+Question: "Why don't I see my top up in my wallet?"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 32.76
+}}
+
+Example 27:
+Question: "I was charged multiple times for one purchase"
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 18.38
+}}
+
+Example 28:
+Question: "What is the transfer fee charge?"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 38.01
+}}
+
+Example 29:
+Question: "How do I transfer money between two of my accounts?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 88.69
+}}
+
+Example 30:
+Question: "What is the time for a transfer?"
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 87.4
+}}
+
+Example 31:
+Question: "I have to transfer something to China as fast as I can. How long will it take to arrive in China?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 80.05
+}}
+
+Example 32:
+Question: "I have trouble proving my identity."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 15.63
+}}
+
+Example 33:
+Question: "What are the steps for identity checks?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 7.59
+}}
+
+Example 34:
+Question: "Show me the source of my money."
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 21.37
+}}
+
+Example 35:
+Question: "Is there a verification code for top-ups?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 32.76
+}}
+
+Example 36:
+Question: "My disposable virtual card was rejected by the merchant, please help?"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 7.27
+}}
+
+Example 37:
+Question: "Do you guys accept Visa or Mastercard?"
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 59.89
+}}
+
+Example 38:
+Question: "Why do you need me to verify who I am?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 30.35
+}}
+
+Example 39:
+Question: "Cash withdrawal was incorrect at ATM."
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 21.33
+}}
+
+Example 40:
+Question: "I used the ATM machine to get money out for Holiday shopping and saw the outrageous charges. Why is that? I would not have used the ATM if I had known!"
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 73.0
+}}

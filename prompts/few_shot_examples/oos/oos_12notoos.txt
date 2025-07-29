@@ -1,0 +1,95 @@
+Example 1:
+Question: "please be quiet now"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 50.98
+}}
+
+Example 2:
+Question: "hi, i'm john"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 41.59
+}}
+
+Example 3:
+Question: "please turn your speaker volume up"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 54.16
+}}
+
+Example 4:
+Question: "what does confrontation mean"
+Category:
+{{
+  "category": "definition",
+  "confidence": 24.77
+}}
+
+Example 5:
+Question: "what's the least i can pay this month"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 60.92
+}}
+
+Example 6:
+Question: "what mpg does this car get in city"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 52.04
+}}
+
+Example 7:
+Question: "how much time till the next day off"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 11.44
+}}
+
+Example 8:
+Question: "i want to know how many days off i have utilized until now"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 41.51
+}}
+
+Example 9:
+Question: "where can i go to eat"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 47.05
+}}
+
+Example 10:
+Question: "please note that i will be travelling internationally soon"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 78.35
+}}
+
+Example 11:
+Question: "what's the funnest thing for a tourist to do in iceland"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 46.65
+}}
+
+Example 12:
+Question: "god's plan will be added to my new playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 98.95
+}}

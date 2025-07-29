@@ -1,0 +1,299 @@
+Run: 1notoos
+Overall Accuracy: 100.00%
+Overall F1: 100.00%
+              precision    recall  f1-score   support
+
+         oos       1.00      1.00      1.00       100
+
+    accuracy                           1.00       100
+   macro avg       1.00      1.00      1.00       100
+weighted avg       1.00      1.00      1.00       100
+
+predicted
+oos    100
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow1notoos.txt
+
+
+
+================================================================================
+
+
+
+Run: 2notoos
+Overall Accuracy: 94.00%
+Overall F1: 96.91%
+              precision    recall  f1-score   support
+
+         oos       1.00      0.94      0.97       100
+     magento       0.00       nan      0.00         0
+
+    accuracy                           0.94       100
+   macro avg       0.50      0.94      0.48       100
+weighted avg       1.00      0.94      0.97       100
+
+predicted
+oos        94
+magento     6
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow2notoos.txt
+
+================================================================================
+
+Run: 4notoos
+Overall Accuracy: 81.00%
+Overall F1: 89.50%
+              precision    recall  f1-score   support
+
+         oos       1.00      0.81      0.90       100
+        linq       0.00       nan      0.00         0
+      drupal       0.00       nan      0.00         0
+     magento       0.00       nan      0.00         0
+
+    accuracy                           0.81       100
+   macro avg       0.25      0.81      0.22       100
+weighted avg       1.00      0.81      0.90       100
+
+predicted
+oos        81
+linq        8
+magento     8
+drupal      3
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow4notoos.txt
+
+
+================================================================================
+
+Run: 6notoos
+Overall Accuracy: 25.00%
+Overall F1: 40.00%
+              precision    recall  f1-score   support
+
+     magento       0.00       nan      0.00         0
+         oos       1.00      0.25      0.40       100
+        linq       0.00       nan      0.00         0
+      drupal       0.00       nan      0.00         0
+        ajax       0.00       nan      0.00         0
+
+    accuracy                           0.25       100
+   macro avg       0.20      0.25      0.08       100
+weighted avg       1.00      0.25      0.40       100
+
+predicted
+magento    53
+oos        25
+drupal     14
+linq        7
+ajax        1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow6notoos.txt
+
+
+================================================================================
+
+Run: 8notoos
+Overall Accuracy: 17.00%
+Overall F1: 29.06%
+              precision    recall  f1-score   support
+
+     magento       0.00       nan      0.00         0
+      drupal       0.00       nan      0.00         0
+        linq       0.00       nan      0.00         0
+        ajax       0.00       nan      0.00         0
+         oos       1.00      0.17      0.29       100
+  sharepoint       0.00       nan      0.00         0
+
+    accuracy                           0.17       100
+   macro avg       0.17      0.17      0.05       100
+weighted avg       1.00      0.17      0.29       100
+
+predicted
+magento       46
+oos           17
+sharepoint    12
+linq          11
+drupal        10
+ajax           4
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow8notoos.txt
+
+
+================================================================================
+
+Run: 10notoos
+Overall Accuracy: 61.00%
+Overall F1: 75.78%
+              precision    recall  f1-score   support
+
+         oos       1.00      0.61      0.76       100
+  sharepoint       0.00       nan      0.00         0
+        linq       0.00       nan      0.00         0
+      drupal       0.00       nan      0.00         0
+     magento       0.00       nan      0.00         0
+        ajax       0.00       nan      0.00         0
+
+    accuracy                           0.61       100
+   macro avg       0.17      0.61      0.13       100
+weighted avg       1.00      0.61      0.76       100
+
+predicted
+oos           61
+sharepoint    21
+linq           7
+magento        6
+ajax           3
+drupal         2
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow10notoos.txt
+
+
+================================================================================
+
+
+Run: 12notoos
+Overall Accuracy: 11.00%
+Overall F1: 19.82%
+              precision    recall  f1-score   support
+
+     magento       0.00       nan      0.00         0
+  sharepoint       0.00       nan      0.00         0
+         oos       1.00      0.11      0.20       100
+      drupal       0.00       nan      0.00         0
+        bash       0.00       nan      0.00         0
+        linq       0.00       nan      0.00         0
+        ajax       0.00       nan      0.00         0
+
+    accuracy                           0.11       100
+   macro avg       0.14      0.11      0.03       100
+weighted avg       1.00      0.11      0.20       100
+
+predicted
+sharepoint    39
+magento       33
+oos           11
+drupal         8
+bash           4
+linq           3
+ajax           2
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow12notoos.txt
+
+
+================================================================================
+
+Run: 14notoos
+Overall Accuracy: 8.00%
+Overall F1: 14.81%
+               precision    recall  f1-score   support
+
+visual-studio       0.00       nan      0.00         0
+      magento       0.00       nan      0.00         0
+         linq       0.00       nan      0.00         0
+          oos       1.00      0.08      0.15       100
+       drupal       0.00       nan      0.00         0
+   sharepoint       0.00       nan      0.00         0
+        cocoa       0.00       nan      0.00         0
+         ajax       0.00       nan      0.00         0
+         bash       0.00       nan      0.00         0
+
+     accuracy                           0.08       100
+    macro avg       0.11      0.08      0.02       100
+ weighted avg       1.00      0.08      0.15       100
+
+predicted
+visual-studio    48
+sharepoint       15
+magento          13
+oos               8
+drupal            6
+linq              4
+cocoa             4
+ajax              1
+bash              1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow14notoos.txt
+
+
+================================================================================
+
+Run: 16notoos
+Overall Accuracy: 7.00%
+Overall F1: 13.08%
+               precision    recall  f1-score   support
+
+visual-studio       0.00       nan      0.00         0
+       drupal       0.00       nan      0.00         0
+        cocoa       0.00       nan      0.00         0
+         ajax       0.00       nan      0.00         0
+          oos       1.00      0.07      0.13       100
+   sharepoint       0.00       nan      0.00         0
+      magento       0.00       nan      0.00         0
+        excel       0.00       nan      0.00         0
+         bash       0.00       nan      0.00         0
+
+     accuracy                           0.07       100
+    macro avg       0.11      0.07      0.01       100
+ weighted avg       1.00      0.07      0.13       100
+
+predicted
+drupal           52
+cocoa            19
+oos               7
+visual-studio     6
+sharepoint        6
+ajax              5
+magento           2
+excel             2
+bash              1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow16notoos.txt
+
+
+================================================================================
+
+Run: 18notoos
+Overall Accuracy: 3.00%
+Overall F1: 5.83%
+               precision    recall  f1-score   support
+
+       apache       0.00       nan      0.00         0
+       drupal       0.00       nan      0.00         0
+        excel       0.00       nan      0.00         0
+         ajax       0.00       nan      0.00         0
+visual-studio       0.00       nan      0.00         0
+          oos       1.00      0.03      0.06       100
+   sharepoint       0.00       nan      0.00         0
+        cocoa       0.00       nan      0.00         0
+      magento       0.00       nan      0.00         0
+
+     accuracy                           0.03       100
+    macro avg       0.11      0.03      0.01       100
+ weighted avg       1.00      0.03      0.06       100
+
+predicted
+drupal           41
+apache           20
+excel            17
+sharepoint        6
+ajax              4
+visual-studio     4
+oos               3
+cocoa             3
+magento           2
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_stackoverflow18notoos.txt
+
+
+
+================================================================================

@@ -1,0 +1,599 @@
+Example 1:
+Question: "DO NOT TRY THIS! The following bash command will spawn processes to kernel death. Can you explain the syntax?"
+Category:
+{{
+  "category": "bash",
+  "confidence": 82.28
+}}
+
+Example 2:
+Question: "bash case statements evaluate to strings"
+Category:
+{{
+  "category": "bash",
+  "confidence": 69.07
+}}
+
+Example 3:
+Question: "BASH: Test whether string is valid as an integer?"
+Category:
+{{
+  "category": "bash",
+  "confidence": 4.53
+}}
+
+Example 4:
+Question: "How to run two processes as though they were one in bash?"
+Category:
+{{
+  "category": "bash",
+  "confidence": 98.12
+}}
+
+Example 5:
+Question: "How to process file names with variables from a list in a file in Bash"
+Category:
+{{
+  "category": "bash",
+  "confidence": 75.48
+}}
+
+Example 6:
+Question: "Returning a pointer to memory allocated within a function in Cocoa Objective-C."
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 25.98
+}}
+
+Example 7:
+Question: "Hot to select items in NSOutlineView without NSTreeController?"
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 29.92
+}}
+
+Example 8:
+Question: "What's a good way to bind from a shared utility window and the frontmost document window?"
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 72.35
+}}
+
+Example 9:
+Question: "OSX Audio Hijack style audio recording from other applications (cocoa)"
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 27.41
+}}
+
+Example 10:
+Question: "CocCoa Application"
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 62.95
+}}
+
+Example 11:
+Question: "Drupal : adding status field to node"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 81.54
+}}
+
+Example 12:
+Question: "Drupal theme preprocess function - primary links"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 23.54
+}}
+
+Example 13:
+Question: "How to develop drupal site on local server or on test server before publishing it"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 84.65
+}}
+
+Example 14:
+Question: "I want to create blog posts to drupal by sending messages through Outlook. Ideas??"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 44.17
+}}
+
+Example 15:
+Question: "How do you set up drupal menues?"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 84.5
+}}
+
+Example 16:
+Question: "Excel problem with deleting CustomProperty in Korean"
+Category:
+{{
+  "category": "excel",
+  "confidence": 30.96
+}}
+
+Example 17:
+Question: "How to tell if an Excel Workbook is protected"
+Category:
+{{
+  "category": "excel",
+  "confidence": 65.99
+}}
+
+Example 18:
+Question: "generate excel sheet from a excel template in asp.net using vb.net"
+Category:
+{{
+  "category": "excel",
+  "confidence": 1.84
+}}
+
+Example 19:
+Question: "Analysing Excel VBA/Macro code"
+Category:
+{{
+  "category": "excel",
+  "confidence": 85.11
+}}
+
+Example 20:
+Question: "Excel VBA Macro: create a chart from CSV?"
+Category:
+{{
+  "category": "excel",
+  "confidence": 25.48
+}}
+
+Example 21:
+Question: "Why doesn't the "$" function work consistantly?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 20.55
+}}
+
+Example 22:
+Question: "Capturing audio input from microphone, with Haskell?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 22.99
+}}
+
+Example 23:
+Question: "Is it recommended to always have exhaustive pattern matches in Haskell, even for "impossible" cases?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 2.22
+}}
+
+Example 24:
+Question: "Implementing a cache"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 27.32
+}}
+
+Example 25:
+Question: ""Pattern matching" of algebraic type data constructors"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 32.59
+}}
+
+Example 26:
+Question: "How to integrate Hibernate with JBoss 4.2.x server?"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 60.06
+}}
+
+Example 27:
+Question: "Hibernate: page results AND know the result size"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 63.62
+}}
+
+Example 28:
+Question: "Save blob to DB using hibernate"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 50.59
+}}
+
+Example 29:
+Question: "Using an enum as a mapkey results in a RAW in the database"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 45.02
+}}
+
+Example 30:
+Question: "class not found exception in hibernate"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 38.31
+}}
+
+Example 31:
+Question: "Can I use LINQ to convert a List<MyObjectType> into a DataSet?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 64.98
+}}
+
+Example 32:
+Question: "IQueryable efficiency"
+Category:
+{{
+  "category": "linq",
+  "confidence": 95.6
+}}
+
+Example 33:
+Question: "LINQ to SQL - select where text like string array"
+Category:
+{{
+  "category": "linq",
+  "confidence": 93.69
+}}
+
+Example 34:
+Question: "LINQ UpdateCheck on parent "LastUpdatedOn" field while updating children"
+Category:
+{{
+  "category": "linq",
+  "confidence": 16.37
+}}
+
+Example 35:
+Question: "What is LINQ to events a.k.a RX Framework?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 75.92
+}}
+
+Example 36:
+Question: "Magento frontend and backend page looks different"
+Category:
+{{
+  "category": "magento",
+  "confidence": 9.1
+}}
+
+Example 37:
+Question: "magento Baseurl from helper function"
+Category:
+{{
+  "category": "magento",
+  "confidence": 77.88
+}}
+
+Example 38:
+Question: "Magento AND Prestashop, what better??"
+Category:
+{{
+  "category": "magento",
+  "confidence": 24.08
+}}
+
+Example 39:
+Question: "Magento Ecommerce"
+Category:
+{{
+  "category": "magento",
+  "confidence": 26.06
+}}
+
+Example 40:
+Question: "Import button + File browse field in admin product grid in magento"
+Category:
+{{
+  "category": "magento",
+  "confidence": 93.83
+}}
+
+Example 41:
+Question: "spike in my inverse fourier transform."
+Category:
+{{
+  "category": "matlab",
+  "confidence": 86.37
+}}
+
+Example 42:
+Question: "MATLAB runs out of memory during program execution"
+Category:
+{{
+  "category": "matlab",
+  "confidence": 86.99
+}}
+
+Example 43:
+Question: "Compiling MatLab 2009b applications to Windows Executables"
+Category:
+{{
+  "category": "matlab",
+  "confidence": 55.41
+}}
+
+Example 44:
+Question: "Is there a better way to declare an empty, typed matrix in MATLAB?"
+Category:
+{{
+  "category": "matlab",
+  "confidence": 18.05
+}}
+
+Example 45:
+Question: "How to convert a web page into an image using MATLAB?"
+Category:
+{{
+  "category": "matlab",
+  "confidence": 59.2
+}}
+
+Example 46:
+Question: "Is there a way to enable / disable constraints in db2 v7?"
+Category:
+{{
+  "category": "oracle",
+  "confidence": 54.05
+}}
+
+Example 47:
+Question: "ORA-00933: SQL command not properly ended"
+Category:
+{{
+  "category": "oracle",
+  "confidence": 29.04
+}}
+
+Example 48:
+Question: "Joining other tables in oracle tree queries"
+Category:
+{{
+  "category": "oracle",
+  "confidence": 78.23
+}}
+
+Example 49:
+Question: "What is an effective way to  track, identify and report every 'error message raised by your application similar to Oracle's ORA-00237 database error codes?"
+Category:
+{{
+  "category": "oracle",
+  "confidence": 40.0
+}}
+
+Example 50:
+Question: "Oracle: Create table as select from another database?"
+Category:
+{{
+  "category": "oracle",
+  "confidence": 46.96
+}}
+
+Example 51:
+Question: "backporting NSWindowDelegates windowDidEndLiveResize behaviour in OSX 10.5?"
+Category:
+{{
+  "category": "osx",
+  "confidence": 93.66
+}}
+
+Example 52:
+Question: "What is the syntax for custom stacks for the OSX Leopard dock?"
+Category:
+{{
+  "category": "osx",
+  "confidence": 56.47
+}}
+
+Example 53:
+Question: "OS X Mac and writing a twain scanning application."
+Category:
+{{
+  "category": "osx",
+  "confidence": 57.89
+}}
+
+Example 54:
+Question: "Mac solution for "safe" C/C++ Standard Library functions?"
+Category:
+{{
+  "category": "osx",
+  "confidence": 24.46
+}}
+
+Example 55:
+Question: "Does anyone use BetterAuthorizationSample?"
+Category:
+{{
+  "category": "osx",
+  "confidence": 48.84
+}}
+
+Example 56:
+Question: "QT Model/View programming with complicated data structures"
+Category:
+{{
+  "category": "qt",
+  "confidence": 94.04
+}}
+
+Example 57:
+Question: "Where can I store a QAction(Group) ID?"
+Category:
+{{
+  "category": "qt",
+  "confidence": 70.9
+}}
+
+Example 58:
+Question: "mingw spitting countless warnings about ignoring "dll import" attribute"
+Category:
+{{
+  "category": "qt",
+  "confidence": 44.84
+}}
+
+Example 59:
+Question: "Phonon VideoWidget error: "the video widget could not be initialized correctly""
+Category:
+{{
+  "category": "qt",
+  "confidence": 24.85
+}}
+
+Example 60:
+Question: "Libqxt under Qt Creator"
+Category:
+{{
+  "category": "qt",
+  "confidence": 20.67
+}}
+
+Example 61:
+Question: "SPFarm.Local.Solutions.Add - Exception - "Access Denied""
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 9.56
+}}
+
+Example 62:
+Question: "What are the Valid values of the searchboxex AppQueryTerms enum?"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 65.55
+}}
+
+Example 63:
+Question: "Getting all the webpages of a SPWeb and subwebs that have a field with a value in Sharepoint?"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 68.53
+}}
+
+Example 64:
+Question: "What knowledge should a software architect have about SharePoint?"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 79.54
+}}
+
+Example 65:
+Question: "Defaulting WebParts on a Users MySite in Sharepoint"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 68.68
+}}
+
+Example 66:
+Question: "SVN Weirdness: Is It Possible It's Not My Fault"
+Category:
+{{
+  "category": "svn",
+  "confidence": 63.7
+}}
+
+Example 67:
+Question: "Is there a way to know the URL of the SVN server?"
+Category:
+{{
+  "category": "svn",
+  "confidence": 35.18
+}}
+
+Example 68:
+Question: "Advice on setting up a server to host source code and other documents..."
+Category:
+{{
+  "category": "svn",
+  "confidence": 9.38
+}}
+
+Example 69:
+Question: "how do I integrate a branch into a trunk if the folder structure has changed?"
+Category:
+{{
+  "category": "svn",
+  "confidence": 19.52
+}}
+
+Example 70:
+Question: "What is the best way to make files live using subversion on a production server?"
+Category:
+{{
+  "category": "svn",
+  "confidence": 80.7
+}}
+
+Example 71:
+Question: "Visual Studio - Prevent stopping debugging from closing Internet Explorer"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 48.12
+}}
+
+Example 72:
+Question: "Optimization settings in VS"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 33.56
+}}
+
+Example 73:
+Question: "Visual Studio 2008: make ctrl-k, ctrl-n (next bookmark) stay within the same file"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 7.19
+}}
+
+Example 74:
+Question: "how can i add two projects..vs2008"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 25.83
+}}
+
+Example 75:
+Question: "Visual Studio Solutions / Multiple project : How to effectively propagate project properties amongst several projects"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 74.06
+}}

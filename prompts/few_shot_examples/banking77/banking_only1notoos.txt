@@ -1,0 +1,7 @@
+Example 1:
+Question: "When I got cash, the exchange rate applied was wrong."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 85.25
+}}

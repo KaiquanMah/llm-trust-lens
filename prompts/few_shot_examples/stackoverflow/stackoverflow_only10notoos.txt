@@ -1,0 +1,79 @@
+Example 1:
+Question: "Advantages and disadvantages of using Ajax update panels in ASP.NET application"
+Category:
+{{
+  "category": "ajax",
+  "confidence": 23.06
+}}
+
+Example 2:
+Question: "Drupal theme_table... A way to theme nested tables?"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 64.44
+}}
+
+Example 3:
+Question: "How to rearrange this function to return the extended list in Haskell"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 33.12
+}}
+
+Example 4:
+Question: "Upgrade hibernate-annotations and hibernate-validator"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 35.92
+}}
+
+Example 5:
+Question: "How do I dynamically create an Expression<Func<MyClass, bool>> predicate?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 76.55
+}}
+
+Example 6:
+Question: "magento payment methods - enable for admin only"
+Category:
+{{
+  "category": "magento",
+  "confidence": 92.6
+}}
+
+Example 7:
+Question: "QT for cross platform plugin development?"
+Category:
+{{
+  "category": "qt",
+  "confidence": 92.42
+}}
+
+Example 8:
+Question: "parsing recursive structures in scala"
+Category:
+{{
+  "category": "scala",
+  "confidence": 14.14
+}}
+
+Example 9:
+Question: "Sharepoint Blog: enable/disable comments regarding field value of Posts"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 56.26
+}}
+
+Example 10:
+Question: "Faces conversion service is not found for converting 'dataModel'"
+Category:
+{{
+  "category": "spring",
+  "confidence": 86.7
+}}

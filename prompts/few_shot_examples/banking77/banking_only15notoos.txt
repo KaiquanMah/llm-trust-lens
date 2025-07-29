@@ -1,0 +1,119 @@
+Example 1:
+Question: "What's the process for topping up my card?"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 99.02
+}}
+
+Example 2:
+Question: "I see what looks like duplicate charges on account."
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 56.26
+}}
+
+Example 3:
+Question: "Are transfers not free? I didn't know I would be charged for transfers."
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 65.77
+}}
+
+Example 4:
+Question: "What currencies can I use to top up my account?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 67.69
+}}
+
+Example 5:
+Question: "I made a transfer for my rent payment about 2 days ago, but my landlord hasn't received it yet. It shows as done on my  side, and I've double check all account numbers and they are correct. Can you verify that the transaction was actually made?"
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 89.57
+}}
+
+Example 6:
+Question: "How long is it going to take for my funds to show in my account?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 52.16
+}}
+
+Example 7:
+Question: "My identity is unable to be verified."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 58.76
+}}
+
+Example 8:
+Question: "What is needed for identity verification?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 29.05
+}}
+
+Example 9:
+Question: "Are there steps to see where my funds come from?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 90.93
+}}
+
+Example 10:
+Question: "How do I get my top-up verification code?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 21.72
+}}
+
+Example 11:
+Question: "I need help getting the virtual card to work."
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 52.64
+}}
+
+Example 12:
+Question: "Do you do Visa or Mastercard?"
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 86.72
+}}
+
+Example 13:
+Question: "I would like to not have to do the identity verification."
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 82.21
+}}
+
+Example 14:
+Question: "I just got $20 when I tried to get $100"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 13.89
+}}
+
+Example 15:
+Question: "When I was abroad the exchange rate for me was wrong."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 81.72
+}}

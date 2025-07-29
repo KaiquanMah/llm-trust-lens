@@ -1,0 +1,111 @@
+Example 1:
+Question: "can you do a math problem"
+Category:
+{{
+  "category": "calculator",
+  "confidence": 51.21
+}}
+
+Example 2:
+Question: "don't do this process"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 81.29
+}}
+
+Example 3:
+Question: "i am camile"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 49.89
+}}
+
+Example 4:
+Question: "put volume setting on number 4"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 57.12
+}}
+
+Example 5:
+Question: "what's the definition of luminescent"
+Category:
+{{
+  "category": "definition",
+  "confidence": 98.38
+}}
+
+Example 6:
+Question: "what are the international transactions fees for my industrial bank card"
+Category:
+{{
+  "category": "international_fees",
+  "confidence": 99.92
+}}
+
+Example 7:
+Question: "what is the minimum i can pay for my light bill"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 45.23
+}}
+
+Example 8:
+Question: "what kind of mileage am i getting"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 97.29
+}}
+
+Example 9:
+Question: "when are we off work next"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 71.16
+}}
+
+Example 10:
+Question: "how many of my off days have i run through for the year thus far"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 43.61
+}}
+
+Example 11:
+Question: "give me some restaurant suggestions"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 49.48
+}}
+
+Example 12:
+Question: "i've let me bank know that i'm visiting south america from may to october"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 98.04
+}}
+
+Example 13:
+Question: "what are some exciting things that are a must do for tourists visiting sedona"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 25.8
+}}
+
+Example 14:
+Question: "please add this song to my alternative playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 90.94
+}}

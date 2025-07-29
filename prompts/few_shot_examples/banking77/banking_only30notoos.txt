@@ -1,0 +1,239 @@
+Example 1:
+Question: "I need my refund"
+Category:
+{{
+  "category": "Refund_not_showing_up",
+  "confidence": 19.37
+}}
+
+Example 2:
+Question: "Can you tell me why my pop-up is still pending?"
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 55.95
+}}
+
+Example 3:
+Question: "When will my transfer move out of pending stage?"
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 72.63
+}}
+
+Example 4:
+Question: "I managed to drunken block my card :(( Help!"
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 21.37
+}}
+
+Example 5:
+Question: "Do I need to add my salary?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 56.59
+}}
+
+Example 6:
+Question: "Am I able to return an item for a refund?"
+Category:
+{{
+  "category": "request_refund",
+  "confidence": 77.11
+}}
+
+Example 7:
+Question: "I believe my card payment has reverted"
+Category:
+{{
+  "category": "reverted_card_payment?",
+  "confidence": 32.8
+}}
+
+Example 8:
+Question: "I only have a card from the US is that okay?"
+Category:
+{{
+  "category": "supported_cards_and_currencies",
+  "confidence": 82.06
+}}
+
+Example 9:
+Question: "Help me delete my account.  I am not satisfied with the service."
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 36.48
+}}
+
+Example 10:
+Question: "What should I expect to be charged on a SEPA transfer?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 72.36
+}}
+
+Example 11:
+Question: "What options do I have when topping up a US card?"
+Category:
+{{
+  "category": "top_up_by_card_charge",
+  "confidence": 90.27
+}}
+
+Example 12:
+Question: "What is the procedure for topping up with a cheque?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 19.9
+}}
+
+Example 13:
+Question: "My top up isnt working"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 8.19
+}}
+
+Example 14:
+Question: "What is the maximum top up?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 46.16
+}}
+
+Example 15:
+Question: "The app reverted what I topped up."
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 42.42
+}}
+
+Example 16:
+Question: "Top up not available in my wallet."
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 57.42
+}}
+
+Example 17:
+Question: "I have a transaction showing multiple times."
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 7.21
+}}
+
+Example 18:
+Question: "Why is there a charge for my transfer?"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 77.7
+}}
+
+Example 19:
+Question: "I would like to move money from one account to another to top off my account. Can you explain how I can do that?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 19.98
+}}
+
+Example 20:
+Question: "Where is my last money transaction"
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 84.85
+}}
+
+Example 21:
+Question: "How long do I have to wait for Europe transfers?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 9.42
+}}
+
+Example 22:
+Question: "The app won't let me log in as myself."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 98.6
+}}
+
+Example 23:
+Question: "Hi! What documents can I use to verify my identity?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 46.24
+}}
+
+Example 24:
+Question: "Can I track history on funds?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 27.36
+}}
+
+Example 25:
+Question: "Please verify my top-up card"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 44.92
+}}
+
+Example 26:
+Question: "Why can't I use my virtual card for subscription services?"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 90.06
+}}
+
+Example 27:
+Question: "I'm happy with Mastercard and want to stick with just that credit card."
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 71.28
+}}
+
+Example 28:
+Question: "I'm not verifying my identity."
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 35.01
+}}
+
+Example 29:
+Question: "I took out money, and didn't get all of it."
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 0.07
+}}
+
+Example 30:
+Question: "It seems I was overcharged when I used an ATM while on vacation. If I knew about your fees in advance I sure would have gone somewhere else."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 88.85
+}}

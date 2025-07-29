@@ -1,0 +1,79 @@
+Example 1:
+Question: "please be quiet now"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 48.74
+}}
+
+Example 2:
+Question: "hi, i'm john"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 85.96
+}}
+
+Example 3:
+Question: "please turn your speaker volume up"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 86.02
+}}
+
+Example 4:
+Question: "what is my minimum verizon bill payment"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 78.8
+}}
+
+Example 5:
+Question: "what is my car's mpg"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 6.57
+}}
+
+Example 6:
+Question: "so far, how many days off have i taken"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 11.7
+}}
+
+Example 7:
+Question: "i am hungry and need a restaurant suggestion"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 0.07
+}}
+
+Example 8:
+Question: "please let my bank know that i will be visiting spain from june 12th to the 24th"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 11.03
+}}
+
+Example 9:
+Question: "tell me some fun activities to do in oklahoma city"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 10.17
+}}
+
+Example 10:
+Question: "can you help me add the song i listen to to my clutch playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 89.96
+}}

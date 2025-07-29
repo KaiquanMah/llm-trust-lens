@@ -1,0 +1,239 @@
+Example 1:
+Question: "i must know my visa card's apr"
+Category:
+{{
+  "category": "apr",
+  "confidence": 53.87
+}}
+
+Example 2:
+Question: "what is 34 times 80908"
+Category:
+{{
+  "category": "calculator",
+  "confidence": 74.78
+}}
+
+Example 3:
+Question: "how many calories are in powdered donuts"
+Category:
+{{
+  "category": "calories",
+  "confidence": 43.73
+}}
+
+Example 4:
+Question: "that was a mistake, undo that"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 45.62
+}}
+
+Example 5:
+Question: "i want you to call me bailey"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 25.95
+}}
+
+Example 6:
+Question: "please increase volume"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 70.72
+}}
+
+Example 7:
+Question: "would you please tell me my current gps coordinates"
+Category:
+{{
+  "category": "current_location",
+  "confidence": 91.17
+}}
+
+Example 8:
+Question: "i heard some woman say she was going to yerd me, what's that mean"
+Category:
+{{
+  "category": "definition",
+  "confidence": 22.67
+}}
+
+Example 9:
+Question: "give me a fun fact about dolphin"
+Category:
+{{
+  "category": "fun_fact",
+  "confidence": 4.97
+}}
+
+Example 10:
+Question: "is pepper a replacement for salt"
+Category:
+{{
+  "category": "ingredient_substitution",
+  "confidence": 68.05
+}}
+
+Example 11:
+Question: "are there any transaction fees associated with my amex card if i am in belgium"
+Category:
+{{
+  "category": "international_fees",
+  "confidence": 83.04
+}}
+
+Example 12:
+Question: "i don't know for sure"
+Category:
+{{
+  "category": "maybe",
+  "confidence": 31.2
+}}
+
+Example 13:
+Question: "what's the least amount i can pay on this bill"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 11.69
+}}
+
+Example 14:
+Question: "what is the mpg for this car in city"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 85.2
+}}
+
+Example 15:
+Question: "when do i get my next day off"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 51.42
+}}
+
+Example 16:
+Question: "how much longer until i need an oil change"
+Category:
+{{
+  "category": "oil_change_when",
+  "confidence": 3.56
+}}
+
+Example 17:
+Question: "i'm out of all my checks can i get some new ones"
+Category:
+{{
+  "category": "order_checks",
+  "confidence": 99.39
+}}
+
+Example 18:
+Question: "can i get vacation day totals i have left"
+Category:
+{{
+  "category": "pto_balance",
+  "confidence": 23.16
+}}
+
+Example 19:
+Question: "up to this point, how much of my pto have i used"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 39.59
+}}
+
+Example 20:
+Question: "what are the best italian restaurants in chicago"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 81.69
+}}
+
+Example 21:
+Question: "who in the area can inspect my engine light"
+Category:
+{{
+  "category": "schedule_maintenance",
+  "confidence": 5.59
+}}
+
+Example 22:
+Question: "get rid of butter on my shopping list"
+Category:
+{{
+  "category": "shopping_list_update",
+  "confidence": 68.48
+}}
+
+Example 23:
+Question: "i need you to disconnect from my phone"
+Category:
+{{
+  "category": "sync_device",
+  "confidence": 21.14
+}}
+
+Example 24:
+Question: "thanks for your cooperation"
+Category:
+{{
+  "category": "thank_you",
+  "confidence": 56.59
+}}
+
+Example 25:
+Question: "please transfer $5000 to money market from checking account"
+Category:
+{{
+  "category": "transfer",
+  "confidence": 93.11
+}}
+
+Example 26:
+Question: "is there a travel alert in spain"
+Category:
+{{
+  "category": "travel_alert",
+  "confidence": 41.98
+}}
+
+Example 27:
+Question: "i will be telling my bank of my upcoming trip to spain"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 38.82
+}}
+
+Example 28:
+Question: "what do tourists do for fun in seattle"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 99.8
+}}
+
+Example 29:
+Question: "include rap god on the motivational playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 42.18
+}}
+
+Example 30:
+Question: "where do i locate the form that has my tax information"
+Category:
+{{
+  "category": "w2",
+  "confidence": 76.8
+}}

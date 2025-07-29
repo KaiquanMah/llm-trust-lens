@@ -1,0 +1,39 @@
+Example 1:
+Question: "Why isn't my virtual card working?"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 2.49
+}}
+
+Example 2:
+Question: "I need mastercard as well as visa"
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 84.38
+}}
+
+Example 3:
+Question: "Is my account accessible even though my verification of my identity has not passed yet?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 71.12
+}}
+
+Example 4:
+Question: "Some cash was missing at ATM."
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 88.81
+}}
+
+Example 5:
+Question: "Is there extra fees for making a withdraw in a different country at a cash machine."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 69.57
+}}

@@ -1,0 +1,39 @@
+Example 1:
+Question: "please be quiet now"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 18.83
+}}
+
+Example 2:
+Question: "please adjust your settings"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 34.98
+}}
+
+Example 3:
+Question: "can you tell how many days i already took off this year"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 29.25
+}}
+
+Example 4:
+Question: "please inform my bank i'll be vacationing in the bahamas in a couple of days"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 74.98
+}}
+
+Example 5:
+Question: "tell me some fun activities to do in oklahoma city"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 81.31
+}}

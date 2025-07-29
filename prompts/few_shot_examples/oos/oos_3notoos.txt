@@ -1,0 +1,23 @@
+Example 1:
+Question: "volume needs to be at 4"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 70.67
+}}
+
+Example 2:
+Question: "how many days of pto have i used"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 55.31
+}}
+
+Example 3:
+Question: "what's a good place to vacation"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 97.96
+}}

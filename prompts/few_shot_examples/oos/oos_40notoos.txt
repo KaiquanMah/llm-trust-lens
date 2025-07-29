@@ -1,0 +1,319 @@
+Example 1:
+Question: "i must know my visa card's apr"
+Category:
+{{
+  "category": "apr",
+  "confidence": 77.11
+}}
+
+Example 2:
+Question: "please tell me if you are an ai"
+Category:
+{{
+  "category": "are_you_a_bot",
+  "confidence": 37.56
+}}
+
+Example 3:
+Question: "book a motel in uptown from march 3 to march 4"
+Category:
+{{
+  "category": "book_hotel",
+  "confidence": 94.54
+}}
+
+Example 4:
+Question: "add 45 to 87 plus 54 plus 43 plus 22"
+Category:
+{{
+  "category": "calculator",
+  "confidence": 39.7
+}}
+
+Example 5:
+Question: "what is the calorie count for this milkshake"
+Category:
+{{
+  "category": "calories",
+  "confidence": 93.62
+}}
+
+Example 6:
+Question: "can you stop"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 53.02
+}}
+
+Example 7:
+Question: "you are talking too fast for me, please slow down"
+Category:
+{{
+  "category": "change_speed",
+  "confidence": 53.39
+}}
+
+Example 8:
+Question: "please switch my name"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 72.64
+}}
+
+Example 9:
+Question: "put the volume to 4"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 25.15
+}}
+
+Example 10:
+Question: "where am i on gps"
+Category:
+{{
+  "category": "current_location",
+  "confidence": 37.64
+}}
+
+Example 11:
+Question: "tell me the meaning of alternative"
+Category:
+{{
+  "category": "definition",
+  "confidence": 92.63
+}}
+
+Example 12:
+Question: "tell me interesting facts about lighthouses"
+Category:
+{{
+  "category": "fun_fact",
+  "confidence": 71.3
+}}
+
+Example 13:
+Question: "a pleasure as always to speak with you, bye"
+Category:
+{{
+  "category": "goodbye",
+  "confidence": 45.85
+}}
+
+Example 14:
+Question: "can i use a green pepper instead of a red pepper"
+Category:
+{{
+  "category": "ingredient_substitution",
+  "confidence": 48.8
+}}
+
+Example 15:
+Question: "what should i get to make the jamaican patties"
+Category:
+{{
+  "category": "ingredients_list",
+  "confidence": 74.29
+}}
+
+Example 16:
+Question: "does bank of america charge transaction fees if you use it in canada"
+Category:
+{{
+  "category": "international_fees",
+  "confidence": 84.01
+}}
+
+Example 17:
+Question: "what is the next thing i should do if i lost my luggage"
+Category:
+{{
+  "category": "lost_luggage",
+  "confidence": 81.11
+}}
+
+Example 18:
+Question: "no idea"
+Category:
+{{
+  "category": "maybe",
+  "confidence": 35.81
+}}
+
+Example 19:
+Question: "i would like to know my water bill minimum payment"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 73.23
+}}
+
+Example 20:
+Question: "how is this car rated for fuel economy"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 95.17
+}}
+
+Example 21:
+Question: "can you tell me when our next day off is"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 27.06
+}}
+
+Example 22:
+Question: "start playing the next track"
+Category:
+{{
+  "category": "next_song",
+  "confidence": 70.99
+}}
+
+Example 23:
+Question: "how often should i change my oil"
+Category:
+{{
+  "category": "oil_change_when",
+  "confidence": 78.65
+}}
+
+Example 24:
+Question: "can you order new checks for my citizens checking"
+Category:
+{{
+  "category": "order_checks",
+  "confidence": 3.11
+}}
+
+Example 25:
+Question: "today is the day i should pay my electric bill"
+Category:
+{{
+  "category": "pay_bill",
+  "confidence": 5.53
+}}
+
+Example 26:
+Question: "would a socket converter be needed in france"
+Category:
+{{
+  "category": "plug_type",
+  "confidence": 26.87
+}}
+
+Example 27:
+Question: "whats the number of pto days i have to my availability"
+Category:
+{{
+  "category": "pto_balance",
+  "confidence": 67.08
+}}
+
+Example 28:
+Question: "how many vacation days have i taken"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 20.28
+}}
+
+Example 29:
+Question: "i need some suggestions for dinner places tonight"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 74.18
+}}
+
+Example 30:
+Question: "i got to schedule somewhere get my tires checked out"
+Category:
+{{
+  "category": "schedule_maintenance",
+  "confidence": 78.04
+}}
+
+Example 31:
+Question: "is it possible to add grapes to my shopping list if they aren't on there already"
+Category:
+{{
+  "category": "shopping_list_update",
+  "confidence": 68.76
+}}
+
+Example 32:
+Question: "go ahead and connect to my phone"
+Category:
+{{
+  "category": "sync_device",
+  "confidence": 52.68
+}}
+
+Example 33:
+Question: "you've been a big help"
+Category:
+{{
+  "category": "thank_you",
+  "confidence": 16.74
+}}
+
+Example 34:
+Question: "need to transfer from one account to my other one"
+Category:
+{{
+  "category": "transfer",
+  "confidence": 75.93
+}}
+
+Example 35:
+Question: "is las vegas a safe place to visit"
+Category:
+{{
+  "category": "travel_alert",
+  "confidence": 21.26
+}}
+
+Example 36:
+Question: "please let my bank know that i will be visiting spain from june 12th to the 24th"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 27.85
+}}
+
+Example 37:
+Question: "can you give me some fun suggestions for tourists to check out in las vegas, please"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 67.03
+}}
+
+Example 38:
+Question: "add this tune to my jazz playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 91.29
+}}
+
+Example 39:
+Question: "where do i pick up a w2 form"
+Category:
+{{
+  "category": "w2",
+  "confidence": 50.75
+}}
+
+Example 40:
+Question: "tell me what you are capable of answering"
+Category:
+{{
+  "category": "what_can_i_ask_you",
+  "confidence": 30.69
+}}

@@ -1,0 +1,388 @@
+Run: 1notoos
+Overall Accuracy: 100.00%
+Overall F1: 100.00%
+              precision    recall  f1-score   support
+
+         oos       1.00      1.00      1.00       100
+
+    accuracy                           1.00       100
+   macro avg       1.00      1.00      1.00       100
+weighted avg       1.00      1.00      1.00       100
+
+predicted
+oos    100
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking1notoos.txt
+
+
+================================================================================
+
+
+Run: 5notoos
+Overall Accuracy: 15.00%
+Overall F1: 26.09%
+                          precision    recall  f1-score   support
+
+                     oos       1.00      0.15      0.26       100
+virtual_card_not_working       0.00       nan      0.00         0
+     why_verify_identity       0.00       nan      0.00         0
+
+                accuracy                           0.15       100
+               macro avg       0.33      0.15      0.09       100
+            weighted avg       1.00      0.15      0.26       100
+
+predicted
+virtual_card_not_working    83
+oos                         15
+why_verify_identity          2
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking5notoos.txt
+
+
+
+
+
+
+================================================================================
+
+
+
+
+Run: 10notoos
+Overall Accuracy: 43.00%
+Overall F1: 60.14%
+                           precision    recall  f1-score   support
+
+                      oos       1.00      0.43      0.60       100
+unable_to_verify_identity       0.00       nan      0.00         0
+ virtual_card_not_working       0.00       nan      0.00         0
+          transfer_timing       0.00       nan      0.00         0
+       verify_my_identity       0.00       nan      0.00         0
+
+                 accuracy                           0.43       100
+                macro avg       0.20      0.43      0.12       100
+             weighted avg       1.00      0.43      0.60       100
+
+predicted
+oos                          43
+virtual_card_not_working     22
+verify_my_identity           21
+transfer_timing               9
+unable_to_verify_identity     5
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking10notoos.txt
+
+
+================================================================================
+
+
+Run: 15notoos
+Overall Accuracy: 4.00%
+Overall F1: 7.69%
+                           precision    recall  f1-score   support
+
+unable_to_verify_identity       0.00       nan      0.00         0
+ virtual_card_not_working       0.00       nan      0.00         0
+       topping_up_by_card       0.00       nan      0.00         0
+          transfer_timing       0.00       nan      0.00         0
+                      oos       1.00      0.04      0.08       100
+       verify_my_identity       0.00       nan      0.00         0
+
+                 accuracy                           0.04       100
+                macro avg       0.17      0.04      0.01       100
+             weighted avg       1.00      0.04      0.08       100
+
+predicted
+virtual_card_not_working     62
+topping_up_by_card           23
+unable_to_verify_identity     5
+transfer_timing               4
+oos                           4
+verify_my_identity            2
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking15notoos.txt
+
+
+================================================================================
+
+
+Run: 20notoos
+Overall Accuracy: 13.00%
+Overall F1: 23.01%
+                           precision    recall  f1-score   support
+
+       topping_up_by_card       0.00       nan      0.00         0
+                      oos       1.00      0.13      0.23       100
+ virtual_card_not_working       0.00       nan      0.00         0
+unable_to_verify_identity       0.00       nan      0.00         0
+            top_up_failed       0.00       nan      0.00         0
+    transfer_into_account       0.00       nan      0.00         0
+    top_up_by_card_charge       0.00       nan      0.00         0
+       verify_my_identity       0.00       nan      0.00         0
+          transfer_timing       0.00       nan      0.00         0
+
+                 accuracy                           0.13       100
+                macro avg       0.11      0.13      0.03       100
+             weighted avg       1.00      0.13      0.23       100
+
+predicted
+topping_up_by_card           49
+virtual_card_not_working     19
+oos                          13
+unable_to_verify_identity    12
+top_up_by_card_charge         2
+verify_my_identity            2
+top_up_failed                 1
+transfer_into_account         1
+transfer_timing               1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking20notoos.txt
+
+
+
+================================================================================
+
+
+Run: 30notoos
+Overall Accuracy: 10.00%
+Overall F1: 18.18%
+                                precision    recall  f1-score   support
+
+supported_cards_and_currencies       0.00       nan      0.00         0
+            topping_up_by_card       0.00       nan      0.00         0
+                   pin_blocked       0.00       nan      0.00         0
+     unable_to_verify_identity       0.00       nan      0.00         0
+      virtual_card_not_working       0.00       nan      0.00         0
+            verify_my_identity       0.00       nan      0.00         0
+                           oos       1.00      0.10      0.18       100
+                 top_up_failed       0.00       nan      0.00         0
+         top_up_by_card_charge       0.00       nan      0.00         0
+             terminate_account       0.00       nan      0.00         0
+
+                      accuracy                           0.10       100
+                     macro avg       0.10      0.10      0.02       100
+                  weighted avg       1.00      0.10      0.18       100
+
+predicted
+topping_up_by_card                47
+pin_blocked                       16
+oos                               10
+virtual_card_not_working           9
+supported_cards_and_currencies     5
+unable_to_verify_identity          4
+verify_my_identity                 4
+top_up_failed                      2
+top_up_by_card_charge              2
+terminate_account                  1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking30notoos.txt
+
+
+
+================================================================================
+
+
+Run: 35notoos
+Overall Accuracy: 2.00%
+Overall F1: 3.92%
+                          precision    recall  f1-score   support
+
+     order_physical_card       0.00       nan      0.00         0
+      passcode_forgotten       0.00       nan      0.00         0
+      topping_up_by_card       0.00       nan      0.00         0
+             pin_blocked       0.00       nan      0.00         0
+      verify_my_identity       0.00       nan      0.00         0
+virtual_card_not_working       0.00       nan      0.00         0
+                     oos       1.00      0.02      0.04       100
+    pending_card_payment       0.00       nan      0.00         0
+    lost_or_stolen_phone       0.00       nan      0.00         0
+
+                accuracy                           0.02       100
+               macro avg       0.11      0.02      0.00       100
+            weighted avg       1.00      0.02      0.04       100
+
+predicted
+order_physical_card         71
+passcode_forgotten           8
+virtual_card_not_working     8
+pin_blocked                  5
+topping_up_by_card           3
+oos                          2
+verify_my_identity           1
+pending_card_payment         1
+lost_or_stolen_phone         1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking35notoos.txt
+
+
+
+
+
+================================================================================
+
+
+Run: 40notoos
+Overall Accuracy: 2.00%
+Overall F1: 3.92%
+                           precision    recall  f1-score   support
+
+     getting_virtual_card       0.00       nan      0.00         0
+        get_physical_card       0.00       nan      0.00         0
+      order_physical_card       0.00       nan      0.00         0
+       verify_my_identity       0.00       nan      0.00         0
+unable_to_verify_identity       0.00       nan      0.00         0
+                      oos       1.00      0.02      0.04       100
+ virtual_card_not_working       0.00       nan      0.00         0
+      lost_or_stolen_card       0.00       nan      0.00         0
+
+                 accuracy                           0.02       100
+                macro avg       0.12      0.02      0.00       100
+             weighted avg       1.00      0.02      0.04       100
+
+predicted
+get_physical_card            67
+getting_virtual_card         17
+order_physical_card           9
+oos                           2
+virtual_card_not_working      2
+verify_my_identity            1
+unable_to_verify_identity     1
+lost_or_stolen_card           1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking40notoos.txt
+
+
+
+
+================================================================================
+
+Run: 50notoos
+Overall Accuracy: 4.00%
+Overall F1: 7.69%
+                                     precision    recall  f1-score   support
+
+                order_physical_card       0.00       nan      0.00         0
+                  get_physical_card       0.00       nan      0.00         0
+               getting_virtual_card       0.00       nan      0.00         0
+direct_debit_payment_not_recognised       0.00       nan      0.00         0
+              edit_personal_details       0.00       nan      0.00         0
+                 verify_my_identity       0.00       nan      0.00         0
+                        pin_blocked       0.00       nan      0.00         0
+                                oos       1.00      0.04      0.08       100
+           virtual_card_not_working       0.00       nan      0.00         0
+                lost_or_stolen_card       0.00       nan      0.00         0
+
+                           accuracy                           0.04       100
+                          macro avg       0.10      0.04      0.01       100
+                       weighted avg       1.00      0.04      0.08       100
+
+predicted
+order_physical_card                    43
+get_physical_card                      25
+getting_virtual_card                   15
+edit_personal_details                   6
+oos                                     4
+pin_blocked                             2
+virtual_card_not_working                2
+direct_debit_payment_not_recognised     1
+verify_my_identity                      1
+lost_or_stolen_card                     1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking50notoos.txt
+
+
+================================================================================
+
+Run: 60notoos
+Overall Accuracy: 2.00%
+Overall F1: 3.92%
+                           precision    recall  f1-score   support
+
+      order_physical_card       0.00       nan      0.00         0
+       getting_spare_card       0.00       nan      0.00         0
+     getting_virtual_card       0.00       nan      0.00         0
+        get_physical_card       0.00       nan      0.00         0
+           card_swallowed       0.00       nan      0.00         0
+               change_pin       0.00       nan      0.00         0
+  contactless_not_working       0.00       nan      0.00         0
+       verify_my_identity       0.00       nan      0.00         0
+unable_to_verify_identity       0.00       nan      0.00         0
+                      oos       1.00      0.02      0.04       100
+              pin_blocked       0.00       nan      0.00         0
+ virtual_card_not_working       0.00       nan      0.00         0
+      lost_or_stolen_card       0.00       nan      0.00         0
+
+                 accuracy                           0.02       100
+                macro avg       0.08      0.02      0.00       100
+             weighted avg       1.00      0.02      0.04       100
+
+predicted
+order_physical_card          36
+getting_virtual_card         35
+getting_spare_card            7
+get_physical_card             7
+contactless_not_working       5
+card_swallowed                2
+oos                           2
+verify_my_identity            1
+change_pin                    1
+unable_to_verify_identity     1
+pin_blocked                   1
+virtual_card_not_working      1
+lost_or_stolen_card           1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking60notoos.txt
+
+
+================================================================================
+
+Run: 70notoos
+Overall Accuracy: 2.00%
+Overall F1: 3.92%
+                           precision    recall  f1-score   support
+
+          card_acceptance       0.00       nan      0.00         0
+      order_physical_card       0.00       nan      0.00         0
+             card_linking       0.00       nan      0.00         0
+             card_arrival       0.00       nan      0.00         0
+         card_not_working       0.00       nan      0.00         0
+    edit_personal_details       0.00       nan      0.00         0
+  contactless_not_working       0.00       nan      0.00         0
+unable_to_verify_identity       0.00       nan      0.00         0
+    Refund_not_showing_up       0.00       nan      0.00         0
+                      oos       1.00      0.02      0.04       100
+      lost_or_stolen_card       0.00       nan      0.00         0
+
+                 accuracy                           0.02       100
+                macro avg       0.09      0.02      0.00       100
+             weighted avg       1.00      0.02      0.04       100
+
+predicted
+order_physical_card          36
+card_acceptance              23
+card_arrival                 20
+card_not_working              9
+edit_personal_details         4
+card_linking                  2
+oos                           2
+contactless_not_working       1
+unable_to_verify_identity     1
+Refund_not_showing_up         1
+lost_or_stolen_card           1
+Name: count, dtype: int64
+
+Classification report saved to classification_report_llama3.2:3b_banking70notoos.txt
+
+
+
+================================================================================

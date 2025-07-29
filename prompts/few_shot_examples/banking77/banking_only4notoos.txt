@@ -1,0 +1,31 @@
+Example 1:
+Question: "Do you use Mastercard or Visa?"
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 88.49
+}}
+
+Example 2:
+Question: "What is with the need to have all my ID information?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 66.96
+}}
+
+Example 3:
+Question: "I got the incorrect amount of money given to me from my account"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 27.27
+}}
+
+Example 4:
+Question: "The cash withdrawal exchange rate is not correct."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 96.29
+}}

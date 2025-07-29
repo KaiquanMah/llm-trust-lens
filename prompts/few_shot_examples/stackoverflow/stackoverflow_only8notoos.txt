@@ -1,0 +1,63 @@
+Example 1:
+Question: "Advantages and disadvantages of using Ajax update panels in ASP.NET application"
+Category:
+{{
+  "category": "ajax",
+  "confidence": 31.21
+}}
+
+Example 2:
+Question: "Drupal theme_table... A way to theme nested tables?"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 64.23
+}}
+
+Example 3:
+Question: "How to rearrange this function to return the extended list in Haskell"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 7.01
+}}
+
+Example 4:
+Question: "Query an XDocument for elements by name at any depth"
+Category:
+{{
+  "category": "linq",
+  "confidence": 12.24
+}}
+
+Example 5:
+Question: "Magento Store - Best Selling items by Category"
+Category:
+{{
+  "category": "magento",
+  "confidence": 16.06
+}}
+
+Example 6:
+Question: "QMetaObject Compiler explain?"
+Category:
+{{
+  "category": "qt",
+  "confidence": 70.98
+}}
+
+Example 7:
+Question: "Transforming Scala varargs into Java Object... varargs"
+Category:
+{{
+  "category": "scala",
+  "confidence": 37.39
+}}
+
+Example 8:
+Question: "Uable to access sharepoint site"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 4.73
+}}

@@ -1,0 +1,87 @@
+Example 1:
+Question: "please be quiet now"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 84.81
+}}
+
+Example 2:
+Question: "hi, i'm john"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 18.47
+}}
+
+Example 3:
+Question: "please turn your speaker volume up"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 28.91
+}}
+
+Example 4:
+Question: "what is my minimum verizon bill payment"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 31.77
+}}
+
+Example 5:
+Question: "what is my car's mpg"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 7.77
+}}
+
+Example 6:
+Question: "when will the day off be"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 73.34
+}}
+
+Example 7:
+Question: "so far how many days have i taken off"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 15.39
+}}
+
+Example 8:
+Question: "pull up some recommendations for places serving fish in maine"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 16.99
+}}
+
+Example 9:
+Question: "please kindly inform my bank i'm going to be in canada from next week to two weeks after"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 80.93
+}}
+
+Example 10:
+Question: "what to do in minneapolis"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 85.8
+}}
+
+Example 11:
+Question: "yellow by coldplay to my playlist please"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 23.63
+}}

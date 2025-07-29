@@ -1,0 +1,15 @@
+Example 1:
+Question: "I am at the ATM and tried to withdraw 30 pounds and it only gave me 10 pounds, what do I do?"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 39.37
+}}
+
+Example 2:
+Question: "how do you determine your exchange rates because one of yours was off when i got cash"
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 53.59
+}}

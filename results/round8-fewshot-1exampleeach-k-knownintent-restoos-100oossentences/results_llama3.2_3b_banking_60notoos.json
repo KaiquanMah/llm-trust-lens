@@ -1,0 +1,902 @@
+[
+  {
+    "Index": 8057,
+    "text": "I am planning activating my card was it possible?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 8651,
+    "text": "Where can I activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_spare_card",
+    "confidence": 73.72
+  },
+  {
+    "Index": 4379,
+    "text": "Can I get some help to get me card activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 5912,
+    "text": "I just got a new card, and I want to know how to activate.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 12886,
+    "text": "How do I activate a card I received?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "get_physical_card",
+    "confidence": 59.26
+  },
+  {
+    "Index": 2884,
+    "text": "Is my new card activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 10974,
+    "text": "What's the right way to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 7959,
+    "text": "Please assist me in activating the card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "get_physical_card",
+    "confidence": 59.26
+  },
+  {
+    "Index": 11815,
+    "text": "I received my new card, how is it activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 11157,
+    "text": "What is the process for activating my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 12514,
+    "text": "I need help with activating my card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 7561,
+    "text": "Could you please tell me how to activate my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 3753,
+    "text": "I need more assistance with how to activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_spare_card",
+    "confidence": 73.72
+  },
+  {
+    "Index": 9699,
+    "text": "How do I activate my card that just arrived?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "getting_spare_card",
+    "confidence": 73.72
+  },
+  {
+    "Index": 9977,
+    "text": "I have my card now how do I activate it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 8605,
+    "text": "I need my card activated.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 11266,
+    "text": "When will my card be activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 1119,
+    "text": "I want to use my card, how would I activate it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 7698,
+    "text": "I need my card to be activated right now.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 12186,
+    "text": "I need help activating my new card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 11555,
+    "text": "What do I need to do to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 4413,
+    "text": "Where do I activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 5108,
+    "text": "My card activation attempt failed.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "card_swallowed",
+    "confidence": 12.87
+  },
+  {
+    "Index": 1383,
+    "text": "My new card came in.  How do I activate?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 2710,
+    "text": "What is the process for activating my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 11601,
+    "text": "Would like to use my card and need to activate it first.  Can you help me do this?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "change_pin",
+    "confidence": 10.09
+  },
+  {
+    "Index": 10102,
+    "text": "Activating my card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 10777,
+    "text": "What is the process of card activation?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 6160,
+    "text": "How can i make my card active?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 11004,
+    "text": "how to activate card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 9128,
+    "text": "How can I make my card ready to use?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 2811,
+    "text": "How can I activate the new card i got?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 9445,
+    "text": "Where do I go to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 5127,
+    "text": "What are the steps that I need to take to activate a new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 7543,
+    "text": "How can I activate my new card? I didn't recieve any information with it about how to do so.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 827,
+    "text": "I would like to get help from someone in your customer service department with assisting me with activating my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "contactless_not_working",
+    "confidence": 62.7
+  },
+  {
+    "Index": 6179,
+    "text": "Would you be so kind as to activate my card? Thanks",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 99.0
+  },
+  {
+    "Index": 745,
+    "text": "Activate my card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 3584,
+    "text": "Do I need a photo ID to activate a my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "verify_my_identity",
+    "confidence": 92.15
+  },
+  {
+    "Index": 10047,
+    "text": "I have a new card and I want to activate it",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 6981,
+    "text": "When are you going to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 1759,
+    "text": "How can I activate my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 3622,
+    "text": "What do I do to activate my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_spare_card",
+    "confidence": 73.72
+  },
+  {
+    "Index": 3651,
+    "text": "I tired but an unable to activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "unable_to_verify_identity",
+    "confidence": 63.6
+  },
+  {
+    "Index": 5878,
+    "text": "How can my new card be activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "get_physical_card",
+    "confidence": 59.26
+  },
+  {
+    "Index": 2563,
+    "text": "I couldn't complete card activation.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "card_swallowed",
+    "confidence": 12.87
+  },
+  {
+    "Index": 601,
+    "text": "I want to activate my new card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 11887,
+    "text": "I would like to get help from someone with activating my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 12664,
+    "text": "I tried activating my bill of fare and it didn't workplace",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "contactless_not_working",
+    "confidence": 12.87
+  },
+  {
+    "Index": 2546,
+    "text": "I have a new card. How do I activate it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 12132,
+    "text": "I would like to activate my card to use now, can you help me?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 4298,
+    "text": "Can I call to get my card activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "oos",
+    "confidence": 0.0
+  },
+  {
+    "Index": 3786,
+    "text": "What do I have to do to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 8972,
+    "text": "How can I switch on my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_spare_card",
+    "confidence": 73.72
+  },
+  {
+    "Index": 4190,
+    "text": "I just got a new card how do I get it to start working?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 6489,
+    "text": "Is my card activated?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_spare_card",
+    "confidence": 0.0
+  },
+  {
+    "Index": 2687,
+    "text": "I cannot activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "pin_blocked",
+    "confidence": 95.21
+  },
+  {
+    "Index": 7835,
+    "text": "Help my activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 9804,
+    "text": "My new card has arrived, what's the activation procedure?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "get_physical_card",
+    "confidence": 59.26
+  },
+  {
+    "Index": 7049,
+    "text": "I would like to activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 9113,
+    "text": "What is the process for activating my card and using it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 7477,
+    "text": "What am I going to need in order to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 13027,
+    "text": "Please, activate my card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 99.0
+  },
+  {
+    "Index": 7350,
+    "text": "How can my new card be renewed?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 5875,
+    "text": "What steps do I have to go through in order to activate my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 8466,
+    "text": "How do I active this card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 8330,
+    "text": "Hi, would you please activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 99.0
+  },
+  {
+    "Index": 5920,
+    "text": "Card activation is not working. What do i do?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "virtual_card_not_working",
+    "confidence": 13.8
+  },
+  {
+    "Index": 8356,
+    "text": "Can I activate my card with the app?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 82.58
+  },
+  {
+    "Index": 5134,
+    "text": "I just got my new card.  How can I activate it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 4705,
+    "text": "How long does it take to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 7270,
+    "text": "I have a new card and I need to activate it.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "get_physical_card",
+    "confidence": 56.6
+  },
+  {
+    "Index": 8776,
+    "text": "How long does it take to activate the card, as it does not look like its working?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "contactless_not_working",
+    "confidence": 81.19
+  },
+  {
+    "Index": 10838,
+    "text": "What are the steps to activating a new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 4895,
+    "text": "will you be able to activate my card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 9616,
+    "text": "I want to start using my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 1018,
+    "text": "You can activate your card in a few seconds by going to account, hitting activate, and just following the directions.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "contactless_not_working",
+    "confidence": 0.0
+  },
+  {
+    "Index": 11026,
+    "text": "How do I activate a new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 12479,
+    "text": "WHAT CAN I DO AFTER THE CARD MISSING",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "lost_or_stolen_card",
+    "confidence": 82.83
+  },
+  {
+    "Index": 5885,
+    "text": "Tell me what I need to do to activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 2414,
+    "text": "My new card is here, what's the process for activating it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "get_physical_card",
+    "confidence": 59.26
+  },
+  {
+    "Index": 10964,
+    "text": "I just got this card & I don't know how to activate it.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 1204,
+    "text": "Do I have to go somewhere to activate my card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 12.19
+  },
+  {
+    "Index": 2113,
+    "text": "How do I activate my card, so that I can start using it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 2007,
+    "text": "Can I use my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 4459,
+    "text": "How do I get my card active?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 1396,
+    "text": "What do I need to do in order to use my card I just got?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 7972,
+    "text": "I need to activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 3549,
+    "text": "I just got my new card, how do I activate it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 5565,
+    "text": "What do I need to do for the card activation?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 846,
+    "text": "Help me activate my card.",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 721,
+    "text": "What are the steps to activate the card, as it does not seem to work?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 4549,
+    "text": "I tried activating my plug-in and it didn't piece of work",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "oos",
+    "confidence": 0.0
+  },
+  {
+    "Index": 8664,
+    "text": "My card needs to be activated asap",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 7664,
+    "text": "How do I activate a card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  },
+  {
+    "Index": 9026,
+    "text": "Tell me how to renew my new card?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "order_physical_card",
+    "confidence": 72.58
+  },
+  {
+    "Index": 729,
+    "text": "i cannot seem to activate card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "contactless_not_working",
+    "confidence": 12.87
+  },
+  {
+    "Index": 12732,
+    "text": "I got my new card but I am not sure if it need s activated and how?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "test",
+    "predicted": "getting_spare_card",
+    "confidence": 74.32
+  },
+  {
+    "Index": 9789,
+    "text": "Just received my replacement card, what steps do i need to take to activate it?",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "dev",
+    "predicted": "get_physical_card",
+    "confidence": 59.26
+  },
+  {
+    "Index": 2535,
+    "text": "Can you help me activate my card",
+    "label": "activate_my_card",
+    "dataset": "banking",
+    "split": "train",
+    "predicted": "getting_virtual_card",
+    "confidence": 3.13
+  }
+]

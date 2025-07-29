@@ -1,0 +1,279 @@
+Example 1:
+Question: "I need my refund"
+Category:
+{{
+  "category": "Refund_not_showing_up",
+  "confidence": 49.06
+}}
+
+Example 2:
+Question: "What do I do if my phone was stolen?"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 62.81
+}}
+
+Example 3:
+Question: "Is it possible to get a physical card?"
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 14.58
+}}
+
+Example 4:
+Question: "How can i reset my passcode ?"
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 32.65
+}}
+
+Example 5:
+Question: "I was wondering how long does it take for a payment to go thru? It seems my last payment is stuck and hasn't moved."
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 67.61
+}}
+
+Example 6:
+Question: "I took out some cash from the ATM but it is still showing the transaction is pending."
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 83.08
+}}
+
+Example 7:
+Question: "Can you please sort out your top up? I need this to go through asap because I really need the money. It's already been pending for an hour."
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 99.72
+}}
+
+Example 8:
+Question: "I have a transfer that's pending and wanted to know how long it is going to take to process?"
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 53.76
+}}
+
+Example 9:
+Question: "Help me unblock my PIN."
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 52.85
+}}
+
+Example 10:
+Question: "My salary comes in GBP can I change my options somewhere?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 47.25
+}}
+
+Example 11:
+Question: "I bought something that I need a refund for."
+Category:
+{{
+  "category": "request_refund",
+  "confidence": 35.58
+}}
+
+Example 12:
+Question: "I'm not sure why my card payment was cancelled, can you find out why?"
+Category:
+{{
+  "category": "reverted_card_payment?",
+  "confidence": 39.19
+}}
+
+Example 13:
+Question: "Do you have a list of the cards and currencies supported?"
+Category:
+{{
+  "category": "supported_cards_and_currencies",
+  "confidence": 69.65
+}}
+
+Example 14:
+Question: "I am not happy with your company. Please delete my account asap."
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 5.24
+}}
+
+Example 15:
+Question: "How much does each transfer cost?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 66.74
+}}
+
+Example 16:
+Question: "how much does it cost to add money"
+Category:
+{{
+  "category": "top_up_by_card_charge",
+  "confidence": 37.88
+}}
+
+Example 17:
+Question: "I would like to use cash to make a top-up?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 89.54
+}}
+
+Example 18:
+Question: "Looks like my top up failed."
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 83.13
+}}
+
+Example 19:
+Question: "What is maximum top up?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 0.01
+}}
+
+Example 20:
+Question: "I got notified that my top up has been reverted. Why?"
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 64.13
+}}
+
+Example 21:
+Question: "How do I use a card to top up?"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 9.92
+}}
+
+Example 22:
+Question: "I got double charged!"
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 1.72
+}}
+
+Example 23:
+Question: "Is it right that I've been charged for transferring money?"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 97.81
+}}
+
+Example 24:
+Question: "I need to transfer money into my account, HOW?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 0.32
+}}
+
+Example 25:
+Question: "I made a transfer and they haven't received the money I sent them."
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 63.85
+}}
+
+Example 26:
+Question: "Approximately how long will an urgent transfer from China take?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 72.73
+}}
+
+Example 27:
+Question: "I'm having trouble with proving my identity."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 40.19
+}}
+
+Example 28:
+Question: "What are the steps for the identity checks?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 62.31
+}}
+
+Example 29:
+Question: "I need to know where my funds come from."
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 41.13
+}}
+
+Example 30:
+Question: "Why do I have to verify the top-up?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 81.18
+}}
+
+Example 31:
+Question: "virtual card won't work for me"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 75.97
+}}
+
+Example 32:
+Question: "Are visa and mastercard accepted"
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 82.74
+}}
+
+Example 33:
+Question: "Do i have to verify who I am?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 1.12
+}}
+
+Example 34:
+Question: "I did not receive my full withdrawal amount"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 36.14
+}}
+
+Example 35:
+Question: "I got less cash because of the exchange rate."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 76.89
+}}

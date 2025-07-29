@@ -1,0 +1,79 @@
+Example 1:
+Question: "How many days does it take until funds are in my account?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 0.61
+}}
+
+Example 2:
+Question: "I will not be able to verify my identity."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 48.83
+}}
+
+Example 3:
+Question: "How can I verify my indentity?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 72.56
+}}
+
+Example 4:
+Question: "Can I see that history on my funds and where they came from?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 5.22
+}}
+
+Example 5:
+Question: "Why does top-up require verification?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 49.61
+}}
+
+Example 6:
+Question: "Why isn't my disposable virtual card working?"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 12.76
+}}
+
+Example 7:
+Question: "What credit cards do you carry"
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 84.0
+}}
+
+Example 8:
+Question: "Can I go ahead and use my account even though my identify hasn't been verified yet?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 81.99
+}}
+
+Example 9:
+Question: "Hi, Today i have withdrawn cash from ATM but i got wrong amount and in the app it is showing much more amount than that."
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 75.28
+}}
+
+Example 10:
+Question: "the exchange rate was different than expected"
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 52.46
+}}

@@ -1,0 +1,111 @@
+Example 1:
+Question: "Advantages and disadvantages of using Ajax update panels in ASP.NET application"
+Category:
+{{
+  "category": "ajax",
+  "confidence": 42.17
+}}
+
+Example 2:
+Question: "LINES and COLUMNS environmental variables lost in a script"
+Category:
+{{
+  "category": "bash",
+  "confidence": 86.08
+}}
+
+Example 3:
+Question: "Encoding string arguments for URLs"
+Category:
+{{
+  "category": "cocoa",
+  "confidence": 23.82
+}}
+
+Example 4:
+Question: "Calendar + Events in Drupal 5"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 49.85
+}}
+
+Example 5:
+Question: "Why doesn't the "$" function work consistantly?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 58.8
+}}
+
+Example 6:
+Question: "How to integrate Hibernate with JBoss 4.2.x server?"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 30.81
+}}
+
+Example 7:
+Question: "Can I use LINQ to convert a List<MyObjectType> into a DataSet?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 49.81
+}}
+
+Example 8:
+Question: "Magento frontend and backend page looks different"
+Category:
+{{
+  "category": "magento",
+  "confidence": 43.52
+}}
+
+Example 9:
+Question: "Precompiled headers and compiling universal objects on OSX"
+Category:
+{{
+  "category": "osx",
+  "confidence": 90.58
+}}
+
+Example 10:
+Question: "GLWidget in QT only updating on mousemove"
+Category:
+{{
+  "category": "qt",
+  "confidence": 10.12
+}}
+
+Example 11:
+Question: "How do I configure jEdit for Scala projects?"
+Category:
+{{
+  "category": "scala",
+  "confidence": 37.92
+}}
+
+Example 12:
+Question: "Unit testing code that uses PortalSiteMapProvider"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 92.13
+}}
+
+Example 13:
+Question: "Spring 3 and a custom object wrapper for FreeMarker"
+Category:
+{{
+  "category": "spring",
+  "confidence": 72.05
+}}
+
+Example 14:
+Question: "numericupdown control"
+Category:
+{{
+  "category": "visual-studio",
+  "confidence": 30.06
+}}

@@ -1,0 +1,15 @@
+Example 1:
+Question: "volume needs to be at 4"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 91.35
+}}
+
+Example 2:
+Question: "what things can i do in portland"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 74.72
+}}

@@ -1,0 +1,159 @@
+Example 1:
+Question: "I want to use a European bank card for a top up. Must I pay?"
+Category:
+{{
+  "category": "top_up_by_card_charge",
+  "confidence": 52.42
+}}
+
+Example 2:
+Question: "Can I top up online?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 72.46
+}}
+
+Example 3:
+Question: "My credit card was declined for top-up. Can you see if there is enough funds in my account?"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 39.04
+}}
+
+Example 4:
+Question: "Is there a topping up limit?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 87.0
+}}
+
+Example 5:
+Question: "Why did you revert my top up?"
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 77.87
+}}
+
+Example 6:
+Question: "Is there a way to transfer funds directly from my card?"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 38.36
+}}
+
+Example 7:
+Question: "I was charged twice, when I didn't purchase anything twice."
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 91.67
+}}
+
+Example 8:
+Question: "I was under the impression I can make transfers for free. I made an online purchase for something that was obroad and there's some additional strange fee. I've never seen this before and this isn't fair."
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 36.09
+}}
+
+Example 9:
+Question: "I would like to top up my account with a bank transfer, is that allowed?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 95.48
+}}
+
+Example 10:
+Question: "Why hasn't my in country transfer gone through yet? I confirmed the account info a couple days ago but the payment hasn't been posted yet."
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 70.24
+}}
+
+Example 11:
+Question: "Where's the money from my transfer from Europe?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 59.88
+}}
+
+Example 12:
+Question: "The app won't identify me."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 20.82
+}}
+
+Example 13:
+Question: "do the details of my profile have to match my documents"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 48.26
+}}
+
+Example 14:
+Question: "I need to know where do my funds come from"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 18.21
+}}
+
+Example 15:
+Question: "How can I verify my top up?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 3.15
+}}
+
+Example 16:
+Question: "How do I get my disposable virtual card to work?"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 45.8
+}}
+
+Example 17:
+Question: "Please help me get a Visa card."
+Category:
+{{
+  "category": "visa_or_mastercard",
+  "confidence": 63.29
+}}
+
+Example 18:
+Question: "Am I supposed to verify my identity?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 79.84
+}}
+
+Example 19:
+Question: "I just got $20 when I tried to get $100"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 18.92
+}}
+
+Example 20:
+Question: "I draw out money from your ATM during holidays, and was charged insanely. I wouldn't have done it, if i had a little sense about the shocking charges."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 38.87
+}}

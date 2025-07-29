@@ -1,0 +1,31 @@
+Example 1:
+Question: "Customizing gallery layout in Drupal with Views and CCK"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 76.19
+}}
+
+Example 2:
+Question: "In Haskell how do you extract strings from an XML document?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 0.98
+}}
+
+Example 3:
+Question: "When using Linq, is DbNull equivalent to Null?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 61.08
+}}
+
+Example 4:
+Question: "Using Magento 1.4's WYSIWYG editor on custom admin pages"
+Category:
+{{
+  "category": "magento",
+  "confidence": 33.69
+}}

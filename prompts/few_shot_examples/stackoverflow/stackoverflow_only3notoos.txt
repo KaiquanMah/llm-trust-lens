@@ -1,0 +1,23 @@
+Example 1:
+Question: "How do I do python-style indent/dedent tokens with alex/haskell?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 17.33
+}}
+
+Example 2:
+Question: "500 error while deleting in LINQ"
+Category:
+{{
+  "category": "linq",
+  "confidence": 60.45
+}}
+
+Example 3:
+Question: "Checking for Magento login on external page"
+Category:
+{{
+  "category": "magento",
+  "confidence": 61.17
+}}

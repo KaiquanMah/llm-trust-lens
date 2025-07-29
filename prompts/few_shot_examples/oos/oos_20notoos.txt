@@ -1,0 +1,159 @@
+Example 1:
+Question: "i must know my visa card's apr"
+Category:
+{{
+  "category": "apr",
+  "confidence": 14.06
+}}
+
+Example 2:
+Question: "what is 34 times 80908"
+Category:
+{{
+  "category": "calculator",
+  "confidence": 22.29
+}}
+
+Example 3:
+Question: "how many calories are in powdered donuts"
+Category:
+{{
+  "category": "calories",
+  "confidence": 14.48
+}}
+
+Example 4:
+Question: "that was a mistake, undo that"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 39.29
+}}
+
+Example 5:
+Question: "i want you to call me bailey"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 34.93
+}}
+
+Example 6:
+Question: "please increase volume"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 79.51
+}}
+
+Example 7:
+Question: "would you please tell me my current gps coordinates"
+Category:
+{{
+  "category": "current_location",
+  "confidence": 15.33
+}}
+
+Example 8:
+Question: "i heard some woman say she was going to yerd me, what's that mean"
+Category:
+{{
+  "category": "definition",
+  "confidence": 38.5
+}}
+
+Example 9:
+Question: "can i use lettuce instead of rice"
+Category:
+{{
+  "category": "ingredient_substitution",
+  "confidence": 62.59
+}}
+
+Example 10:
+Question: "if i am in tulsa, will i get charged extra if i use my card"
+Category:
+{{
+  "category": "international_fees",
+  "confidence": 38.63
+}}
+
+Example 11:
+Question: "what is the minimum for my citicard this month"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 35.74
+}}
+
+Example 12:
+Question: "what's my car's miles per gallon"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 56.7
+}}
+
+Example 13:
+Question: "when will be the next holiday here"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 19.12
+}}
+
+Example 14:
+Question: "tell me the number of days off i took this year"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 35.75
+}}
+
+Example 15:
+Question: "i would love to find a few vegan restaurants in back bay"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 89.24
+}}
+
+Example 16:
+Question: "look for auto companies that do scheduled maintenance on my vehicle"
+Category:
+{{
+  "category": "schedule_maintenance",
+  "confidence": 16.69
+}}
+
+Example 17:
+Question: "how much money can i transfer today"
+Category:
+{{
+  "category": "transfer",
+  "confidence": 46.7
+}}
+
+Example 18:
+Question: "i'm going to be in thailand from october 15th until october 23rd"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 53.4
+}}
+
+Example 19:
+Question: "what experiences does kentucky offer"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 2.21
+}}
+
+Example 20:
+Question: "add welcome to the jungle by guns n roses to my playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 12.44
+}}

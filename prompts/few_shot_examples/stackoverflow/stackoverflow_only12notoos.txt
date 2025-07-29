@@ -1,0 +1,95 @@
+Example 1:
+Question: "Advantages and disadvantages of using Ajax update panels in ASP.NET application"
+Category:
+{{
+  "category": "ajax",
+  "confidence": 99.9
+}}
+
+Example 2:
+Question: "LINES and COLUMNS environmental variables lost in a script"
+Category:
+{{
+  "category": "bash",
+  "confidence": 21.87
+}}
+
+Example 3:
+Question: "Drupal : adding status field to node"
+Category:
+{{
+  "category": "drupal",
+  "confidence": 75.84
+}}
+
+Example 4:
+Question: "Why must recursion be in a separate file in hugs?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 14.35
+}}
+
+Example 5:
+Question: "Hibernate: Persist an object as a String?"
+Category:
+{{
+  "category": "hibernate",
+  "confidence": 36.93
+}}
+
+Example 6:
+Question: "What are the advantages of LINQ?"
+Category:
+{{
+  "category": "linq",
+  "confidence": 76.11
+}}
+
+Example 7:
+Question: "Magento website payment pro USA"
+Category:
+{{
+  "category": "magento",
+  "confidence": 54.49
+}}
+
+Example 8:
+Question: "Command key as Meta key in OS X Terminal.app"
+Category:
+{{
+  "category": "osx",
+  "confidence": 10.18
+}}
+
+Example 9:
+Question: "Deploy Qt+Boost application on a Mac and Windows."
+Category:
+{{
+  "category": "qt",
+  "confidence": 89.73
+}}
+
+Example 10:
+Question: "By-Name-Parameters for Constructors"
+Category:
+{{
+  "category": "scala",
+  "confidence": 78.05
+}}
+
+Example 11:
+Question: "How do I consolidate entries from multiple employee blogs into a single RSS feed"
+Category:
+{{
+  "category": "sharepoint",
+  "confidence": 72.23
+}}
+
+Example 12:
+Question: "Anybody using Qi4J"
+Category:
+{{
+  "category": "spring",
+  "confidence": 87.95
+}}

@@ -1,0 +1,15 @@
+Example 1:
+Question: "How do I do python-style indent/dedent tokens with alex/haskell?"
+Category:
+{{
+  "category": "haskell",
+  "confidence": 25.5
+}}
+
+Example 2:
+Question: "Adjusting Order Quantities in Magento"
+Category:
+{{
+  "category": "magento",
+  "confidence": 47.16
+}}

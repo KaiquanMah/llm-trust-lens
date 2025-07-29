@@ -1,0 +1,7 @@
+Example 1:
+Question: "how can i delete test order from magento"
+Category:
+{{
+  "category": "magento",
+  "confidence": 19.36
+}}

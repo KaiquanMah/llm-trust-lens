@@ -1,0 +1,119 @@
+Example 1:
+Question: "can you do a math problem"
+Category:
+{{
+  "category": "calculator",
+  "confidence": 65.3
+}}
+
+Example 2:
+Question: "don't do this process"
+Category:
+{{
+  "category": "cancel",
+  "confidence": 3.59
+}}
+
+Example 3:
+Question: "i am camile"
+Category:
+{{
+  "category": "change_user_name",
+  "confidence": 64.93
+}}
+
+Example 4:
+Question: "put volume setting on number 4"
+Category:
+{{
+  "category": "change_volume",
+  "confidence": 16.2
+}}
+
+Example 5:
+Question: "please tell me the current location"
+Category:
+{{
+  "category": "current_location",
+  "confidence": 76.47
+}}
+
+Example 6:
+Question: "what is meant by defense"
+Category:
+{{
+  "category": "definition",
+  "confidence": 30.75
+}}
+
+Example 7:
+Question: "are there transaction fees for my visa if i'm in russia"
+Category:
+{{
+  "category": "international_fees",
+  "confidence": 75.63
+}}
+
+Example 8:
+Question: "what is the minimum i can pay on my heating bill"
+Category:
+{{
+  "category": "min_payment",
+  "confidence": 28.82
+}}
+
+Example 9:
+Question: "what is my car's mpg"
+Category:
+{{
+  "category": "mpg",
+  "confidence": 83.42
+}}
+
+Example 10:
+Question: "when is the next break"
+Category:
+{{
+  "category": "next_holiday",
+  "confidence": 51.29
+}}
+
+Example 11:
+Question: "how many vacation days have i used so far"
+Category:
+{{
+  "category": "pto_used",
+  "confidence": 41.9
+}}
+
+Example 12:
+Question: "do you know of any good restaurants"
+Category:
+{{
+  "category": "restaurant_suggestion",
+  "confidence": 46.66
+}}
+
+Example 13:
+Question: "i will tell my bank that i will be gone from april to may to america"
+Category:
+{{
+  "category": "travel_notification",
+  "confidence": 10.67
+}}
+
+Example 14:
+Question: "what's there to do in seattle"
+Category:
+{{
+  "category": "travel_suggestion",
+  "confidence": 28.6
+}}
+
+Example 15:
+Question: "add games without frontiers to my week 5 playlist"
+Category:
+{{
+  "category": "update_playlist",
+  "confidence": 54.69
+}}

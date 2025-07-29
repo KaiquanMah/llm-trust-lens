@@ -1,0 +1,23 @@
+Example 1:
+Question: "How to verify my identity"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 24.34
+}}
+
+Example 2:
+Question: "My cash received does not match what has been requested"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 49.09
+}}
+
+Example 3:
+Question: "I don't think the exchange rate was right."
+Category:
+{{
+  "category": "wrong_exchange_rate_for_cash_withdrawal",
+  "confidence": 64.57
+}}

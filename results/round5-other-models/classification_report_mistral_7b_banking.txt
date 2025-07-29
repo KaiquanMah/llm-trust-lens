@@ -1,0 +1,65 @@
+                                         precision    recall  f1-score   support
+
+                       activate_my_card       0.96      0.41      0.58       199
+                              age_limit       1.00      0.72      0.84       150
+                apple_pay_or_google_pay       0.97      0.55      0.70       166
+                            atm_support       0.42      0.80      0.55       127
+                       automatic_top_up       0.99      0.76      0.86       167
+                beneficiary_not_allowed       0.90      0.27      0.42       196
+                   card_about_to_expire       0.72      0.51      0.60       169
+                        card_acceptance       0.63      0.76      0.69        99
+                           card_arrival       0.06      0.02      0.02       193
+                 card_delivery_estimate       0.26      0.97      0.42       152
+                           card_linking       0.49      0.84      0.61       179
+                       card_not_working       0.40      0.82      0.54       152
+               card_payment_fee_charged       0.41      0.86      0.55       227
+            card_payment_not_recognised       0.41      0.66      0.50       208
+                         card_swallowed       0.98      0.61      0.76       101
+                 cash_withdrawal_charge       0.85      0.81      0.83       217
+         cash_withdrawal_not_recognised       0.23      0.22      0.22       200
+                             change_pin       0.30      0.96      0.45       162
+                       compromised_card       0.49      0.86      0.62       126
+                contactless_not_working       0.92      0.80      0.86        75
+                        country_support       0.69      0.88      0.77       169
+                  declined_card_payment       0.29      0.62      0.40       193
+               declined_cash_withdrawal       0.30      0.34      0.32       213
+    direct_debit_payment_not_recognised       0.63      0.42      0.51       222
+                 disposable_card_limits       0.71      0.93      0.80       161
+                  edit_personal_details       0.76      0.98      0.85       161
+                        exchange_charge       0.74      0.56      0.64       161
+                          exchange_rate       0.34      0.99      0.51       152
+              extra_charge_on_statement       0.48      0.34      0.40       206
+                        failed_transfer       0.63      0.10      0.17       177
+            get_disposable_virtual_card       0.94      0.57      0.71       137
+                   getting_virtual_card       0.90      0.87      0.88       138
+                    lost_or_stolen_card       0.70      0.81      0.75       122
+                   lost_or_stolen_phone       0.98      0.80      0.88       161
+                                    oos       0.21      0.00      0.00      3440
+                    order_physical_card       0.52      0.28      0.37       160
+                     passcode_forgotten       0.97      0.21      0.35       145
+                pending_cash_withdrawal       0.48      0.73      0.58       183
+                         pending_top_up       0.32      0.68      0.44       189
+                        receiving_money       0.22      0.41      0.29       135
+                         request_refund       0.31      0.91      0.46       209
+         supported_cards_and_currencies       0.26      0.71      0.38       169
+                      terminate_account       0.77      1.00      0.87       148
+         top_up_by_bank_transfer_charge       0.23      0.42      0.30       151
+                  top_up_by_card_charge       0.45      0.71      0.55       154
+               top_up_by_cash_or_cheque       0.91      0.86      0.88       154
+                          top_up_failed       0.43      0.78      0.56       185
+                          top_up_limits       0.76      0.99      0.86       137
+              transaction_charged_twice       0.64      0.88      0.74       215
+     transfer_not_received_by_recipient       0.18      0.37      0.24       211
+                        transfer_timing       0.23      0.99      0.37       168
+              unable_to_verify_identity       0.21      0.05      0.08       142
+                     verify_my_identity       0.28      1.00      0.44       144
+                          verify_top_up       0.97      0.81      0.89       166
+               virtual_card_not_working       1.00      0.49      0.66        81
+                     visa_or_mastercard       0.95      0.67      0.79       175
+                    why_verify_identity       0.93      0.08      0.15       161
+          wrong_amount_of_cash_received       0.88      0.33      0.48       220
+wrong_exchange_rate_for_cash_withdrawal       0.49      0.57      0.52       203
+
+                               accuracy                           0.47     13083
+                              macro avg       0.59      0.63      0.55     13083
+                           weighted avg       0.49      0.47      0.40     13083
