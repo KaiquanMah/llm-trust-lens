@@ -2,6 +2,7 @@ import os
 import sys
 import subprocess
 import time
+import ollama
 # from src.config import Config # absolute import
 
 
