@@ -2,7 +2,7 @@
 name: "banking77"
 
 # Paths are relative to the project root directory (llm-trust-lens/)
-path: "data/banking77/train.csv"
+path: "data/banking/train.tsv"
 label_map_path: "data/banking77/idx2label.csv"
 
 # The names of the columns in train.csv
