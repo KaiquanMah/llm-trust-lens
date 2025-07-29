@@ -62,10 +62,12 @@ def initialize_ollama(model_config: dict):
         # local_models = [m['name'].split(':') for m in client.list()['models']]
         local_models = [m['name'].split(':')[0] for m in client.list()['models']]
 
+        # --- Compare the BASE model name ---
+        base_model_name = model_name.split(':')[0]
         # pull model from Ollama if it has not been downloaded yet
-        if model_name not in local_models:
+        if base_model_name not in local_models:
             print(f"Model '{model_name}' not found locally. Pulling from Ollama hub...")
-            # Step 5: Pull the model with simple streaming output
+            # Step 5: Pull the model using the FULL model name, with simple streaming output
             for progress in ollama.pull(model_name, stream=True):
                 print(f"\r{progress.get('status', '')}", end='', flush=True)
             print("\nSuccessfully pulled model.")
