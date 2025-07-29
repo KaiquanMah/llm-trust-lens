@@ -71,7 +71,9 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     cm_df.to_csv(cm_csv_path)
     print(f"Confusion matrix saved to {cm_csv_path}")
 
-    plt.figure(figsize=(20, 20))
+    # larger figure because CLINC150OOS dataset has 150 non-oos classes + 1 oos class
+    # which needs a larger figure to avoid having overlapping numbers
+    plt.figure(figsize=(80, 80))
     sns.heatmap(cm_df, annot=False, fmt='d', cmap='Blues')
     plt.title('Confusion Matrix')
     plt.ylabel('Actual')
