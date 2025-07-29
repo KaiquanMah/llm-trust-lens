@@ -48,9 +48,3 @@ threshold:
 
 # 6. OUTPUT CONFIGURATION
 output_dir: "results/banking77_fewshot"
-
-
-
-
-first_class_stackoverflow = 'wordpress' # following idx2label
-first_class_oos = 'oos'
