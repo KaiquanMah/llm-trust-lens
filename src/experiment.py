@@ -32,11 +32,21 @@ def format_zero_shot_prompt(template: str, text_input: str, labels: list) -> str
     return template.format(labels=label_list_str, text_input=text_input)
 
 def format_few_shot_prompt(template: str, text_input: str, labels: list, few_shot_examples: list) -> str:
-    """Injects data and formatted few-shot examples into a prompt template."""
-    label_list_str = ", ".join(f'"{label}"' for label in labels)
+    """
+    Injects data and formatted few-shot examples into a prompt template by
+    mapping the code's variable names to the prompt file's placeholder names.
+    """
+    # 1. Prepare the data strings, same as before.
+    category_list_str = ", ".join(f'"{label}"' for label in labels)
     example_str = "\n\n".join([f"Query: \"{ex['query']}\"\nIntent: \"{ex['intent']}\"" for ex in few_shot_examples])
-    return template.format(labels=label_list_str, few_shot_examples=example_str, text_input=text_input)
-
+    
+    # 2. Use the correct keys ('categories', 'question') that match the .txt file.
+    return template.format(
+        categories=category_list_str,      # Maps to {categories}
+        fewshot_examples=example_str,      # Maps to {fewshot_examples}
+        question=text_input                # Maps to {question}
+    )
+    
 def load_few_shot_examples(file_path: str) -> list:
     """Loads and parses a file of few-shot examples."""
     examples = []
@@ -84,9 +94,23 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     print(f"Confusion matrix plot saved to {cm_png_path}")
 
 
-# --- Main Orchestrator ---
 
+
+
+
+
+
+
+
+
+
+
+# --- Main Orchestrator ---
 def main():
+    # This main function includes all the fixes from the previous step
+    # (reading the full config, processing data, slicing, and JSON parsing)
+    # and now works correctly with the modified format_few_shot_prompt function.
+    
     parser = argparse.ArgumentParser(description="Run a prompting-based intent classification experiment.")
     parser.add_argument("--config", type=str, required=True, help="Path to the main experiment config file.")
     args = parser.parse_args()
@@ -94,8 +118,7 @@ def main():
     project_root = Path(__file__).parent.parent
     
     # 1. Load All Configurations
-    exp_config_path = project_root / args.config
-    exp_config = load_config(exp_config_path)
+    exp_config = load_config(project_root / args.config)
     dataset_config = load_config(project_root / exp_config['dataset_config'])
     
     print("--- Starting Experiment ---")
@@ -112,31 +135,56 @@ def main():
 
     # 4. Load Data, Labels, and Prompt Template
     df, labels = load_dataset_and_labels(dataset_config)
+    
+    print("\n--- Applying Data Processing from Experiment Config ---")
+    if exp_config.get('force_oos', False):
+        oos_indices = exp_config.get('list_oos_idx', [])
+        if oos_indices:
+            oos_labels_to_replace = [labels[i] for i in oos_indices if i < len(labels)]
+            df[dataset_config['label_column']] = df[dataset_config['label_column']].replace(oos_labels_to_replace, 'oos')
+            labels = sorted(list(set(label for label in labels if label not in oos_labels_to_replace) | {'oos'}))
+            print(f"Labels re-mapped to {len(labels)} unique labels including 'oos'.")
+
+    threshold_config = exp_config.get('threshold', {})
+    if threshold_config.get('filter_oos_qns_only', False):
+        n_oos = threshold_config.get('n_oos_qns', 100)
+        df = df[df[dataset_config['label_column']] == 'oos'].head(n_oos)
+        print(f"Dataset filtered to {len(df)} 'oos' questions.")
+
     prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
 
+    
     # 5. Prepare for the main loop based on technique
     few_shot_examples = []
-    if exp_config['technique'] == 'few-shot':
+    if exp_config['technique'] == 'fewshot':
         examples_path = project_root / exp_config['few_shot']['examples_path']
         few_shot_examples = load_few_shot_examples(examples_path)
 
-    # 6. Main Inference Loop (This is where the `predict_class.py` logic lives)
+    # 6. Main Inference Loop
     print("\n--- Running Inference ---")
     results = []
+    
+    start_index = exp_config.get('start_index', 0)
+    end_index = exp_config.get('end_index', len(df))
+    if end_index is None:
+        end_index = len(df)
+    
+    run_df = df.iloc[start_index:end_index]
+    print(f"Processing {len(run_df)} records from index {start_index} to {end_index}.")
+
     # SAMPLE 10 RECORDS
     # sample_df = df.head(10) # Using a small sample. Remove .head(10) for a full run.
     # for index, row in tqdm(sample_df.iterrows(), total=sample_df.shape[0], desc="Classifying Intents"):
     # vs
     # FULL RUN
-    for index, row in tqdm(df.iterrows(), total=df.shape[0], desc="Classifying Intents"):
+    for index, row in tqdm(run_df.iterrows(), total=run_df.shape[0], desc="Classifying Intents"):
         text_input = row[dataset_config['text_column']]
         true_label = row[dataset_config['label_column']]
         
         # A. Format the prompt based on the chosen technique
         prompt = ""
-        if exp_config['technique'] == 'zero-shot':
-            prompt = format_zero_shot_prompt(prompt_template, text_input, labels)
-        elif exp_config['technique'] == 'few-shot':
+        if exp_config['technique'] == 'fewshot':
+            # This call now works correctly without changing the prompt file
             prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
         else:
             raise ValueError(f"Technique '{exp_config['technique']}' not supported.")
@@ -148,7 +196,17 @@ def main():
                 messages=[{'role': 'user', 'content': prompt}],
                 options={'temperature': 0.0}
             )
-            prediction = response['message']['content'].strip().replace('"', '')
+            response_text = response['message']['content']
+            try:
+                json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
+                if json_match:
+                    json_str = json_match.group(0)
+                    prediction_data = json.loads(json_str)
+                    prediction = prediction_data.get('category', 'JSON_KEY_ERROR')
+                else:
+                    prediction = "JSON_NOT_FOUND"
+            except json.JSONDecodeError:
+                prediction = "JSON_DECODE_ERROR"
         except Exception as e:
             print(f"\nERROR during API call for row {index}: {e}")
             prediction = "API_ERROR"
