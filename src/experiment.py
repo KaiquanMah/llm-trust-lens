@@ -1,3 +1,4 @@
+# import libraries
 import argparse
 import yaml
 import os
@@ -9,10 +10,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
 import re
+from pydantic import BaseModel, Field
+from typing import Literal
 
 # Import our custom utility functions
 from data_utils import load_dataset_and_labels
 from ollama_utils import initialize_ollama
+
+
+
 
 # --- Helper Functions ---
 
@@ -28,8 +34,11 @@ def load_prompt_template(template_path: str) -> str:
 
 def format_zero_shot_prompt(template: str, text_input: str, labels: list) -> str:
     """Injects data into a zero-shot prompt template."""
-    label_list_str = ", ".join(f'"{label}"' for label in labels)
-    return template.format(labels=label_list_str, text_input=text_input)
+    category_list_str = ", ".join(f'"{label}"' for label in labels)
+    
+    return template.format(categories=category_list_str, 
+                           question=text_input)
+    
 
 def format_few_shot_prompt(template: str, text_input: str, labels: list, few_shot_examples: list) -> str:
     """
@@ -83,7 +92,9 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
 
     # larger figure because CLINC150OOS dataset has 150 non-oos classes + 1 oos class
     # which needs a larger figure to avoid having overlapping numbers
-    plt.figure(figsize=(80, 80))
+    # plt.figure(figsize=(80, 80))
+    # Make the plot larger for datasets with many labels
+    figsize = max(20, len(labels) // 2 + 10)
     sns.heatmap(cm_df, annot=False, fmt='d', cmap='Blues')
     plt.title('Confusion Matrix')
     plt.ylabel('Actual')
@@ -141,15 +152,26 @@ def main():
         oos_indices = exp_config.get('list_oos_idx', [])
         if oos_indices:
             oos_labels_to_replace = [labels[i] for i in oos_indices if i < len(labels)]
+            print(f"Found {len(oos_labels_to_replace)} labels to convert to 'oos'.")
+            
             df[dataset_config['label_column']] = df[dataset_config['label_column']].replace(oos_labels_to_replace, 'oos')
-            labels = sorted(list(set(label for label in labels if label not in oos_labels_to_replace) | {'oos'}))
-            print(f"Labels re-mapped to {len(labels)} unique labels including 'oos'.")
+            # Recalculate the list of unique labels after transformation
+            labels = sorted(list(df[dataset_config['label_column']].unique()))
+            print(f"Labels re-mapped. New number of unique labels: {len(labels)}")
 
+
+    # filter dataframe - for threshold test only
     threshold_config = exp_config.get('threshold', {})
     if threshold_config.get('filter_oos_qns_only', False):
         n_oos = threshold_config.get('n_oos_qns', 100)
         df = df[df[dataset_config['label_column']] == 'oos'].head(n_oos)
         print(f"Dataset filtered to {len(df)} 'oos' questions.")
+
+    # create Pydantic schema
+    print("\n--- Preparing Model and Prompts ---")
+    class IntentSchema(BaseModel):
+        category: Literal[*labels]
+        confidence: float = Field(..., ge=0.0, le=1.0)
 
     prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
 
@@ -172,52 +194,66 @@ def main():
     run_df = df.iloc[start_index:end_index]
     print(f"Processing {len(run_df)} records from index {start_index} to {end_index}.")
 
+    start_time = time.time()
+    total_rows = len(run_df)
+
+    
     # SAMPLE 10 RECORDS
     # sample_df = df.head(10) # Using a small sample. Remove .head(10) for a full run.
     # for index, row in tqdm(sample_df.iterrows(), total=sample_df.shape[0], desc="Classifying Intents"):
     # vs
     # FULL RUN
-    for index, row in tqdm(run_df.iterrows(), total=run_df.shape[0], desc="Classifying Intents"):
+    
+    for i, (index, row) in enumerate(run_df.iterrows()):
         text_input = row[dataset_config['text_column']]
         true_label = row[dataset_config['label_column']]
         
         # A. Format the prompt based on the chosen technique
-        prompt = ""
-        if exp_config['technique'] == 'fewshot':
-            # This call now works correctly without changing the prompt file
-            prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
-        else:
-            raise ValueError(f"Technique '{exp_config['technique']}' not supported.")
+        prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
 
-        # B. Get the prediction from the LLM (The core "predict_class" action)
+        if i == 0:
+            print("\n--- Example Prompt (for first item) ---")
+            print(prompt)
+            print("--------------------------------------\n")
+
         try:
+            # B. Get the prediction from the LLM (The core "predict_class" action)
             response = client.chat(
                 model=exp_config['model_name'],
                 messages=[{'role': 'user', 'content': prompt}],
+                format='json', # Tell Ollama to enforce JSON output
                 options={'temperature': 0.0}
             )
-            response_text = response['message']['content']
-            try:
-                json_match = re.search(r'\{.*\}', response_text, re.DOTALL)
-                if json_match:
-                    json_str = json_match.group(0)
-                    prediction_data = json.loads(json_str)
-                    prediction = prediction_data.get('category', 'JSON_KEY_ERROR')
-                else:
-                    prediction = "JSON_NOT_FOUND"
-            except json.JSONDecodeError:
-                prediction = "JSON_DECODE_ERROR"
-        except Exception as e:
-            print(f"\nERROR during API call for row {index}: {e}")
-            prediction = "API_ERROR"
+            msg = response['message']['content']
+            # Validate the response with our dynamic Pydantic model
+            parsed_data = IntentSchema.model_validate_json(msg)
+            prediction = parsed_data.category
+            confidence = parsed_data.confidence
+        except (json.JSONDecodeError, Exception) as e:
+            prediction = "ERROR"
+            confidence = 0.0
+            # Provide a more helpful error message
+            print(f"\nError processing row {index}: {e}")
+            if 'msg' in locals():
+                print(f"LLM Response that caused error: {msg}")
 
         # C. Store the result
         results.append({
             'index': index,
             'text': text_input,
             'true_label': true_label,
-            'predicted_label': prediction
+            'predicted_label': prediction,
+            'confidence': confidence
         })
+
+        # --- FEATURE: Re-add advanced ETA logging ---
+        log_every = exp_config.get('run_control', {}).get('log_every_n_examples', 100)
+        if (i + 1) % log_every == 0 and i > 0:
+            elapsed_time = time.time() - start_time
+            avg_time_per_row = elapsed_time / (i + 1)
+            remaining_rows = total_rows - (i + 1)
+            eta = avg_time_per_row * remaining_rows
+            print(f"  Processed {i + 1}/{total_rows} | Elapsed: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))} | ETA: {time.strftime('%H:%M:%S', time.gmtime(eta))}")
 
     # 7. Process and Save Raw Predictions
     results_df = pd.DataFrame(results)
