@@ -121,8 +121,12 @@ def main():
     # 6. Main Inference Loop (This is where the `predict_class.py` logic lives)
     print("\n--- Running Inference ---")
     results = []
-    sample_df = df.head(10) # Using a small sample. Remove .head(10) for a full run.
-    for index, row in tqdm(sample_df.iterrows(), total=sample_df.shape[0], desc="Classifying Intents"):
+    # SAMPLE 10 RECORDS
+    # sample_df = df.head(10) # Using a small sample. Remove .head(10) for a full run.
+    # for index, row in tqdm(sample_df.iterrows(), total=sample_df.shape[0], desc="Classifying Intents"):
+    # vs
+    # FULL RUN
+    for index, row in tqdm(df.iterrows(), total=df.shape[0], desc="Classifying Intents"):
         text_input = row[dataset_config['text_column']]
         true_label = row[dataset_config['label_column']]
         
