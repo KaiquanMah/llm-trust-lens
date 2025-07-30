@@ -259,16 +259,30 @@ def main():
             print("Original intents to convert to OOS class:")
             for i, label in enumerate(oos_labels_to_replace):
                 print(f"{i:4d}  {label}")
-            print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(labels)}\n")
+            
+            # Calculate percentage against original intent count
+            perc_to_oos = len(oos_labels_to_replace)/len(sorted_intent)
+            print(f"Percentage of original intents to convert to OOS class: {perc_to_oos}\n")
             
             # Convert labels to OOS
             df[dataset_config['label_column']] = df[dataset_config['label_column']].replace(oos_labels_to_replace, 'oos')
             
-            # Track non-OOS labels for IntentSchema
-            nonoos_labels = [label for label in labels if label not in oos_labels_to_replace]
+            # Track non-OOS labels (keeping original order)
+            nonoos_labels = [label for label in sorted_intent if label not in oos_labels_to_replace]
             
-            # Recalculate unique labels after transformation
-            labels = sorted(list(df[dataset_config['label_column']].unique()))
+            # Create list of intents after conversion (preserving order)
+            list_sorted_intent_aft_conversion = ['oos' if intent in oos_labels_to_replace else intent 
+                                               for intent in sorted_intent]
+            # Remove duplicates while preserving order
+            list_sorted_intent_aft_conversion_deduped = sorted(set(list_sorted_intent_aft_conversion))
+            
+            # Update labels list for further use
+            labels = list_sorted_intent_aft_conversion_deduped
+            
+            print("="*80)
+            print("Unique intents after converting some to OOS class:")
+            print(labels)
+            print(f"Number of unique intents after converting some to OOS class: {len(labels)}\n")
             
             print("="*80)
             print("Unique intents after converting some to OOS class:")
@@ -305,10 +319,17 @@ def main():
         else:  # oos dataset
             first_class = threshold_config.get('first_class_oos')
         
-        # Filter for first class and sample n examples
-        df = df[df[dataset_config['label_column']] == first_class].copy()
-        df = df.sample(n=n_oos, random_state=38)
-        print(f"Dataset filtered to {len(df)} '{first_class}' questions.")
+        # Filter for first class
+        filtered_df = df[df[dataset_config['label_column']] == first_class].copy()
+        
+        if len(filtered_df) == 0:
+            raise ValueError(f"No examples found for class '{first_class}'. This class might have been converted to 'oos'. Please choose a class that wasn't converted to 'oos'.")
+            
+        # Sample n examples or all available if less than n_oos
+        n_available = len(filtered_df)
+        n_to_sample = min(n_oos, n_available)
+        df = filtered_df.sample(n=n_to_sample, random_state=38)
+        print(f"Dataset filtered to {len(df)} '{first_class}' questions (requested {n_oos}, available {n_available}).")
 
     # create Pydantic schema
     print("\n--- Preparing Model and Prompts ---")
