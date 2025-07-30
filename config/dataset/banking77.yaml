@@ -2,7 +2,7 @@
 name: "banking"    # options: 'banking', 'stackoverflow', 'oos'
 
 # Paths are relative to the project root directory (llm-trust-lens/)
-path: "data/banking/train.tsv"
+path: "data/banking/"
 label_map_path: "data/banking/banking77_idx2label.csv"
 
 # The names of the columns in train.csv
