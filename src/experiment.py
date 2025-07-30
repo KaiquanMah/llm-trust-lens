@@ -273,13 +273,9 @@ def main():
             # Track non-OOS labels (keeping original order)
             nonoos_labels = [label for label in sorted_intent if label not in oos_labels_to_replace]
             
-            # Create final label list: non-OOS labels plus one 'oos'
-            labels = nonoos_labels + ['oos']  # Ensure 'oos' is added only once
-            
-            print("="*80)
-            print("Unique intents after converting some to OOS class:")
-            print(labels)
-            print(f"Number of unique intents after converting some to OOS class: {len(labels)}\n")
+            # Create final label list: remaining non-OOS label(s) plus 'oos'
+            labels = nonoos_labels + ['oos']  # Should be just one non-OOS label + 'oos'
+            labels = sorted(set(labels))  # Ensure uniqueness and order
             
             print("="*80)
             print("Unique intents after converting some to OOS class:")
@@ -295,10 +291,11 @@ def main():
             print(f"Number of original intents: {len(sorted_intent)}")
             print(f"Number of original intents + 1 OOS class (if doesnt exist in original dataset): {len(sorted_intent) + adjust_if_oos_not_in_orig_dataset}")
             print(f"Number of original intents to convert to OOS class: {len(oos_labels_to_replace)}")
-            print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(labels)}")
+            print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(sorted_intent)}")  # Using original count as denominator
             print(f"Number of unique intents after converting some to OOS class: {len(labels)}")
             print(f"Number of original intents + 1 OOS class (if doesnt exist in original dataset) - converted classes: {len(sorted_intent) + adjust_if_oos_not_in_orig_dataset - len(oos_labels_to_replace)}")
-            print(f"Numbers match: {(len(sorted_intent) + adjust_if_oos_not_in_orig_dataset - len(oos_labels_to_replace)) == len(labels)}")
+            # Since we're converting all but one class to 'oos', we should have exactly 2 classes
+            print(f"Numbers match: {len(labels) == 2}")
             print("Prepared unique intents")
 
 
