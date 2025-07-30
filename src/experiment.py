@@ -173,7 +173,7 @@ def main():
     print("\n--- Preparing Model and Prompts ---")
     class IntentSchema(BaseModel):
         category: Literal[*labels]
-        confidence: float = Field(..., ge=0.0, le=1.0)
+        confidence: float = Field(..., ge=0.0, le=100.0)  # Allow confidence values from 0-100
 
     prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
 
