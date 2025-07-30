@@ -75,7 +75,13 @@ def format_few_shot_prompt(template: str, text_input: str, labels: list, few_sho
     )
     
 
-def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: Path):
+def get_base_filename(exp_config: dict, dataset_config: dict, start_index: int, end_index: int) -> str:
+    """Creates a standardized base filename using model and dataset information."""
+    model_name = exp_config['model_name'].replace('/', '_').lower()  # sanitize model name
+    dataset_name = dataset_config['name'].lower()
+    return f"{model_name}_{dataset_name}_{start_index}_{end_index}"
+
+def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: Path, base_filename: str, exp_config: dict, dataset_config: dict):
     """Calculates metrics and saves all evaluation artifacts."""
     valid_results = df_results[df_results['predicted'].isin(labels)]
     if len(valid_results) == 0:
@@ -85,28 +91,37 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     true_labels = valid_results['label']  # Using new column name 'label'
     predicted_labels = valid_results['predicted']  # Using new column name 'predicted'
 
+    # Get model and dataset name without indices for cm and classification report
+    model_name = exp_config['model_name'].replace('/', '_').lower()
+    dataset_name = dataset_config['name'].lower()
+    filename_without_indices = f"{model_name}_{dataset_name}"
+    
+    # Save classification report
     report = classification_report(true_labels, predicted_labels, labels=labels, output_dict=True, zero_division=0)
     report_df = pd.DataFrame(report).transpose()
-    report_path = output_dir / "classification_report.csv"
-    report_df.to_csv(report_path)
-    print(f"\nClassification Report saved to {report_path}")
+    
+    # Save classification report (txt only, without indices)
+    report_txt_path = output_dir / f"classification_report_{filename_without_indices}.txt"
+    with open(report_txt_path, 'w') as f:
+        f.write(classification_report(true_labels, predicted_labels, labels=labels, zero_division=0))
+    
+    print(f"\nClassification Report saved to {report_txt_path}")
 
+    # Save confusion matrix
     cm = confusion_matrix(true_labels, predicted_labels, labels=labels)
     cm_df = pd.DataFrame(cm, index=labels, columns=labels)
-    cm_csv_path = output_dir / "confusion_matrix.csv"
+    cm_csv_path = output_dir / f"cm_{filename_without_indices}.csv"
     cm_df.to_csv(cm_csv_path)
     print(f"Confusion matrix saved to {cm_csv_path}")
 
-    # larger figure because CLINC150OOS dataset has 150 non-oos classes + 1 oos class
-    # which needs a larger figure to avoid having overlapping numbers
-    # plt.figure(figsize=(80, 80))
-    # Make the plot larger for datasets with many labels
+    # Create confusion matrix plot
     figsize = max(20, len(labels) // 2 + 10)
+    plt.figure(figsize=(figsize, figsize))
     sns.heatmap(cm_df, annot=False, fmt='d', cmap='Blues')
     plt.title('Confusion Matrix')
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
-    cm_png_path = output_dir / "confusion_matrix.png"
+    cm_png_path = output_dir / f"cm_{filename_without_indices}.png"
     plt.savefig(cm_png_path, bbox_inches='tight')
     plt.close()
     print(f"Confusion matrix plot saved to {cm_png_path}")
@@ -319,15 +334,18 @@ def main():
             eta = avg_time_per_row * remaining_rows
             print(f"  Processed {i + 1}/{total_rows} | Elapsed: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))} | ETA: {time.strftime('%H:%M:%S', time.gmtime(eta))}")
 
-    # 7. Process and Save Raw Predictions
+    # 7. Create base filename for all outputs
+    base_filename = get_base_filename(exp_config, dataset_config, start_index, end_index)
+    
+    # 8. Process and Save Raw Predictions
     results_df = pd.DataFrame(results)
-    predictions_path = output_dir / "predictions.json"
+    predictions_path = output_dir / f"results_{base_filename}.json"
     results_df.to_json(predictions_path, orient='records', indent=4)
     print(f"\nRaw predictions saved to {predictions_path}")
 
-    # 8. Evaluate and Save Metrics
+    # 9. Evaluate and Save Metrics
     print("\n--- Generating Evaluation Metrics ---")
-    save_evaluation_results(results_df, labels, output_dir)
+    save_evaluation_results(results_df, labels, output_dir, base_filename, exp_config, dataset_config)
 
     print("\n--- Experiment Finished ---")
 
