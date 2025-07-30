@@ -4,4 +4,4 @@ banking
 0 to end
 Overall Accuracy: 30.00%
 Overall Weighted F1: 46.15%
-Overall F1: 15.38%  # macro F1
+Overall F1: 6.59%  # macro F1

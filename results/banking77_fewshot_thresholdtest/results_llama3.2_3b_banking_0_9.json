@@ -1,70 +1,34 @@
 [
     {
-        "Index":8047,
-        "text":"Why did you charge me extra when I withdrew cash?",
+        "Index":4895,
+        "text":"will you be able to activate my card",
         "label":"oos",
         "dataset":"banking",
         "split":"train",
-        "predicted":"wrong_amount_of_cash_received",
-        "confidence":74.56
+        "predicted":"virtual_card_not_working",
+        "confidence":52.64
     },
     {
-        "Index":8627,
-        "text":"Hey I thought transfers were free.  Why are you charging me?",
-        "label":"oos",
-        "dataset":"banking",
-        "split":"train",
-        "predicted":"wrong_amount_of_cash_received",
-        "confidence":74.56
-    },
-    {
-        "Index":5645,
-        "text":"How do I see what fees I am supposed to be charged on my account? I've noticed fees on some transactions, but not on others. This is very confusing and I cannot find a pattern to what I am being charged?",
-        "label":"oos",
-        "dataset":"banking",
-        "split":"train",
-        "predicted":"why_verify_identity",
-        "confidence":83.12
-    },
-    {
-        "Index":13007,
-        "text":"Why did I have to pay more when I do it with my card?",
+        "Index":10698,
+        "text":"Can it automatically top-up money if there isn't much left?",
         "label":"oos",
         "dataset":"banking",
         "split":"test",
-        "predicted":"wrong_amount_of_cash_received",
-        "confidence":74.56
+        "predicted":"topping_up_by_card",
+        "confidence":99.02
     },
     {
-        "Index":4227,
-        "text":"How long does it take to prove my identity?",
+        "Index":11228,
+        "text":"i want to close an account but im not sure about setting up a new one in the future, what do you recommend",
         "label":"oos",
         "dataset":"banking",
-        "split":"train",
-        "predicted":"why_verify_identity",
-        "confidence":67.12
+        "split":"test",
+        "predicted":"oos",
+        "confidence":100.0
     },
     {
-        "Index":1687,
-        "text":"Hi need your help for getting the refund or cancel the payment of an item, i have ordered but still have not received it.",
-        "label":"oos",
-        "dataset":"banking",
-        "split":"train",
-        "predicted":"wrong_amount_of_cash_received",
-        "confidence":22.22
-    },
-    {
-        "Index":497,
-        "text":"i withdrew cash and dont see it reflected on the balance",
-        "label":"oos",
-        "dataset":"banking",
-        "split":"train",
-        "predicted":"wrong_amount_of_cash_received",
-        "confidence":74.56
-    },
-    {
-        "Index":2132,
-        "text":"Can I set automatic top ups?",
+        "Index":2990,
+        "text":"Can an apple watch be used to tup-up?",
         "label":"oos",
         "dataset":"banking",
         "split":"train",
@@ -72,21 +36,57 @@
         "confidence":100.0
     },
     {
-        "Index":6197,
-        "text":"When my card expires what is the cost of a replacement and how fast?",
+        "Index":12248,
+        "text":"Why is my cash withdrawal from the ATM still not yet showing as confirmed in my account?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"transfer_not_received_by_recipient",
+        "confidence":98.89
+    },
+    {
+        "Index":5311,
+        "text":"I think a payment I made with a card was cancelled.",
         "label":"oos",
         "dataset":"banking",
         "split":"train",
+        "predicted":"transaction_charged_twice",
+        "confidence":34.12
+    },
+    {
+        "Index":2036,
+        "text":"How long does it take for a payment to change from pending?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"transfer_timing",
+        "confidence":52.16
+    },
+    {
+        "Index":9742,
+        "text":"Which part of the app do I order virtual cards from?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"dev",
         "predicted":"oos",
         "confidence":0.0
     },
     {
-        "Index":8674,
-        "text":"Could you assist me in finding my lost card?",
+        "Index":2623,
+        "text":"Am I limited to what ATM I can use my card?",
         "label":"oos",
         "dataset":"banking",
         "split":"train",
-        "predicted":"oos",
-        "confidence":100.0
+        "predicted":"virtual_card_not_working",
+        "confidence":52.64
+    },
+    {
+        "Index":2733,
+        "text":"You accepts my card?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"visa_or_mastercard",
+        "confidence":99.0
     }
 ]

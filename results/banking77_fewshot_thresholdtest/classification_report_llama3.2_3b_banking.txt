@@ -1,11 +1,22 @@
                                          precision    recall  f1-score   support
 
                                     oos       1.00      0.30      0.46        10
+                     topping_up_by_card       0.00      0.00      0.00         0
+              transaction_charged_twice       0.00      0.00      0.00         0
+                   transfer_fee_charged       0.00      0.00      0.00         0
+                  transfer_into_account       0.00      0.00      0.00         0
+     transfer_not_received_by_recipient       0.00      0.00      0.00         0
+                        transfer_timing       0.00      0.00      0.00         0
+              unable_to_verify_identity       0.00      0.00      0.00         0
+                     verify_my_identity       0.00      0.00      0.00         0
+                 verify_source_of_funds       0.00      0.00      0.00         0
+                          verify_top_up       0.00      0.00      0.00         0
+               virtual_card_not_working       0.00      0.00      0.00         0
                      visa_or_mastercard       0.00      0.00      0.00         0
                     why_verify_identity       0.00      0.00      0.00         0
           wrong_amount_of_cash_received       0.00      0.00      0.00         0
 wrong_exchange_rate_for_cash_withdrawal       0.00      0.00      0.00         0
 
                                accuracy                           0.30        10
-                              macro avg       0.20      0.06      0.09        10
+                              macro avg       0.06      0.02      0.03        10
                            weighted avg       1.00      0.30      0.46        10
