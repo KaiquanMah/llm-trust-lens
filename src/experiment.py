@@ -264,35 +264,35 @@ def main():
             perc_to_oos = len(oos_labels_to_replace)/len(sorted_intent)
             print(f"Percentage of original intents to convert to OOS class: {perc_to_oos}\n")
             
-            # Get all non-OOS labels first
+            # Get non-OOS labels from idx2label file
             nonoos_labels = [label for label in labels if label not in oos_labels_to_replace]
-            if not nonoos_labels:
-                print("ERROR: All labels were converted to OOS. Need at least one non-OOS label.")
-                return
+            print(f"Non-OOS labels to preserve: {nonoos_labels}")
             
-            # Convert labels to OOS, preserving the original label if not in oos_labels_to_replace
+            # Convert labels to OOS while preserving original non-OOS labels
             df[dataset_config['label_column']] = df[dataset_config['label_column']].apply(
                 lambda x: 'oos' if x in oos_labels_to_replace else x
             )
             
-            # Get all unique labels after conversion
-            list_sorted_intent_aft_conversion = sorted(df[dataset_config['label_column']].unique())
+            # Get the final set of labels
+            final_labels = sorted(set(df[dataset_config['label_column']].unique()))
             
-            # For threshold test, we need exactly one non-OOS class
-            remaining_label = next(label for label in list_sorted_intent_aft_conversion if label != 'oos')
+            # Verify the conversion worked as expected
+            if 'oos' not in final_labels:
+                print("ERROR: 'oos' label is missing after conversion")
             
-            # Now convert all non-OOS labels to the remaining label
-            df[dataset_config['label_column']] = df[dataset_config['label_column']].apply(
-                lambda x: remaining_label if x != 'oos' else x
-            )
+            # In threshold test mode, verify we have the expected number of classes
+            if threshold_config.get('filter_oos_qns_only', False):
+                expected_nonoos_count = len(nonoos_labels) - len(oos_labels_to_replace)
+                actual_nonoos_count = len([x for x in final_labels if x != 'oos'])
+                if actual_nonoos_count != expected_nonoos_count:
+                    print(f"WARNING: Expected {expected_nonoos_count} non-OOS labels, found {actual_nonoos_count}")
+                    print(f"Final labels: {final_labels}")
             
-            # Final verification
-            final_labels = sorted(df[dataset_config['label_column']].unique())
-            if set(final_labels) != {'oos', remaining_label}:
-                print(f"WARNING: After conversion, found unexpected labels: {final_labels}")
-                
-            # Create final label list: 'oos' first, then the one remaining class
-            labels = ['oos', remaining_label]  # Exactly two classes, in this specific order
+            # Create final label list with 'oos' first, followed by other labels
+            labels = ['oos'] + sorted([label for label in final_labels if label != 'oos'])
+            # labels = ['oos', remaining_label]  # Old approach: exactly two classes
+            # New approach: 'oos' first, then all preserved non-OOS labels
+            labels = ['oos'] + sorted([label for label in final_labels if label != 'oos'])
             
             # Verify we have exactly what we expect
             expected_label_count = 2  # For force_oos case, we expect exactly 2 labels
