@@ -84,7 +84,7 @@ def get_base_filename(exp_config: dict, dataset_config: dict, start_index: int, 
     """Creates a standardized base filename using model and dataset information."""
     model_name = exp_config['model_name'].replace('/', '_').replace(':', '_').lower()  # sanitize model name
     dataset_name = dataset_config['name'].lower()
-    return f"{model_name}_{dataset_name}_{start_index}_{end_index}"
+    return f"{model_name}_{dataset_name}_{start_index}_{end_index-1}"
 
 def add_open_vs_known_labels(df: pd.DataFrame) -> pd.DataFrame:
     """Add open vs known labels to the dataframe."""
@@ -185,7 +185,12 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     # Create confusion matrix plot
     figsize = max(20, len(labels) // 2 + 10)
     plt.figure(figsize=(figsize, figsize))
-    sns.heatmap(cm_df, annot=False, fmt='d', cmap='Blues')
+    sns.heatmap(cm_df, 
+                annot=True,           # Show numbers in cells
+                fmt='d',              # Use integer format
+                cmap='Blues',
+                xticklabels=labels,   # Use our sorted labels
+                yticklabels=labels)   # Use same labels for both axes
     plt.title('Confusion Matrix')
     plt.ylabel('Actual')
     plt.xlabel('Predicted')
