@@ -1,0 +1,7 @@
+
+llama3.2_3b
+banking
+0 to end
+Overall Accuracy: 80.00%
+Overall Weighted F1: 88.89%
+Overall F1: 44.44%  # macro F1

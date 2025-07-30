@@ -1,0 +1,92 @@
+[
+    {
+        "Index":2502,
+        "text":"I want to get some cash from the ATM using my card but I dont want to be charged any fees. Ive taken some money out before with no fees, but recently Ive been getting charged. Why?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"wrong_exchange_rate_for_cash_withdrawal",
+        "confidence":85.25
+    },
+    {
+        "Index":139,
+        "text":"My transfer was wrong, are you able to stop it before it goes through please?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"wrong_exchange_rate_for_cash_withdrawal",
+        "confidence":85.25
+    },
+    {
+        "Index":7283,
+        "text":"There are a few transaction that I don't recognize, I think someone managed to get my card details and use it.\n",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":12531,
+        "text":"What's the most disposable cards I can have?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":7965,
+        "text":"The ATM would not give me cash,why?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":11063,
+        "text":"My salary is in GBP; how can I note this in the app?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":571,
+        "text":"Delete my account please. Now!",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":213,
+        "text":"How long should it take for my top-up to finish? I've been waiting a while.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":9707,
+        "text":"Are you ripping people off with the exchange rate?  It can't be that atrocious between banks.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"dev",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":11381,
+        "text":"Is the top up feature available on the Apple Watch?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":100.0
+    }
+]
