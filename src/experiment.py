@@ -35,7 +35,10 @@ def load_prompt_template(template_path: str) -> str:
 
 def format_zero_shot_prompt(template: str, text_input: str, labels: list) -> str:
     """Injects data into a zero-shot prompt template."""
-    category_list_str = ", ".join(f'"{label}"' for label in labels)
+    # Filter out 'oos' from the displayed categories list, but keep it as a valid output option
+    display_labels = [label for label in labels if label != 'oos']
+    # Convert to bullet-point format
+    category_list_str = "\n".join(f"- {label}" for label in display_labels)
     
     return template.format(categories=category_list_str, 
                            question=text_input)
@@ -59,8 +62,10 @@ def format_few_shot_prompt(template: str, text_input: str, labels: list, few_sho
     Injects data and formatted few-shot examples into a prompt template by
     mapping the code's variable names to the prompt file's placeholder names.
     """
-    # 1. Prepare the data strings, same as before.
-    category_list_str = ", ".join(f'"{label}"' for label in labels)
+    # 1. Filter out 'oos' from the displayed categories list, but keep it as a valid output option
+    display_labels = [label for label in labels if label != 'oos']
+    # Convert to bullet-point format
+    category_list_str = "\n".join(f"- {label}" for label in display_labels)
     
     # 2. Use the correct keys ('categories', 'question') that match the .txt file.
     return template.format(
