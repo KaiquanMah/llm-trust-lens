@@ -1,0 +1,8 @@
+                       precision    recall  f1-score   support
+
+                  oos       1.00      0.90      0.95        10
+Refund_not_showing_up       0.00      0.00      0.00         0
+
+             accuracy                           0.90        10
+            macro avg       0.50      0.45      0.47        10
+         weighted avg       1.00      0.90      0.95        10

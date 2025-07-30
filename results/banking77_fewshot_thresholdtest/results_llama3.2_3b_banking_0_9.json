@@ -1,0 +1,92 @@
+[
+    {
+        "Index":12456,
+        "text":"I made a transfer and am still waiting.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":6069,
+        "text":"How come I can't find my payment?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":3791,
+        "text":"Why can't my beneficiary get access?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":2098,
+        "text":"Can you tell me exactly what fees I will expect to see in regards to your cards?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":7273,
+        "text":"My transfer into my account isn't showing up.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"Refund_not_showing_up",
+        "confidence":97.5
+    },
+    {
+        "Index":12675,
+        "text":"I would like to see the source of my money.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":8047,
+        "text":"Why did you charge me extra when I withdrew cash?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":276,
+        "text":"How do I know it is a Mastercard ATM?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":12261,
+        "text":"Why was my ATM transaction cancelled?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":954,
+        "text":"Can I use this app to change money?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    }
+]
