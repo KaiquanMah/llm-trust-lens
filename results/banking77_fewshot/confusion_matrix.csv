@@ -1,0 +1,7 @@
+,Refund_not_showing_up,oos,visa_or_mastercard,why_verify_identity,wrong_amount_of_cash_received,wrong_exchange_rate_for_cash_withdrawal
+Refund_not_showing_up,0,0,0,0,0,0
+oos,0,0,0,1,9,0
+visa_or_mastercard,0,0,0,0,0,0
+why_verify_identity,0,0,0,0,0,0
+wrong_amount_of_cash_received,0,0,0,0,0,0
+wrong_exchange_rate_for_cash_withdrawal,0,0,0,0,0,0

@@ -1,0 +1,10 @@
+,precision,recall,f1-score,support
+Refund_not_showing_up,0.0,0.0,0.0,0.0
+oos,0.0,0.0,0.0,10.0
+visa_or_mastercard,0.0,0.0,0.0,0.0
+why_verify_identity,0.0,0.0,0.0,0.0
+wrong_amount_of_cash_received,0.0,0.0,0.0,0.0
+wrong_exchange_rate_for_cash_withdrawal,0.0,0.0,0.0,0.0
+accuracy,0.0,0.0,0.0,0.0
+macro avg,0.0,0.0,0.0,10.0
+weighted avg,0.0,0.0,0.0,10.0
