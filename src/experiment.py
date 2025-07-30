@@ -82,7 +82,7 @@ def format_few_shot_prompt(template: str, text_input: str, labels: list, few_sho
 
 def get_base_filename(exp_config: dict, dataset_config: dict, start_index: int, end_index: int) -> str:
     """Creates a standardized base filename using model and dataset information."""
-    model_name = exp_config['model_name'].replace('/', '_').lower()  # sanitize model name
+    model_name = exp_config['model_name'].replace('/', '_').replace(':', '_').lower()  # sanitize model name
     dataset_name = dataset_config['name'].lower()
     return f"{model_name}_{dataset_name}_{start_index}_{end_index}"
 
@@ -132,7 +132,8 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     valid_results = add_open_vs_known_labels(valid_results)
 
     # Get model and dataset name without indices for cm and classification report
-    model_name = exp_config['model_name'].replace('/', '_').lower()
+    # Replace both '/' and ':' with '_' in model name for safe filenames
+    model_name = exp_config['model_name'].replace('/', '_').replace(':', '_').lower()
     dataset_name = dataset_config['name'].lower()
     filename_without_indices = f"{model_name}_{dataset_name}"
     
