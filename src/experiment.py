@@ -244,6 +244,9 @@ def main():
     
     print("\n--- Applying Data Processing from Experiment Config ---")
     
+    # Get threshold config early
+    threshold_config = exp_config.get('threshold', {})
+    
     # Print initial dataset statistics
     sorted_intent = sorted(df[dataset_config['label_column']].unique())
     print("="*80)
@@ -288,18 +291,16 @@ def main():
                     print(f"WARNING: Expected {expected_nonoos_count} non-OOS labels, found {actual_nonoos_count}")
                     print(f"Final labels: {final_labels}")
             
-            # Create final label list with 'oos' first, followed by other labels
-            labels = ['oos'] + sorted([label for label in final_labels if label != 'oos'])
-            # labels = ['oos', remaining_label]  # Old approach: exactly two classes
-            # New approach: 'oos' first, then all preserved non-OOS labels
+            # Create final label list with 'oos' first, followed by other labels in sorted order
             labels = ['oos'] + sorted([label for label in final_labels if label != 'oos'])
             
-            # Verify we have exactly what we expect
-            expected_label_count = 2  # For force_oos case, we expect exactly 2 labels
-            if len(labels) != expected_label_count:
-                print(f"ERROR: Expected exactly {expected_label_count} labels, but got {len(labels)}: {labels}")
+            # Verify we have the expected structure
             if 'oos' not in labels:
                 print("ERROR: 'oos' label is missing from final labels")
+            
+            # Print final label count
+            print(f"Final label count: {len(labels)} labels")
+            print(f"Labels: {labels}")
             
             print("="*80)
             print("Unique intents after converting some to OOS class:")
