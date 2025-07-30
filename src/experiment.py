@@ -86,11 +86,25 @@ def get_base_filename(exp_config: dict, dataset_config: dict, start_index: int, 
     dataset_name = dataset_config['name'].lower()
     return f"{model_name}_{dataset_name}_{start_index}_{end_index}"
 
-def generate_metrics_summary(df_results: pd.DataFrame, model_name: str, dataset_name: str, start_index: int, end_index: int) -> str:
+def add_open_vs_known_labels(df: pd.DataFrame) -> pd.DataFrame:
+    """Add open vs known labels to the dataframe."""
+    df = df.copy()
+    # Add open vs known columns
+    df.loc[(df["label"] != "oos"), "label_open_vs_known"] = "known"
+    df.loc[(df["label"] == "oos"), "label_open_vs_known"] = "open"
+    df.loc[(df["predicted"] != "oos"), "predicted_open_vs_known"] = "known"
+    df.loc[(df["predicted"] == "oos"), "predicted_open_vs_known"] = "open"
+    return df
+
+def generate_metrics_summary(df_results: pd.DataFrame, model_name: str, dataset_name: str, start_index: int, end_index: int, is_open_vs_known: bool = False) -> str:
     """Generate a summary of metrics including accuracy and F1 scores."""
     # Calculate metrics
-    true_labels = df_results['label']
-    predicted_labels = df_results['predicted']
+    if is_open_vs_known:
+        true_labels = df_results['label_open_vs_known']
+        predicted_labels = df_results['predicted_open_vs_known']
+    else:
+        true_labels = df_results['label']
+        predicted_labels = df_results['predicted']
     
     accuracy = accuracy_score(true_labels, predicted_labels)
     weighted_f1 = f1_score(true_labels, predicted_labels, average='weighted')
@@ -114,33 +128,51 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
         print("\nWarning: No valid predictions found to evaluate. Skipping metrics generation.")
         return
 
-    true_labels = valid_results['label']  # Using new column name 'label'
-    predicted_labels = valid_results['predicted']  # Using new column name 'predicted'
+    # Add open vs known labels
+    valid_results = add_open_vs_known_labels(valid_results)
 
     # Get model and dataset name without indices for cm and classification report
     model_name = exp_config['model_name'].replace('/', '_').lower()
     dataset_name = dataset_config['name'].lower()
     filename_without_indices = f"{model_name}_{dataset_name}"
     
-    # Generate and save metrics summary
+    # Get basic labels and predictions
+    true_labels = valid_results['label']
+    predicted_labels = valid_results['predicted']
+
+    # Get open vs known labels and predictions
+    true_labels_open_vs_known = valid_results['label_open_vs_known']
+    predicted_labels_open_vs_known = valid_results['predicted_open_vs_known']
+    
+    # Generate and save regular metrics summary
     start_index = exp_config.get('start_index', 0)
     end_index = exp_config.get('end_index', None)
-    metrics_summary = generate_metrics_summary(valid_results, model_name, dataset_name, start_index, end_index)
+    
+    # Regular metrics
+    metrics_summary = generate_metrics_summary(valid_results, model_name, dataset_name, start_index, end_index, is_open_vs_known=False)
     metrics_path = output_dir / f"metrics_{filename_without_indices}.txt"
     with open(metrics_path, 'w') as f:
         f.write(metrics_summary)
     print(f"\nMetrics summary saved to {metrics_path}")
     
-    # Save classification report
-    report = classification_report(true_labels, predicted_labels, labels=labels, output_dict=True, zero_division=0)
-    report_df = pd.DataFrame(report).transpose()
+    # Open vs Known metrics
+    metrics_summary_open_vs_known = generate_metrics_summary(valid_results, model_name, dataset_name, start_index, end_index, is_open_vs_known=True)
+    metrics_path_open_vs_known = output_dir / f"metrics_{filename_without_indices}_open_vs_known.txt"
+    with open(metrics_path_open_vs_known, 'w') as f:
+        f.write(metrics_summary_open_vs_known)
+    print(f"Open vs Known metrics summary saved to {metrics_path_open_vs_known}")
     
-    # Save classification report (txt only, without indices)
+    # Save regular classification report
     report_txt_path = output_dir / f"classification_report_{filename_without_indices}.txt"
     with open(report_txt_path, 'w') as f:
         f.write(classification_report(true_labels, predicted_labels, labels=labels, zero_division=0))
-    
     print(f"\nClassification Report saved to {report_txt_path}")
+    
+    # Save open vs known classification report
+    report_txt_path_open_vs_known = output_dir / f"classification_report_{filename_without_indices}_open_vs_known.txt"
+    with open(report_txt_path_open_vs_known, 'w') as f:
+        f.write(classification_report(true_labels_open_vs_known, predicted_labels_open_vs_known, labels=['known', 'open'], zero_division=0))
+    print(f"Open vs Known Classification Report saved to {report_txt_path_open_vs_known}")
 
     # Save confusion matrix
     cm = confusion_matrix(true_labels, predicted_labels, labels=labels)
