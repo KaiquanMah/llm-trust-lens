@@ -77,13 +77,13 @@ def format_few_shot_prompt(template: str, text_input: str, labels: list, few_sho
 
 def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: Path):
     """Calculates metrics and saves all evaluation artifacts."""
-    valid_results = df_results[df_results['predicted_label'].isin(labels)]
+    valid_results = df_results[df_results['predicted'].isin(labels)]
     if len(valid_results) == 0:
         print("\nWarning: No valid predictions found to evaluate. Skipping metrics generation.")
         return
 
-    true_labels = valid_results['true_label']
-    predicted_labels = valid_results['predicted_label']
+    true_labels = valid_results['label']  # Using new column name 'label'
+    predicted_labels = valid_results['predicted']  # Using new column name 'predicted'
 
     report = classification_report(true_labels, predicted_labels, labels=labels, output_dict=True, zero_division=0)
     report_df = pd.DataFrame(report).transpose()
