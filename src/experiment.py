@@ -289,11 +289,8 @@ def main():
             parsed_json = json.loads(msg)
             # Validate the response with our dynamic Pydantic model
             parsed_data = IntentSchema(**parsed_json)
-            prediction = parsed_data.category
-            confidence = parsed_data.confidence
         except (json.JSONDecodeError, Exception) as e:
-            prediction = "ERROR"
-            confidence = 0.0
+            parsed_data = {'category': 'error', 'confidence': 0.0}
             # Provide a more helpful error message
             print(f"\nError processing row {index}: {e}")
             if 'msg' in locals():
@@ -301,11 +298,13 @@ def main():
 
         # C. Store the result
         results.append({
-            'index': index,
-            'text': text_input,
-            'true_label': true_label,
-            'predicted_label': prediction,
-            'confidence': confidence
+            "Index": index,
+            "text": text_input,
+            "label": true_label,
+            "dataset": dataset_config['name'],  # eg banking, oos, stackoverflow
+            "split": row['split'] if 'split' in row else None,  # eg train, dev, test
+            "predicted": parsed_data['category'],
+            "confidence": parsed_data['confidence']
         })
 
         # --- FEATURE: Re-add advanced ETA logging ---
