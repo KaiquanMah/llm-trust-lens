@@ -264,18 +264,28 @@ def main():
             perc_to_oos = len(oos_labels_to_replace)/len(sorted_intent)
             print(f"Percentage of original intents to convert to OOS class: {perc_to_oos}\n")
             
-            # Store original class mapping for threshold test
-            original_class_mapping = {label: 'oos' for label in oos_labels_to_replace}
-            
             # Convert labels to OOS
             df[dataset_config['label_column']] = df[dataset_config['label_column']].replace(oos_labels_to_replace, 'oos')
             
-            # Track non-OOS labels (keeping original order)
-            nonoos_labels = [label for label in sorted_intent if label not in oos_labels_to_replace]
+            # Verify the conversion was complete
+            unique_labels_after_conversion = sorted(df[dataset_config['label_column']].unique())
+            if len(unique_labels_after_conversion) != 2 or 'oos' not in unique_labels_after_conversion:
+                print(f"WARNING: After conversion, found unexpected labels: {unique_labels_after_conversion}")
             
-            # Create final label list: remaining non-OOS label(s) plus 'oos'
-            labels = nonoos_labels + ['oos']  # Should be just one non-OOS label + 'oos'
-            labels = sorted(set(labels))  # Ensure uniqueness and order
+            # Find the last index that wasn't converted to OOS (should be only one)
+            remaining_label = labels[-1]  # Get the last label from original ordered list
+            if remaining_label in oos_labels_to_replace:
+                print("ERROR: Last label was also converted to OOS. Check list_oos_idx configuration.")
+                remaining_label = [label for label in labels if label not in oos_labels_to_replace][0]
+            
+            # Create final label list: 'oos' first, then the one remaining class
+            labels = ['oos', remaining_label]  # Exactly two classes, in this specific order
+            
+            # Verify we have exactly what we expect
+            if len(labels) != 2:
+                print(f"ERROR: Expected exactly 2 labels, but got {len(labels)}: {labels}")
+            if 'oos' not in labels:
+                print("ERROR: 'oos' label is missing from final labels")
             
             print("="*80)
             print("Unique intents after converting some to OOS class:")
@@ -288,14 +298,20 @@ def main():
             
             print("="*80)
             print("sanity check")
+            # Original counts
             print(f"Number of original intents: {len(sorted_intent)}")
             print(f"Number of original intents + 1 OOS class (if doesnt exist in original dataset): {len(sorted_intent) + adjust_if_oos_not_in_orig_dataset}")
             print(f"Number of original intents to convert to OOS class: {len(oos_labels_to_replace)}")
             print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(sorted_intent)}")  # Using original count as denominator
+            
+            # After conversion checks
+            expected_final_count = 2  # We should have exactly 2 classes: one non-OOS and 'oos'
             print(f"Number of unique intents after converting some to OOS class: {len(labels)}")
             print(f"Number of original intents + 1 OOS class (if doesnt exist in original dataset) - converted classes: {len(sorted_intent) + adjust_if_oos_not_in_orig_dataset - len(oos_labels_to_replace)}")
-            # Since we're converting all but one class to 'oos', we should have exactly 2 classes
-            print(f"Numbers match: {len(labels) == 2}")
+            print(f"Numbers match: {len(labels) == expected_final_count}")
+            
+            if len(labels) != expected_final_count:
+                print(f"WARNING: Expected {expected_final_count} classes (1 non-OOS + 'oos'), but found {len(labels)}: {labels}")
             print("Prepared unique intents")
 
 
