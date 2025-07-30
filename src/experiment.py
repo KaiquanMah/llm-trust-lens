@@ -279,8 +279,8 @@ def main():
     IntentSchema = create_model(
         'IntentSchema',
         category=(str, Field(..., description="The predicted intent category", enum=labels)),
-        # Allow confidence values from 0-100
-        confidence=(float, Field(..., ge=0.0, le=100.0, description="Confidence score between 0 and 100"))
+        # Allow confidence values from 0.0-100.0
+        confidence=(float, Field(..., ge=0.0, le=100.0, description="Confidence score between 0.0 and 100.0"))
     )
 
     prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
