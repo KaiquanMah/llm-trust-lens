@@ -271,8 +271,17 @@ def main():
             nonoos_labels = [label for label in labels if label not in oos_labels_to_replace]
             print(f"Non-OOS labels to preserve: {nonoos_labels}")
             
+            # Calculate number of labels to preserve based on total unique classes and list_oos_idx length
+            total_unique_classes = len(sorted_intent)
+            num_classes_to_convert = len(oos_indices)
+            num_labels_to_preserve = total_unique_classes - num_classes_to_convert
+            
+            if num_labels_to_preserve <= 0:
+                raise ValueError(f"Invalid configuration: list_oos_idx length ({num_classes_to_convert}) must be less than total unique classes ({total_unique_classes})")
+            
             # Get the list of labels we want to preserve
-            labels_to_preserve = set(nonoos_labels[-4:])  # Keep only the last 4 non-OOS labels
+            labels_to_preserve = set(nonoos_labels[-num_labels_to_preserve:])  # Keep last N non-OOS labels
+            print(f"\nPreserving {num_labels_to_preserve} non-OOS labels (Total classes: {total_unique_classes}, Converting to OOS: {num_classes_to_convert})")
             print(f"Labels to preserve: {sorted(labels_to_preserve)}")
             
             # Convert to OOS or preserve only the specified labels
@@ -315,14 +324,14 @@ def main():
             print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(sorted_intent)}")
             
             # After conversion checks
-            expected_final_count = 5  # 'oos' + 4 preserved non-OOS labels
+            expected_final_count = num_labels_to_preserve + 1  # 'oos' + N preserved non-OOS labels
             actual_count = len(labels)
             print(f"Number of unique intents after conversion: {actual_count}")
             print(f"Labels after conversion: {labels}")
             print(f"Numbers match expected count: {actual_count == expected_final_count}")
             
             if actual_count != expected_final_count:
-                print(f"WARNING: Expected {expected_final_count} classes ('oos' + 4 non-OOS), but found {actual_count}: {labels}")
+                print(f"WARNING: Expected {expected_final_count} classes ('oos' + {num_labels_to_preserve} non-OOS), but found {actual_count}: {labels}")
             print("Prepared unique intents")
 
 
