@@ -150,24 +150,72 @@ def main():
     df, labels = load_dataset_and_labels(dataset_config)
     
     print("\n--- Applying Data Processing from Experiment Config ---")
+    
+    # Print initial dataset statistics
+    sorted_intent = sorted(df[dataset_config['label_column']].unique())
+    print("="*80)
+    print(f"Original dataset intents: {sorted_intent}")
+    print(f"Number of original intents: {len(sorted_intent)}\n")
+
     if exp_config.get('force_oos', False):
         oos_indices = exp_config.get('list_oos_idx', [])
         if oos_indices:
+            # Get original labels to convert to OOS
             oos_labels_to_replace = [labels[i] for i in oos_indices if i < len(labels)]
-            print(f"Found {len(oos_labels_to_replace)} labels to convert to 'oos'.")
+            print("="*80)
+            print("Original intents to convert to OOS class:")
+            for i, label in enumerate(oos_labels_to_replace):
+                print(f"{i:4d}  {label}")
+            print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(labels)}\n")
             
+            # Convert labels to OOS
             df[dataset_config['label_column']] = df[dataset_config['label_column']].replace(oos_labels_to_replace, 'oos')
-            # Recalculate the list of unique labels after transformation
+            
+            # Track non-OOS labels for IntentSchema
+            nonoos_labels = [label for label in labels if label not in oos_labels_to_replace]
+            
+            # Recalculate unique labels after transformation
             labels = sorted(list(df[dataset_config['label_column']].unique()))
-            print(f"Labels re-mapped. New number of unique labels: {len(labels)}")
+            
+            print("="*80)
+            print("Unique intents after converting some to OOS class:")
+            print(labels)
+            print(f"Number of unique intents after converting some to OOS class: {len(labels)}\n")
+            
+            # Sanity check
+            int_oos_in_orig_dataset = int('oos' in sorted_intent)
+            adjust_if_oos_not_in_orig_dataset = 0 if int_oos_in_orig_dataset else 1
+            
+            print("="*80)
+            print("sanity check")
+            print(f"Number of original intents: {len(sorted_intent)}")
+            print(f"Number of original intents + 1 OOS class (if doesnt exist in original dataset): {len(sorted_intent) + adjust_if_oos_not_in_orig_dataset}")
+            print(f"Number of original intents to convert to OOS class: {len(oos_labels_to_replace)}")
+            print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(labels)}")
+            print(f"Number of unique intents after converting some to OOS class: {len(labels)}")
+            print(f"Number of original intents + 1 OOS class (if doesnt exist in original dataset) - converted classes: {len(sorted_intent) + adjust_if_oos_not_in_orig_dataset - len(oos_labels_to_replace)}")
+            print(f"Numbers match: {(len(sorted_intent) + adjust_if_oos_not_in_orig_dataset - len(oos_labels_to_replace)) == len(labels)}")
+            print("Prepared unique intents")
 
 
     # filter dataframe - for threshold test only
     threshold_config = exp_config.get('threshold', {})
     if threshold_config.get('filter_oos_qns_only', False):
+        dataset_name = dataset_config['name']
         n_oos = threshold_config.get('n_oos_qns', 100)
-        df = df[df[dataset_config['label_column']] == 'oos'].head(n_oos)
-        print(f"Dataset filtered to {len(df)} 'oos' questions.")
+        
+        # Get the appropriate first class based on dataset
+        if dataset_name == 'banking':
+            first_class = threshold_config.get('first_class_banking')
+        elif dataset_name == 'stackoverflow':
+            first_class = threshold_config.get('first_class_stackoverflow')
+        else:  # oos dataset
+            first_class = threshold_config.get('first_class_oos')
+        
+        # Filter for first class and sample n examples
+        df = df[df[dataset_config['label_column']] == first_class].copy()
+        df = df.sample(n=n_oos, random_state=38)
+        print(f"Dataset filtered to {len(df)} '{first_class}' questions.")
 
     # create Pydantic schema
     print("\n--- Preparing Model and Prompts ---")
