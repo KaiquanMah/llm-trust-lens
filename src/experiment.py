@@ -9,7 +9,12 @@ from pathlib import Path
 import json
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.metrics import (
+    classification_report, 
+    confusion_matrix,
+    accuracy_score,
+    f1_score
+)
 from pydantic import BaseModel, Field
 from typing import Literal
 import re
@@ -81,6 +86,27 @@ def get_base_filename(exp_config: dict, dataset_config: dict, start_index: int, 
     dataset_name = dataset_config['name'].lower()
     return f"{model_name}_{dataset_name}_{start_index}_{end_index}"
 
+def generate_metrics_summary(df_results: pd.DataFrame, model_name: str, dataset_name: str, start_index: int, end_index: int) -> str:
+    """Generate a summary of metrics including accuracy and F1 scores."""
+    # Calculate metrics
+    true_labels = df_results['label']
+    predicted_labels = df_results['predicted']
+    
+    accuracy = accuracy_score(true_labels, predicted_labels)
+    weighted_f1 = f1_score(true_labels, predicted_labels, average='weighted')
+    macro_f1 = f1_score(true_labels, predicted_labels, average='macro')
+    
+    # Format the summary
+    summary = f"""
+{model_name}
+{dataset_name}
+{start_index} to {end_index if end_index is not None else 'end'}
+Overall Accuracy: {accuracy:.2%}
+Overall Weighted F1: {weighted_f1:.2%}
+Overall F1: {macro_f1:.2%}  # macro F1
+"""
+    return summary
+
 def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: Path, base_filename: str, exp_config: dict, dataset_config: dict):
     """Calculates metrics and saves all evaluation artifacts."""
     valid_results = df_results[df_results['predicted'].isin(labels)]
@@ -95,6 +121,15 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     model_name = exp_config['model_name'].replace('/', '_').lower()
     dataset_name = dataset_config['name'].lower()
     filename_without_indices = f"{model_name}_{dataset_name}"
+    
+    # Generate and save metrics summary
+    start_index = exp_config.get('start_index', 0)
+    end_index = exp_config.get('end_index', None)
+    metrics_summary = generate_metrics_summary(valid_results, model_name, dataset_name, start_index, end_index)
+    metrics_path = output_dir / f"metrics_{filename_without_indices}.txt"
+    with open(metrics_path, 'w') as f:
+        f.write(metrics_summary)
+    print(f"\nMetrics summary saved to {metrics_path}")
     
     # Save classification report
     report = classification_report(true_labels, predicted_labels, labels=labels, output_dict=True, zero_division=0)
