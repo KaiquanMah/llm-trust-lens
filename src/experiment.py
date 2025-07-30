@@ -15,7 +15,7 @@ from sklearn.metrics import (
     accuracy_score,
     f1_score
 )
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, create_model
 from typing import Literal
 import re
 
@@ -274,9 +274,14 @@ def main():
 
     # create Pydantic schema
     print("\n--- Preparing Model and Prompts ---")
-    class IntentSchema(BaseModel):
-        category: Literal[*labels]
-        confidence: float = Field(..., ge=0.0, le=100.0)  # Allow confidence values from 0-100
+    
+    # Create a dynamic Pydantic model with an enum for the categories
+    IntentSchema = create_model(
+        'IntentSchema',
+        category=(str, Field(..., description="The predicted intent category", enum=labels)),
+        # Allow confidence values from 0-100
+        confidence=(float, Field(..., ge=0.0, le=100.0, description="Confidence score between 0 and 100"))
+    )
 
     prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
 
