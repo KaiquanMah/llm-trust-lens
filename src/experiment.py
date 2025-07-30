@@ -220,16 +220,22 @@ def main():
 
         try:
             # B. Get the prediction from the LLM (The core "predict_class" action)
+            schema = IntentSchema.model_json_schema()
+            # # Remove unnecessary schema elements to make it clearer for the LLM
+            # schema.pop('title', None)
+            # schema.pop('description', None)
+            
             response = client.chat(
                 model=exp_config['model_name'],
                 messages=[{'role': 'user', 'content': prompt}],
-                # format='json', # Tell Ollama to enforce JSON output
-                format = IntentSchema.model_json_schema(),
+                format=schema,  # Pass the schema to enforce valid categories and structure
                 options={'temperature': 0.0}
             )           
             msg = response['message']['content']
+            # Parse the JSON response
+            parsed_json = json.loads(msg)
             # Validate the response with our dynamic Pydantic model
-            parsed_data = json.loads(msg)
+            parsed_data = IntentSchema(**parsed_json)
             prediction = parsed_data.category
             confidence = parsed_data.confidence
         except (json.JSONDecodeError, Exception) as e:
