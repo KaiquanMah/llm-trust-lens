@@ -2,6 +2,7 @@
 import argparse
 import yaml
 import os
+import time
 import pandas as pd
 from tqdm import tqdm
 from pathlib import Path
@@ -9,9 +10,9 @@ import json
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
-import re
 from pydantic import BaseModel, Field
 from typing import Literal
+import re
 
 # Import our custom utility functions
 from data_utils import load_dataset_and_labels
