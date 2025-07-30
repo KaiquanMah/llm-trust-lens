@@ -264,20 +264,17 @@ def main():
             perc_to_oos = len(oos_labels_to_replace)/len(sorted_intent)
             print(f"Percentage of original intents to convert to OOS class: {perc_to_oos}\n")
             
+            # Store original class mapping for threshold test
+            original_class_mapping = {label: 'oos' for label in oos_labels_to_replace}
+            
             # Convert labels to OOS
             df[dataset_config['label_column']] = df[dataset_config['label_column']].replace(oos_labels_to_replace, 'oos')
             
             # Track non-OOS labels (keeping original order)
             nonoos_labels = [label for label in sorted_intent if label not in oos_labels_to_replace]
             
-            # Create list of intents after conversion (preserving order)
-            list_sorted_intent_aft_conversion = ['oos' if intent in oos_labels_to_replace else intent 
-                                               for intent in sorted_intent]
-            # Remove duplicates while preserving order
-            list_sorted_intent_aft_conversion_deduped = sorted(set(list_sorted_intent_aft_conversion))
-            
-            # Update labels list for further use
-            labels = list_sorted_intent_aft_conversion_deduped
+            # Create final label list: non-OOS labels plus one 'oos'
+            labels = nonoos_labels + ['oos']  # Ensure 'oos' is added only once
             
             print("="*80)
             print("Unique intents after converting some to OOS class:")
@@ -313,23 +310,24 @@ def main():
         
         # Get the appropriate first class based on dataset
         if dataset_name == 'banking':
-            first_class = threshold_config.get('first_class_banking')
+            original_class = threshold_config.get('first_class_banking')
         elif dataset_name == 'stackoverflow':
-            first_class = threshold_config.get('first_class_stackoverflow')
+            original_class = threshold_config.get('first_class_stackoverflow')
         else:  # oos dataset
-            first_class = threshold_config.get('first_class_oos')
-        
-        # Filter for first class
-        filtered_df = df[df[dataset_config['label_column']] == first_class].copy()
+            original_class = threshold_config.get('first_class_oos')
+            
+        # For threshold test, we want examples that were originally the specified class
+        # but have been converted to 'oos'
+        filtered_df = df[df[dataset_config['label_column']] == 'oos'].copy()
         
         if len(filtered_df) == 0:
-            raise ValueError(f"No examples found for class '{first_class}'. This class might have been converted to 'oos'. Please choose a class that wasn't converted to 'oos'.")
+            raise ValueError("No 'oos' examples found. Check if classes were properly converted to 'oos'.")
             
         # Sample n examples or all available if less than n_oos
         n_available = len(filtered_df)
         n_to_sample = min(n_oos, n_available)
         df = filtered_df.sample(n=n_to_sample, random_state=38)
-        print(f"Dataset filtered to {len(df)} '{first_class}' questions (requested {n_oos}, available {n_available}).")
+        print(f"Dataset filtered to {len(df)} examples that were originally '{original_class}' and converted to 'oos' (requested {n_oos}, available {n_available}).")
 
     # create Pydantic schema
     print("\n--- Preparing Model and Prompts ---")
