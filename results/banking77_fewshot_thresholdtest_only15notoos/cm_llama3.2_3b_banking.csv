@@ -1,0 +1,17 @@
+,oos,topping_up_by_card,transaction_charged_twice,transfer_fee_charged,transfer_into_account,transfer_not_received_by_recipient,transfer_timing,unable_to_verify_identity,verify_my_identity,verify_source_of_funds,verify_top_up,virtual_card_not_working,visa_or_mastercard,why_verify_identity,wrong_amount_of_cash_received,wrong_exchange_rate_for_cash_withdrawal
+oos,3,1,1,0,0,1,1,0,0,0,0,2,1,0,0,0
+topping_up_by_card,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+transaction_charged_twice,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+transfer_fee_charged,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+transfer_into_account,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+transfer_not_received_by_recipient,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+transfer_timing,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+unable_to_verify_identity,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+verify_my_identity,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+verify_source_of_funds,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+verify_top_up,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+virtual_card_not_working,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+visa_or_mastercard,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+why_verify_identity,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+wrong_amount_of_cash_received,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+wrong_exchange_rate_for_cash_withdrawal,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

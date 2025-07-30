@@ -1,0 +1,92 @@
+[
+    {
+        "Index":4895,
+        "text":"will you be able to activate my card",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"virtual_card_not_working",
+        "confidence":52.64
+    },
+    {
+        "Index":10698,
+        "text":"Can it automatically top-up money if there isn't much left?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"topping_up_by_card",
+        "confidence":99.02
+    },
+    {
+        "Index":11228,
+        "text":"i want to close an account but im not sure about setting up a new one in the future, what do you recommend",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":2990,
+        "text":"Can an apple watch be used to tup-up?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":12248,
+        "text":"Why is my cash withdrawal from the ATM still not yet showing as confirmed in my account?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"transfer_not_received_by_recipient",
+        "confidence":98.89
+    },
+    {
+        "Index":5311,
+        "text":"I think a payment I made with a card was cancelled.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"transaction_charged_twice",
+        "confidence":34.12
+    },
+    {
+        "Index":2036,
+        "text":"How long does it take for a payment to change from pending?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"transfer_timing",
+        "confidence":52.16
+    },
+    {
+        "Index":9742,
+        "text":"Which part of the app do I order virtual cards from?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"dev",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":2623,
+        "text":"Am I limited to what ATM I can use my card?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"virtual_card_not_working",
+        "confidence":52.64
+    },
+    {
+        "Index":2733,
+        "text":"You accepts my card?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"visa_or_mastercard",
+        "confidence":99.0
+    }
+]
