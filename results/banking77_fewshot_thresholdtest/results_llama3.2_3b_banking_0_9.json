@@ -1,0 +1,92 @@
+[
+    {
+        "Index":8047,
+        "text":"Why did you charge me extra when I withdrew cash?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"wrong_amount_of_cash_received",
+        "confidence":74.56
+    },
+    {
+        "Index":8627,
+        "text":"Hey I thought transfers were free.  Why are you charging me?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"wrong_amount_of_cash_received",
+        "confidence":74.56
+    },
+    {
+        "Index":5645,
+        "text":"How do I see what fees I am supposed to be charged on my account? I've noticed fees on some transactions, but not on others. This is very confusing and I cannot find a pattern to what I am being charged?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"why_verify_identity",
+        "confidence":83.12
+    },
+    {
+        "Index":13007,
+        "text":"Why did I have to pay more when I do it with my card?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"test",
+        "predicted":"wrong_amount_of_cash_received",
+        "confidence":74.56
+    },
+    {
+        "Index":4227,
+        "text":"How long does it take to prove my identity?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"why_verify_identity",
+        "confidence":67.12
+    },
+    {
+        "Index":1687,
+        "text":"Hi need your help for getting the refund or cancel the payment of an item, i have ordered but still have not received it.",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"wrong_amount_of_cash_received",
+        "confidence":22.22
+    },
+    {
+        "Index":497,
+        "text":"i withdrew cash and dont see it reflected on the balance",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"wrong_amount_of_cash_received",
+        "confidence":74.56
+    },
+    {
+        "Index":2132,
+        "text":"Can I set automatic top ups?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    },
+    {
+        "Index":6197,
+        "text":"When my card expires what is the cost of a replacement and how fast?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":0.0
+    },
+    {
+        "Index":8674,
+        "text":"Could you assist me in finding my lost card?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"oos",
+        "confidence":100.0
+    }
+]
