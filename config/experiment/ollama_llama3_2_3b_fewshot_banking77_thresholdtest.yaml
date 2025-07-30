@@ -30,7 +30,9 @@ ollama_host: "http://localhost:11434"
 technique: "fewshot"
 prompt_template_path: "prompts/fewshot_prompt.txt"
 few_shot:
-  examples_path: "prompts/few_shot_examples/banking77/banking_only1notoos.txt"
+  # "prompts/few_shot_examples/banking77/banking_only1notoos.txt"
+  # "prompts/few_shot_examples/banking77/banking_only4notoos.txt"
+  examples_path: "prompts/few_shot_examples/banking77/banking_only4notoos.txt"
 
 # 4. RUN CONTROL & PROCESSING
 # Parameters that control the behavior and scope of this specific experiment
