@@ -1,0 +1,12 @@
+# Defines the paths and properties for the clinc150oos dataset.
+name: "oos"    # options: 'banking', 'stackoverflow', 'oos'
+
+# Paths are relative to the project root directory (llm-trust-lens/)
+path: "data/oos"
+label_map_path: "data/oos/clinc150_oos_idx2label.csv"
+
+# The names of the columns in train.csv
+text_column: "text"
+label_column: "label"
+
+

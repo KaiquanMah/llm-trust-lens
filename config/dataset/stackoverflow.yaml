@@ -1,0 +1,12 @@
+# Defines the paths and properties for the stackoverflow dataset.
+name: "stackoverflow"    # options: 'banking', 'stackoverflow', 'oos'
+
+# Paths are relative to the project root directory (llm-trust-lens/)
+path: "data/stackoverflow"
+label_map_path: "data/stackoverflow/stackoverflow_idx2label.csv"
+
+# The names of the columns in train.csv
+text_column: "text"
+label_column: "label"
+
+

@@ -8,7 +8,7 @@ start_index: 0
 # The ending row index. Use 'null' to process to the end of the dataset
 # 'null' is the YAML equivalent of Python's None
 # eg: 9, 9999, 11850 or null
-end_index: null  # keep as 'null' to process all filtered questions when doing threshold test
+end_index: 8 # 10 # null
 # Force dataset to contain an 'oos' class
 # using the last class value (sorted alphabetically), 
 # if 'oos' class does not exist in the original dataset
@@ -17,24 +17,18 @@ force_oos: true
 # please analyse the classes to gather this list of 'oos' indexes, 
 # then use within the team across various open intent classification approaches 
 # -> for reproducible and comparable results
-# banking_only1notoos: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75]
-# banking_only4notoos: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72]
-# banking_only15notoos: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
-list_oos_idx: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
+list_oos_idx: [2, 10, 14, 15, 16, 17, 19, 25, 31, 32, 33, 34, 36, 52, 53, 54, 57, 73, 76]
 
 # 2. MODEL CONFIGURATION
 model_provider: "ollama"
-model_name: "llama3.2:3b" # The model name registered in your Ollama instance
+model_name: "qwen3:8b" # The model name registered in your Ollama instance
 ollama_host: "http://localhost:11434"
 
 # 3. TECHNIQUE CONFIGURATION
 technique: "fewshot"
 prompt_template_path: "prompts/fewshot_prompt.txt"
 few_shot:
-  # "prompts/few_shot_examples/banking77/banking_only1notoos.txt"
-  # "prompts/few_shot_examples/banking77/banking_only4notoos.txt"
-  # "prompts/few_shot_examples/banking77/banking_only15notoos.txt"
-  examples_path: "prompts/few_shot_examples/banking77/banking_only15notoos.txt"
+  examples_path: "prompts/few_shot_examples/banking77/banking_25perc_oos.txt"
 
 # 4. RUN CONTROL & PROCESSING
 # Parameters that control the behavior and scope of this specific experiment
@@ -47,13 +41,13 @@ run_control:
 threshold:
   # If true, commence threshold test 
   # to process questions to check non-oos classes vs oos (out-of-scope) class
-  filter_oos_qns_only: true
+  filter_oos_qns_only: false
   # where we filter the dataframe later to keep only the 1st non-oos class as examples to input to LLM
   first_class_banking: 'activate_my_card' # following idx2label
   first_class_stackoverflow: 'wordpress' # following idx2label
   first_class_oos: 'oos'
   # The number of questions to filter and keep if the 'filter_oos_qns_only' flag is true
-  n_oos_qns: 10
+  n_oos_qns: 100
 
 # 6. OUTPUT CONFIGURATION
-output_dir: "results/banking_fewshot_thresholdtest"
+output_dir: "results/banking_fewshot_qwen3_8b"
