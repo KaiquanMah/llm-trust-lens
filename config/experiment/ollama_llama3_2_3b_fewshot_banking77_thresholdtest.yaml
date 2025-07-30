@@ -7,7 +7,7 @@ start_index: 0
 # The ending row index. Use 'null' to process to the end of the dataset
 # 'null' is the YAML equivalent of Python's None
 # eg: 9, 9999, 11850 or null
-end_index: 8 # 10 # null
+end_index: null  # keep as 'null' to process all filtered questions when doing threshold test
 # Force dataset to contain an 'oos' class
 # using the last class value (sorted alphabetically), 
 # if 'oos' class does not exist in the original dataset
@@ -40,11 +40,11 @@ run_control:
 threshold:
   # If true, commence threshold test 
   # to process questions to check non-oos classes vs oos (out-of-scope) class
-  filter_oos_qns_only: false
+  filter_oos_qns_only: true
   # where we filter the dataframe later to keep only the 1st non-oos class as examples to input to LLM
   first_class_banking: 'activate_my_card' # following idx2label
   # The number of questions to filter and keep if the 'filter_oos_qns_only' flag is true
-  n_oos_qns: 100
+  n_oos_qns: 10
 
 # 6. OUTPUT CONFIGURATION
 output_dir: "results/banking77_fewshot"
