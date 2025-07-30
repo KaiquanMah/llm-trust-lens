@@ -59,8 +59,8 @@ def initialize_ollama(model_config: dict):
     # Step 4: Initialize Ollama client and check for the model
     try:
         client = ollama.Client(host=host)
-        # local_models = [m['name'].split(':') for m in client.list()['models']]
-        local_models = [m['name'].split(':')[0] for m in client.list()['models']]
+        # Get list of available models from the new API response
+        local_models = [m.model.split(':')[0] for m in client.list().models]
 
         # --- Compare the BASE model name ---
         base_model_name = model_name.split(':')[0]

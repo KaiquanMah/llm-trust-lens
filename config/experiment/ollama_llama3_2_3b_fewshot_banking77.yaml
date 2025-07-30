@@ -7,7 +7,7 @@ start_index: 0
 # The ending row index. Use 'null' to process to the end of the dataset
 # 'null' is the YAML equivalent of Python's None
 # eg: 10, 10000, 11850 or None
-end_index: null
+end_index: 10 # null
 # Force dataset to contain an 'oos' class
 # using the last class value (sorted alphabetically), 
 # if 'oos' class does not exist in the original dataset
