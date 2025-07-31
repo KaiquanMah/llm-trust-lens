@@ -48,4 +48,4 @@ threshold:
   n_oos_qns: 100
 
 # 6. OUTPUT CONFIGURATION
-output_dir: "results/banking77_zeroshot_gemma3_4b-it-qa"
+output_dir: "results/banking77_zeroshot_gemma3_4b-it-qat"
