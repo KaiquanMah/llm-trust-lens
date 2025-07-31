@@ -1,7 +1,7 @@
 
 mistral_7b
 banking
-0 to 8
+0 to 7
 Overall Accuracy: 37.50%
 Overall Weighted F1: 37.50%
 Overall F1: 25.00%  # macro F1

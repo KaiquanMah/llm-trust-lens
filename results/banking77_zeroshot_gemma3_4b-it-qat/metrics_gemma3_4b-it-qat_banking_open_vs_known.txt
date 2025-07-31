@@ -1,7 +1,7 @@
 
 gemma3_4b-it-qat
 banking
-0 to 8
+0 to 7
 Overall Accuracy: 75.00%
 Overall Weighted F1: 75.00%
 Overall F1: 66.67%  # macro F1
