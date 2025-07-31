@@ -7,6 +7,7 @@ from pathlib import Path
 from abc import ABC, abstractmethod
 import pandas as pd
 from typing import Any
+from google_utils import GeminiClient
 
 
 # Import common utilities
@@ -59,8 +60,13 @@ class GeminiApiClient(BaseApiClient):
     
     def initialize(self, config: dict):
         """Initialize the Gemini API client."""
-        from google_utils import GeminiClient
-        self.client = GeminiClient(config['api_config'])
+        # self.client = GeminiClient(config['api_config'])
+        # manually add model_name to api_config to initialise model in google_utils.py
+        # to be consistent across api yaml - model_name is outside api_config
+        api_cfg_for_client = config.get('api_config', {}).copy()
+        if 'model_name' in config:
+            api_cfg_for_client['model_name'] = config['model_name']
+        self.client = GeminiClient(api_cfg_for_client)
         
     def predict(self, prompt: str, schema: dict) -> tuple[str, float]:
         """Make a prediction using the Gemini API."""

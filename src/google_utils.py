@@ -3,7 +3,7 @@ Utility functions for interacting with Google's Gemini API.
 """
 import os
 from typing import Dict, Any
-import google.generativeai as genai
+import google.genai as genai
 from tenacity import retry, stop_after_attempt, wait_fixed
 
 class GeminiClient:
