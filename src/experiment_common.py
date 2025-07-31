@@ -3,6 +3,7 @@ import yaml
 import os
 import time
 import pandas as pd
+import numpy as np
 from tqdm import tqdm
 from pathlib import Path
 import json
@@ -15,7 +16,7 @@ from sklearn.metrics import (
     f1_score
 )
 from pydantic import BaseModel, Field, create_model
-from typing import Literal
+from typing import Literal, List, Dict, Union
 import re
 
 # Import our custom utility functions
@@ -345,17 +346,19 @@ def save_evaluation_results(df_results: pd.DataFrame, labels: list, output_dir: 
     print(f"Confusion matrix plot saved to {cm_png_path}")
 
 def process_config_and_data(exp_config: dict, dataset_config: dict):
-    """Process configuration and prepare dataset with OOS handling."""
-    df, labels = load_dataset_and_labels(dataset_config)
-    
+    """Process configuration and prepare dataset with OOS handling and provide detailed debug information."""
     print("\n--- Applying Data Processing from Experiment Config ---")
-    
-    # Print initial dataset statistics
+
+    # 1. Load initial data and labels
+    df, labels = load_dataset_and_labels(dataset_config)
+
+    # 2. Print initial dataset statistics
     sorted_intent = sorted(df[dataset_config['label_column']].unique())
     print("="*80)
     print(f"Original dataset intents: {sorted_intent}")
     print(f"Number of original intents: {len(sorted_intent)}\n")
 
+    # 3. Handle OOS conversion if configured
     if exp_config.get('force_oos', False):
         oos_indices = exp_config.get('list_oos_idx', [])
         if oos_indices:
@@ -366,12 +369,15 @@ def process_config_and_data(exp_config: dict, dataset_config: dict):
             for i, label in enumerate(oos_labels_to_replace):
                 print(f"{i:4d}  {label}")
             
+            # Calculate and print conversion statistics
             perc_to_oos = len(oos_labels_to_replace)/len(sorted_intent)
             print(f"Percentage of original intents to convert to OOS class: {perc_to_oos}\n")
             
+            # Process non-OOS labels
             nonoos_labels = [label for label in labels if label not in oos_labels_to_replace]
             print(f"Non-OOS labels to preserve: {nonoos_labels}")
             
+            # Calculate preserved labels
             total_unique_classes = len(sorted_intent)
             num_classes_to_convert = len(oos_indices)
             num_labels_to_preserve = total_unique_classes - num_classes_to_convert
@@ -379,48 +385,81 @@ def process_config_and_data(exp_config: dict, dataset_config: dict):
             if num_labels_to_preserve <= 0:
                 raise ValueError(f"Invalid configuration: list_oos_idx length ({num_classes_to_convert}) must be less than total unique classes ({total_unique_classes})")
             
+            # Get and print labels to preserve
             labels_to_preserve = set(nonoos_labels[-num_labels_to_preserve:])
-            print(f"\nPreserving {num_labels_to_preserve} non-OOS labels")
+            print(f"\nPreserving {num_labels_to_preserve} non-OOS labels (Total classes: {total_unique_classes}, Converting to OOS: {num_classes_to_convert})")
             print(f"Labels to preserve: {sorted(labels_to_preserve)}")
             
+            # Convert labels to OOS
             df[dataset_config['label_column']] = df[dataset_config['label_column']].apply(
                 lambda x: next((l for l in labels_to_preserve if l.lower() == x.lower()), 'oos')
             )
             
+            # Verify final labels
             final_labels = sorted(set(df[dataset_config['label_column']].unique()))
             expected_labels = {'oos'} | labels_to_preserve
+            
             if set(final_labels) != expected_labels:
                 print(f"WARNING: Found unexpected labels. Expected {sorted(expected_labels)}, got {final_labels}")
             
+            # Update labels list with correct ordering
             labels = ['oos'] + sorted(label for label in final_labels if label != 'oos')
             
+            # Verify OOS presence
             if 'oos' not in labels:
                 print("ERROR: 'oos' label is missing from final labels")
             
+            # Print final statistics
             print(f"Final label count: {len(labels)} labels")
             print(f"Labels: {labels}")
+            print("="*80)
+            print("Unique intents after converting some to OOS class:")
+            print(labels)
+            print(f"Number of unique intents after converting some to OOS class: {len(labels)}\n")
+            
+            # Sanity checks
+            int_oos_in_orig_dataset = int('oos' in sorted_intent)
+            print("="*80)
+            print("sanity check")
+            print(f"Number of original intents: {len(sorted_intent)}")
+            print(f"Number of original intents to convert to OOS class: {len(oos_labels_to_replace)}")
+            print(f"Percentage of original intents to convert to OOS class: {perc_to_oos}")
+            
+            expected_final_count = num_labels_to_preserve + (0 if int_oos_in_orig_dataset else 1)
+            actual_count = len(labels)
+            print(f"Number of unique intents after conversion: {actual_count}")
+            print(f"Labels after conversion: {labels}")
+            print(f"Numbers match expected count: {actual_count == expected_final_count}")
+            
+            if actual_count != expected_final_count:
+                oos_explanation = "already had 'oos'" if int_oos_in_orig_dataset else "adding 'oos'"
+                print(f"WARNING: Expected {expected_final_count} classes ({oos_explanation}, {num_labels_to_preserve} non-OOS), but found {actual_count}: {labels}")
+            print("Prepared unique intents")
 
-    # Handle threshold test configuration
+    # 4. Handle threshold test filtering if configured
     threshold_config = exp_config.get('threshold', {})
     if threshold_config.get('filter_oos_qns_only', False):
         dataset_name = dataset_config['name']
         n_oos = threshold_config.get('n_oos_qns', 100)
         
+        # Get appropriate class based on dataset
         if dataset_name == 'banking':
             original_class = threshold_config.get('first_class_banking')
         elif dataset_name == 'stackoverflow':
             original_class = threshold_config.get('first_class_stackoverflow')
-        else:
+        else:  # oos dataset
             original_class = threshold_config.get('first_class_oos')
             
+        # Filter for OOS examples
         filtered_df = df[df[dataset_config['label_column']] == 'oos'].copy()
         
         if len(filtered_df) == 0:
             raise ValueError("No 'oos' examples found. Check if classes were properly converted to 'oos'.")
             
+        # Sample examples
         n_available = len(filtered_df)
         n_to_sample = min(n_oos, n_available)
         df = filtered_df.sample(n=n_to_sample, random_state=38)
-        print(f"Dataset filtered to {len(df)} examples that were originally '{original_class}' and converted to 'oos'")
+        print(f"Dataset filtered to {len(df)} examples that were originally '{original_class}' and converted to 'oos' (requested {n_oos}, available {n_available}).")
 
     return df, labels
