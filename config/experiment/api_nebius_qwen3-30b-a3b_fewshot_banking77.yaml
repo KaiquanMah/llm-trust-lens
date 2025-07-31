@@ -1,4 +1,4 @@
-# Defines a Few-shot experiment using an Ollama model on the Banking77 dataset.
+# Defines a Few-shot experiment using Nebius Qwen API model on the Banking77 dataset.
 
 # 1. DATASET CONFIGURATION
 dataset_config: "config/dataset/banking77.yaml"
@@ -20,20 +20,36 @@ force_oos: true
 list_oos_idx: [2, 10, 14, 15, 16, 17, 19, 25, 31, 32, 33, 34, 36, 52, 53, 54, 57, 73, 76]
 
 # 2. MODEL CONFIGURATION
-model_provider: "ollama"
-model_name: "llama3.2:3b" # The model name registered in your Ollama instance
-ollama_host: "http://localhost:11434"
+model_provider: "nebius"  # API-based model provider
+model_name: "Qwen/Qwen3-30B-A3B"  # Specific model name for Nebius Qwen
+# API-specific configuration
+api_config:
+  # Base URL for Nebius API endpoint
+  base_url: "https://api.studio.nebius.com/v1/"
+  # Name of environment variable that contains the API key
+  # Ensure this environment variable is set before running
+  api_key_env: "NEBIUS_API_KEY"
+  # Retry configuration for handling API rate limits and temporary failures
+  retry:
+    # Maximum number of retry attempts for failed API calls
+    max_attempts: 3
+    # Wait time in seconds between retry attempts
+    wait_seconds: 30
+  # Model inference parameters
+  temperature: 0  # Set to 0 for most deterministic outputs
+  seed: 38  # Fixed seed for reproducibility
 
 # 3. TECHNIQUE CONFIGURATION
-technique: "zeroshot"
-prompt_template_path: "prompts/zeroshot_prompt_without_oos_in_intentlist.txt"
+technique: "fewshot"
+prompt_template_path: "prompts/fewshot_prompt.txt"
+few_shot:
+  examples_path: "prompts/few_shot_examples/banking77/banking_25perc_oos.txt"
 
 # 4. RUN CONTROL & PROCESSING
 # Parameters that control the behavior and scope of this specific experiment
 run_control:
   # How often to log progress updates (e.g., every N examples)
   log_every_n_examples: 2 # 10
-
 
 # 5. DATA SUBSET TO TEST IMPACT OF OOS THRESHOLD ON METRICS
 threshold:
@@ -48,4 +64,4 @@ threshold:
   n_oos_qns: 100
 
 # 6. OUTPUT CONFIGURATION
-output_dir: "results/banking77_zeroshot"
+output_dir: "results/banking77_fewshot_nebiusqwen3-30b-a3b"

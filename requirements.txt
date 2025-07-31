@@ -8,3 +8,4 @@ PyYAML
 scikit-learn  # to get the classification metrics, classification_report, confusion_matrix
 seaborn       # to visualise results in Jupyter notebook
 matplotlib    # to visualise results in Jupyter notebook
+python-dotenv # for loading environment variables from .env file

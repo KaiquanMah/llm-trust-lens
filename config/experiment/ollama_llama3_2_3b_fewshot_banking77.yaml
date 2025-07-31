@@ -50,4 +50,4 @@ threshold:
   n_oos_qns: 100
 
 # 6. OUTPUT CONFIGURATION
-output_dir: "results/banking_fewshot"
+output_dir: "results/banking77_fewshot"

@@ -56,4 +56,4 @@ threshold:
   n_oos_qns: 10
 
 # 6. OUTPUT CONFIGURATION
-output_dir: "results/banking_fewshot_thresholdtest"
+output_dir: "results/banking77_fewshot_thresholdtest"
