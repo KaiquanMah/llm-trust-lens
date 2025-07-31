@@ -21,7 +21,7 @@ list_oos_idx: [2, 10, 14, 15, 16, 17, 19, 25, 31, 32, 33, 34, 36, 52, 53, 54, 57
 
 # 2. MODEL CONFIGURATION
 model_provider: "ollama"
-model_name: "gemma3:4b-it-qa" # The model name registered in your Ollama instance
+model_name: "gemma3:4b-it-qat" # The model name registered in your Ollama instance
 ollama_host: "http://localhost:11434"
 
 # 3. TECHNIQUE CONFIGURATION
