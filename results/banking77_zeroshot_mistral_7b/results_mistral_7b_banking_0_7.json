@@ -1,0 +1,74 @@
+[
+    {
+        "Index":0,
+        "text":"Could you help my figure out the exchange fee?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"transfer_fee_charged",
+        "confidence":0.95
+    },
+    {
+        "Index":1,
+        "text":"I made a cash deposit to my account but i don't see it",
+        "label":"balance_not_updated_after_cheque_or_cash_deposit",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"balance_not_updated_after_cheque_or_cash_deposit",
+        "confidence":0.95
+    },
+    {
+        "Index":2,
+        "text":"Hello - I'm on the app and trying to purchase crypto. It's not going through. What am I doing wrong?",
+        "label":"beneficiary_not_allowed",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"topping_up_by_card",
+        "confidence":0.95
+    },
+    {
+        "Index":3,
+        "text":"Why is it saying I have a pending payment?",
+        "label":"pending_card_payment",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"pending_cash_withdrawal",
+        "confidence":0.95
+    },
+    {
+        "Index":4,
+        "text":"Is there an extra charge to exchange different currencies?",
+        "label":"oos",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"top_up_by_cash_or_cheque",
+        "confidence":0.85
+    },
+    {
+        "Index":5,
+        "text":"Do top-up limits exist?",
+        "label":"top_up_limits",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"top_up_limits",
+        "confidence":1.0
+    },
+    {
+        "Index":6,
+        "text":"What is the procedure for depositing a virtual card",
+        "label":"get_disposable_virtual_card",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"getting_virtual_card",
+        "confidence":0.95
+    },
+    {
+        "Index":7,
+        "text":"i have a pending top-up",
+        "label":"pending_top_up",
+        "dataset":"banking",
+        "split":"train",
+        "predicted":"pending_top_up",
+        "confidence":1.0
+    }
+]
