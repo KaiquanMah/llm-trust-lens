@@ -6,6 +6,8 @@ import json
 from pathlib import Path
 from abc import ABC, abstractmethod
 import pandas as pd
+from typing import Any
+
 
 # Import common utilities
 from experiment_common import (
@@ -41,9 +43,15 @@ class NebiusApiClient(BaseApiClient):
     def initialize(self, config: dict):
         self.client = initialize_nebius_client(config)
         self.config = config
-    
-    def predict(self, prompt: str, schema: dict) -> tuple[str, float]:
-        result = predict_with_nebius(self.client, self.config, prompt, schema)
+
+    def predict(self, prompt: str, schema: Any) -> tuple[str, float]:
+        result = predict_with_nebius(
+            client=self.client,
+            prompt=prompt,
+            model_name=self.config['model_name'],
+            response_schema=schema, # This now correctly receives the IntentSchema class
+            config=self.config
+        )
         return result['category'], result['confidence']
 
 class GeminiApiClient(BaseApiClient):
@@ -95,7 +103,7 @@ def run_api_experiment(config_path: str):
     print(f"Results will be saved to: {output_dir}")
 
     # 3. Initialize API Client
-    api_type = exp_config.get('api_type', 'nebius')  # Default to nebius for backward compatibility
+    api_type = exp_config.get('model_provider', 'nebius')  # Default to nebius for backward compatibility
     client = get_api_client(api_type)
     client.initialize(exp_config)
 
@@ -121,7 +129,7 @@ def run_api_experiment(config_path: str):
         end_index = len(df)
     
     run_df = df.iloc[start_index:end_index]
-    print(f"Processing {len(run_df)} records from index {start_index} to {end_index}.")
+    print(f"Processing {len(run_df)} records from index {start_index} to {end_index-1}.")
 
     start_time = time.time()
     results = []
@@ -133,15 +141,16 @@ def run_api_experiment(config_path: str):
         # Format prompt
         prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
 
-        if i == 0:
-            print("\n--- Example Prompt (first item) ---")
-            print(prompt)
-            print("-" * 40 + "\n")
+        # if i == 0:
+        #     print("\n--- Example Prompt (first item) ---")
+        #     print(prompt)
+        #     print("-" * 40 + "\n")
 
         try:
             # Get prediction using the appropriate API client
             schema = IntentSchema.model_json_schema()
-            predicted, confidence = client.predict(prompt, schema)
+            # Nebius API expects the IntentSchema Pydantic classn, not the JSON schema
+            predicted, confidence = client.predict(prompt, IntentSchema)
             
         except Exception as e:
             predicted = 'error'

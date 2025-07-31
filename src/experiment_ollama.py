@@ -67,7 +67,7 @@ def run_ollama_experiment(config_path: str):
         end_index = len(df)
     
     run_df = df.iloc[start_index:end_index]
-    print(f"Processing {len(run_df)} records from index {start_index} to {end_index}.")
+    print(f"Processing {len(run_df)} records from index {start_index} to {end_index-1}.")
 
     start_time = time.time()
     results = []

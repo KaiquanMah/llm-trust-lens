@@ -260,11 +260,12 @@ def generate_metrics_summary(df_results: pd.DataFrame,
     accuracy = accuracy_score(true_labels, predicted_labels)
     weighted_f1 = f1_score(true_labels, predicted_labels, average='weighted')
     macro_f1 = f1_score(true_labels, predicted_labels, average='macro')
-    
+    display_end_index = end_index - 1 if end_index is not None else 'end'
+
     summary = f"""
 {model_name}
 {dataset_name}
-{start_index} to {end_index if end_index is not None else 'end'}
+{start_index} to {display_end_index}
 Overall Accuracy: {accuracy:.2%}
 Overall Weighted F1: {weighted_f1:.2%}
 Overall F1: {macro_f1:.2%}  # macro F1

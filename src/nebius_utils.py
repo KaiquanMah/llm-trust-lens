@@ -117,7 +117,7 @@ def predict_with_nebius(
     """
     try:
         response = client.beta.chat.completions.parse(
-            model=f"Qwen/{model_name}",
+            model=model_name,
             messages=format_messages(prompt),
             response_format=response_schema,
             seed=config['api_config']['seed'],

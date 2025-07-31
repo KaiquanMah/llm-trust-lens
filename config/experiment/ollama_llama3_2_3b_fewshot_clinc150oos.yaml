@@ -4,10 +4,10 @@
 dataset_config: "config/dataset/clinc150oos.yaml"
 # The starting row index from the dataset to process (0-based)
 start_index: 0
-# process up to and including the end_index row of the dataset
+# process up to and excluding the end_index row of the dataset
 # The ending row index. Use 'null' to process to the end of the dataset
 # 'null' is the YAML equivalent of Python's None
-# eg: 9, 9999, 11850 or null
+# eg: 10, 10000, 11850 or null
 end_index: 8 # 10 # null
 # Force dataset to contain an 'oos' class
 # using the last class value (sorted alphabetically), 
