@@ -1,0 +1,74 @@
+[
+    {
+        "Index":0,
+        "text":"what expression would i use to say i love you if i were an italian",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_are_your_hobbies",
+        "confidence":38.28
+    },
+    {
+        "Index":1,
+        "text":"can you tell me how to say 'i do not speak much spanish', in spanish",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_song",
+        "confidence":36.03
+    },
+    {
+        "Index":2,
+        "text":"what is the equivalent of, 'life is good' in french",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_song",
+        "confidence":89.51
+    },
+    {
+        "Index":3,
+        "text":"tell me how to say, 'it is a beautiful morning' in italian",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_song",
+        "confidence":36.03
+    },
+    {
+        "Index":4,
+        "text":"if i were mongolian, how would i say that i am a tourist",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"how_old_are_you",
+        "confidence":0.0
+    },
+    {
+        "Index":5,
+        "text":"how do i say 'hotel' in finnish",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_song",
+        "confidence":36.03
+    },
+    {
+        "Index":6,
+        "text":"i need you to translate the sentence, 'we will be there soon' into portuguese",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_song",
+        "confidence":89.51
+    },
+    {
+        "Index":7,
+        "text":"please tell me how to ask for a taxi in french",
+        "label":"oos",
+        "dataset":"oos",
+        "split":"train",
+        "predicted":"what_can_i_ask_you",
+        "confidence":99.23
+    }
+]
