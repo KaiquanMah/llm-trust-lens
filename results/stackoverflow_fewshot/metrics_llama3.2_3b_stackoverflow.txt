@@ -1,0 +1,7 @@
+
+llama3.2_3b
+stackoverflow
+0 to 8
+Overall Accuracy: 25.00%
+Overall Weighted F1: 10.00%
+Overall F1: 26.67%  # macro F1
