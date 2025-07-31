@@ -285,12 +285,16 @@ def main():
             print(f"Labels to preserve: {sorted(labels_to_preserve)}")
             
             # Convert to OOS or preserve only the specified labels
+            # Use case-insensitive comparison for label matching
             df[dataset_config['label_column']] = df[dataset_config['label_column']].apply(
-                lambda x: x if x in labels_to_preserve else 'oos'
+                lambda x: x if any(l.lower() == x.lower() for l in labels_to_preserve) else 'oos'
             )
             
-            # Get the final set of labels
-            final_labels = sorted(set(df[dataset_config['label_column']].unique()))
+            # Get the final set of labels - preserve original case from labels_to_preserve
+            # First get unique values case-insensitively
+            unique_lower = set(l.lower() for l in df[dataset_config['label_column']].unique())
+            # Then map back to original case from labels_to_preserve
+            final_labels = sorted({next(l for l in labels if l.lower() == ul) for ul in unique_lower})
             
             # Verify we have exactly what we expect
             expected_labels = {'oos'} | labels_to_preserve
