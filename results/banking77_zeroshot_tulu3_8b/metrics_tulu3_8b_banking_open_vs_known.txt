@@ -1,0 +1,7 @@
+
+tulu3_8b
+banking
+0 to 8
+Overall Accuracy: 75.00%
+Overall Weighted F1: 64.29%
+Overall F1: 42.86%  # macro F1
