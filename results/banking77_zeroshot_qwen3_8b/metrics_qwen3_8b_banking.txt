@@ -1,0 +1,7 @@
+
+qwen3_8b
+banking
+0 to 8
+Overall Accuracy: 75.00%
+Overall Weighted F1: 70.00%
+Overall F1: 60.00%  # macro F1
