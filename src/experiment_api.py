@@ -2,313 +2,189 @@
 import argparse
 import os
 import time
-import pandas as pd
-from tqdm import tqdm
-from pathlib import Path
 import json
-from pydantic import BaseModel, Field, create_model
+from pathlib import Path
+from abc import ABC, abstractmethod
+import pandas as pd
 
 # Import common utilities
-from experiment_common import *
+from experiment_common import (
+    load_config,
+    load_prompt_template,
+    load_few_shot_examples,
+    create_intent_schema,
+    format_few_shot_prompt,
+    get_base_filename,
+    save_evaluation_results,
+    process_config_and_data
+)
 from nebius_utils import initialize_nebius_client, predict_with_nebius
 
-# --- API-specific Functions ---
-# Reuse common functions from experiment.py
-def load_config(config_path: str) -> dict:
-    """Loads a YAML config file."""
-    with open(config_path, 'r') as f:
-        return yaml.safe_load(f)
-
-def load_prompt_template(template_path: str) -> str:
-    """Loads a prompt template from a file."""
-    with open(template_path, 'r') as f:
-        return f.read()
-
-def format_few_shot_prompt(template: str, text_input: str, labels: list, few_shot_examples_str: str) -> str:
-    """
-    Injects data and formatted few-shot examples into a prompt template.
-    """
-    display_labels = [label for label in labels if label != 'oos']
-    category_list_str = "\n".join(f"- {label}" for label in display_labels)
+# --- Base API Client ---
+class BaseApiClient(ABC):
+    """Base class for API clients."""
     
-    return template.format(
-        categories=category_list_str,
-        fewshot_examples=few_shot_examples_str,
-        question=text_input
-    )
-
-def load_few_shot_examples(file_path: str) -> str:
-    """Loads few-shot examples content."""
-    try:
-        with open(file_path, 'r') as f:
-            return f.read()
-    except FileNotFoundError:
-        print(f"ERROR: Few-shot examples file not found at {file_path}")
-        return ""
-
-# --- API-specific Functions ---
-def create_intent_schema(labels: list) -> BaseModel:
-    """
-    Creates a Pydantic model for intent classification with the given labels.
-    """
-    # Create the category enum from labels
-    CategoryEnum = Literal[tuple(labels)]  # type: ignore
+    @abstractmethod
+    def initialize(self, config: dict):
+        """Initialize the API client with configuration."""
+        pass
     
-    class IntentSchema(BaseModel):
-        category: CategoryEnum = Field(..., description="The predicted intent category")
-        confidence: float = Field(..., description="Confidence score between 0 and 1")
+    @abstractmethod
+    def predict(self, prompt: str, schema: dict) -> tuple[str, float]:
+        """Make a prediction using the API."""
+        pass
+
+# --- Specific API Implementations ---
+class NebiusApiClient(BaseApiClient):
+    """Nebius API client implementation."""
     
-    return IntentSchema
+    def initialize(self, config: dict):
+        self.client = initialize_nebius_client(config)
+        self.config = config
+    
+    def predict(self, prompt: str, schema: dict) -> tuple[str, float]:
+        result = predict_with_nebius(self.client, self.config, prompt, schema)
+        return result['category'], result['confidence']
+
+class GeminiApiClient(BaseApiClient):
+    """Gemini API client implementation - placeholder."""
+    
+    def initialize(self, config: dict):
+        # TODO: Implement Gemini client initialization
+        pass
+    
+    def predict(self, prompt: str, schema: dict) -> tuple[str, float]:
+        # TODO: Implement Gemini prediction
+        raise NotImplementedError("Gemini API not yet implemented")
+
+# --- API Factory ---
+def get_api_client(api_type: str) -> BaseApiClient:
+    """Factory function to create the appropriate API client."""
+    clients = {
+        'nebius': NebiusApiClient,
+        'gemini': GeminiApiClient,
+        # Add new API clients here
+    }
+    
+    if api_type not in clients:
+        raise ValueError(f"Unknown API type: {api_type}. Supported types: {list(clients.keys())}")
+    
+    return clients[api_type]()
+
 
 def run_api_experiment(config_path: str):
     """
-    Runs an experiment using an API-based model (e.g., Nebius Qwen).
+    Runs an experiment using an API-based model (e.g., Nebius Qwen, Gemini).
     
     Args:
         config_path (str): Path to the experiment configuration file
     """
-    # Load configurations
-    exp_config = load_config(config_path)
-    dataset_config = load_config(exp_config['dataset_config'])
+    project_root = Path(__file__).parent.parent
     
-    # Initialize API client
-    client = initialize_nebius_client(exp_config)
+    # 1. Load All Configurations
+    exp_config = load_config(project_root / config_path)
+    dataset_config = load_config(project_root / exp_config['dataset_config'])
     
-    # Load dataset and labels
-    dataset, labels = load_dataset_and_labels(
-        dataset_config,
-        exp_config.get('force_oos', False),
-        exp_config.get('list_oos_idx', [])
-    )
+    print("--- Starting Experiment ---")
+    print(f"Experiment Config: {config_path}")
+    print(f"Dataset: {dataset_config['name']}, Model: {exp_config['model_name']}, Technique: {exp_config['technique']}")
     
-    # Create Pydantic schema for response validation
+    # 2. Setup Output Directory
+    output_dir = project_root / exp_config['output_dir']
+    output_dir.mkdir(parents=True, exist_ok=True)
+    print(f"Results will be saved to: {output_dir}")
+
+    # 3. Initialize API Client
+    api_type = exp_config.get('api_type', 'nebius')  # Default to nebius for backward compatibility
+    client = get_api_client(api_type)
+    client.initialize(exp_config)
+
+    # 4. Load and Process Data
+    df, labels = process_config_and_data(exp_config, dataset_config)
+    
+    # 5. Create Pydantic schema
+    print("\n--- Preparing Model and Prompts ---")
     IntentSchema = create_intent_schema(labels)
     
-    # Load prompt template and few-shot examples
-    prompt_template = load_prompt_template(exp_config['prompt_template_path'])
-    few_shot_examples = load_few_shot_examples(exp_config['few_shot']['examples_path'])
-    
-    # Process data range
+    # 6. Load prompt template and examples
+    prompt_template = load_prompt_template(project_root / exp_config['prompt_template_path'])
+    few_shot_examples = ""
+    if exp_config['technique'] == 'fewshot':
+        examples_path = project_root / exp_config['few_shot']['examples_path']
+        few_shot_examples = load_few_shot_examples(examples_path)
+
+    # 7. Main Inference Loop
+    print("\n--- Running Inference ---")
     start_index = exp_config.get('start_index', 0)
-    end_index = exp_config.get('end_index')
+    end_index = exp_config.get('end_index', len(df))
     if end_index is None:
-        end_index = len(dataset)
+        end_index = len(df)
     
-    # Prepare results storage
+    run_df = df.iloc[start_index:end_index]
+    print(f"Processing {len(run_df)} records from index {start_index} to {end_index}.")
+
+    start_time = time.time()
     results = []
     
-    # Process examples
-    for idx, row in tqdm(dataset.iloc[start_index:end_index].iterrows(), 
-                        desc="Processing examples",
-                        total=end_index-start_index):
+    for i, (index, row) in enumerate(run_df.iterrows()):
+        text_input = row[dataset_config['text_column']]
+        true_label = row[dataset_config['label_column']]
         
         # Format prompt
-        prompt = format_few_shot_prompt(
-            prompt_template,
-            row['text'],
-            labels,
-            few_shot_examples
-        )
-        
+        prompt = format_few_shot_prompt(prompt_template, text_input, labels, few_shot_examples)
+
+        if i == 0:
+            print("\n--- Example Prompt (first item) ---")
+            print(prompt)
+            print("-" * 40 + "\n")
+
         try:
-            # Get prediction from API
-            response = predict_with_nebius(
-                client=client,
-                prompt=prompt,
-                model_name=exp_config['model_name'],
-                response_schema=IntentSchema,
-                config=exp_config
-            )
+            # Get prediction using the appropriate API client
+            schema = IntentSchema.model_json_schema()
+            predicted, confidence = client.predict(prompt, schema)
             
-            # Store results
-            result = {
-                'text': row['text'],
-                'label': row['label'],
-                'predicted': response['category'],
-                'confidence': response['confidence'],
-                'dataset': dataset_config['name'],
-                'split': row['split']
-            }
-            results.append(result)
-            
-            # Log progress
-            if (idx + 1) % exp_config['run_control']['log_every_n_examples'] == 0:
-                print(f"\nProcessed {idx + 1} examples")
-                
         except Exception as e:
-            print(f"Error processing example {idx}: {str(e)}")
-            continue
-    
-    # Save results
-    print("\nSaving experiment results...")
+            predicted = 'error'
+            confidence = 0.0
+            print(f"\nError processing row {index}: {str(e)}")
+
+        # Store result
+        results.append({
+            'text': text_input,
+            'label': true_label,
+            'predicted': predicted,
+            'confidence': confidence,
+            'dataset': dataset_config['name'],
+            'split': row.get('split')
+        })
+
+        # Log progress with ETA
+        log_every = exp_config.get('run_control', {}).get('log_every_n_examples', 100)
+        if (i + 1) % log_every == 0:
+            elapsed_time = time.time() - start_time
+            avg_time_per_row = elapsed_time / (i + 1)
+            remaining_rows = len(run_df) - (i + 1)
+            eta = avg_time_per_row * remaining_rows
+            print(f"Processed {i + 1}/{len(run_df)} | Elapsed: {time.strftime('%H:%M:%S', time.gmtime(elapsed_time))} | ETA: {time.strftime('%H:%M:%S', time.gmtime(eta))}")
+
+    # 8. Save Results and Generate Metrics
     results_df = pd.DataFrame(results)
-    output_path = Path(exp_config['output_dir'])
-    output_path.mkdir(parents=True, exist_ok=True)
+    base_filename = get_base_filename(exp_config, dataset_config, start_index, end_index)
     
-    # Add open vs known labels
-    print("Adding open vs known classification labels...")
-    results_df.loc[(results_df["label"] != "oos"), "label_open_vs_known"] = "known"
-    results_df.loc[(results_df["label"] == "oos"), "label_open_vs_known"] = "open"
-    results_df.loc[(results_df["predicted"] != "oos"), "predicted_open_vs_known"] = "known"
-    results_df.loc[(results_df["predicted"] == "oos"), "predicted_open_vs_known"] = "open"
-    
-    # Save raw results
-    base_filename = f"{exp_config['model_name'].replace('/', '_')}_{dataset_config['name']}_{start_index}_{end_index}"
-    pickle_path = output_path / f"{base_filename}.pkl"
-    results_df.to_pickle(pickle_path)
-    print(f"Raw results saved to {pickle_path}")
-    
-    # Save detailed evaluation results
-    print("\nGenerating evaluation metrics and visualizations...")
-    save_evaluation_results(
-        results_df,
-        labels,
-        output_path,
-        base_filename,
-        exp_config,
-        dataset_config
-    )
+    # Save raw predictions
+    predictions_path = output_dir / f"results_{base_filename}.json"
+    results_df.to_json(predictions_path, orient='records', indent=4)
+    print(f"\nRaw predictions saved to {predictions_path}")
 
-def save_evaluation_results(df_results: pd.DataFrame, 
-                         labels: list, 
-                         output_dir: Path, 
-                         base_filename: str,
-                         exp_config: dict,
-                         dataset_config: dict):
-    """
-    Calculates metrics and saves all evaluation artifacts including:
-    - Metrics summaries (both regular and open-vs-known)
-    - Classification reports
-    - Confusion matrices (CSV and visualization)
-    
-    Args:
-        df_results: DataFrame with predictions
-        labels: List of valid labels
-        output_dir: Directory to save results
-        base_filename: Base name for output files
-        exp_config: Experiment configuration
-        dataset_config: Dataset configuration
-    """
-    print("\nValidating results...")
-    valid_results = df_results[df_results['predicted'].isin(labels)]
-    if len(valid_results) == 0:
-        print("\nWARNING: No valid predictions found to evaluate. Skipping metrics generation.")
-        return
-    print(f"Found {len(valid_results)} valid predictions out of {len(df_results)} total")
+    # Generate metrics and visualizations
+    print("\n--- Generating Evaluation Metrics ---")
+    save_evaluation_results(results_df, labels, output_dir, base_filename, exp_config, dataset_config)
 
-    # Get model and dataset name without indices for cm and classification report
-    model_name = exp_config['model_name'].replace('/', '_').replace(':', '_').lower()
-    dataset_name = dataset_config['name'].lower()
-    filename_without_indices = f"{model_name}_{dataset_name}"
-    
-    # Get labels and predictions
-    true_labels = valid_results['label']
-    predicted_labels = valid_results['predicted']
-    true_labels_open_vs_known = valid_results['label_open_vs_known']
-    predicted_labels_open_vs_known = valid_results['predicted_open_vs_known']
-    
-    # Generate and save regular metrics summary
-    print("\nGenerating regular metrics summary...")
-    start_index = exp_config.get('start_index', 0)
-    end_index = exp_config.get('end_index', None)
-    
-    metrics_summary = generate_metrics_summary(
-        valid_results, model_name, dataset_name, 
-        start_index, end_index, is_open_vs_known=False
-    )
-    metrics_path = output_dir / f"metrics_{filename_without_indices}.txt"
-    with open(metrics_path, 'w') as f:
-        f.write(metrics_summary)
-    print(f"Metrics summary saved to {metrics_path}")
-    
-    # Open vs Known metrics
-    print("\nGenerating open vs known metrics summary...")
-    metrics_summary_open_vs_known = generate_metrics_summary(
-        valid_results, model_name, dataset_name,
-        start_index, end_index, is_open_vs_known=True
-    )
-    metrics_path_open_vs_known = output_dir / f"metrics_{filename_without_indices}_open_vs_known.txt"
-    with open(metrics_path_open_vs_known, 'w') as f:
-        f.write(metrics_summary_open_vs_known)
-    print(f"Open vs Known metrics saved to {metrics_path_open_vs_known}")
-    
-    # Save confusion matrices
-    print("\nGenerating confusion matrices...")
-    cm = confusion_matrix(true_labels, predicted_labels, labels=labels)
-    cm_df = pd.DataFrame(cm, index=labels, columns=labels)
-    
-    # Save CSV
-    cm_csv_path = output_dir / f"cm_{filename_without_indices}.csv"
-    cm_df.to_csv(cm_csv_path)
-    print(f"Confusion matrix saved to {cm_csv_path}")
-    
-    # Create and save visualization
-    print("Generating confusion matrix visualization...")
-    figsize = max(20, len(labels) // 2 + 10)
-    plt.figure(figsize=(figsize, figsize))
-    sns.heatmap(cm_df, 
-                annot=True,
-                fmt='d',
-                cmap='Blues',
-                xticklabels=labels,
-                yticklabels=labels)
-    plt.title('Confusion Matrix')
-    plt.ylabel('Actual')
-    plt.xlabel('Predicted')
-    cm_png_path = output_dir / f"cm_{filename_without_indices}.png"
-    plt.savefig(cm_png_path, bbox_inches='tight')
-    plt.close()
-    print(f"Confusion matrix visualization saved to {cm_png_path}")
-
-def generate_metrics_summary(df_results: pd.DataFrame, 
-                          model_name: str, 
-                          dataset_name: str, 
-                          start_index: int, 
-                          end_index: int,
-                          is_open_vs_known: bool = False) -> str:
-    """
-    Generate a summary of metrics including accuracy and F1 scores.
-    
-    Args:
-        df_results: DataFrame with results
-        model_name: Name of the model used
-        dataset_name: Name of the dataset
-        start_index: Starting index of processed examples
-        end_index: Ending index of processed examples
-        is_open_vs_known: Whether to generate metrics for open vs known classification
-    """
-    # Calculate metrics
-    if is_open_vs_known:
-        print("\nCalculating open vs known metrics...")
-        true_labels = df_results['label_open_vs_known']
-        predicted_labels = df_results['predicted_open_vs_known']
-    else:
-        print("\nCalculating intent classification metrics...")
-        true_labels = df_results['label']
-        predicted_labels = df_results['predicted']
-    
-    accuracy = accuracy_score(true_labels, predicted_labels)
-    weighted_f1 = f1_score(true_labels, predicted_labels, average='weighted')
-    macro_f1 = f1_score(true_labels, predicted_labels, average='macro')
-    
-    # Format the summary
-    summary = f"""
-=== Metrics Summary ===
-Model: {model_name}
-Dataset: {dataset_name}
-Examples processed: {start_index} to {end_index if end_index is not None else 'end'}
-Overall Accuracy: {accuracy:.2%}
-Overall Weighted F1: {weighted_f1:.2%}
-Overall Macro F1: {macro_f1:.2%}
-
-Classification Report:
-{classification_report(true_labels, predicted_labels)}
-"""
-    return summary
+    print("\n--- Experiment Finished ---")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Run an API-based intent classification experiment")
-    parser.add_argument("config", help="Path to experiment configuration YAML file")
+    parser = argparse.ArgumentParser(description="Run an API-based intent classification experiment.")
+    parser.add_argument("--config", type=str, required=True, help="Path to the experiment configuration file")
     args = parser.parse_args()
     
     run_api_experiment(args.config)

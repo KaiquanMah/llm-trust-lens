@@ -10,6 +10,7 @@ from openai import OpenAI
 from tenacity import retry, stop_after_attempt, wait_fixed
 import json
 from typing import Dict, Any, Optional
+from experiment_common import create_intent_schema
 
 # Load environment variables from .env file
 env_path = Path(__file__).resolve().parent.parent / '.env'
@@ -48,12 +49,6 @@ def initialize_nebius_client(model_config: dict) -> OpenAI:
         client = OpenAI(
             base_url=base_url,
             api_key=api_key
-        )
-        # Test the connection with a minimal request
-        client.beta.chat.completions.parse(
-            model="Qwen/Qwen3-30B-A3B",
-            messages=[{"role": "user", "content": "test"}],
-            seed=1
         )
         return client
     except Exception as e:
