@@ -304,7 +304,7 @@ def main():
             if 'oos' not in labels:
                 print("ERROR: 'oos' label is missing from final labels")
             
-            # Print final label count
+            # Print final label count and list for verification
             print(f"Final label count: {len(labels)} labels")
             print(f"Labels: {labels}")
             
@@ -314,24 +314,39 @@ def main():
             print(f"Number of unique intents after converting some to OOS class: {len(labels)}\n")
             
             # Sanity check
+            # Check if 'oos' was in the original dataset
+            # Important: This affects how we count expected labels
+            # - For datasets like clinc150oos that already have 'oos': int_oos_in_orig_dataset = True
+            # - For datasets like banking77 that don't have 'oos': int_oos_in_orig_dataset = False
             int_oos_in_orig_dataset = int('oos' in sorted_intent)
             
             print("="*80)
             print("sanity check")
-            # Original counts
+            # Print original dataset statistics
             print(f"Number of original intents: {len(sorted_intent)}")
             print(f"Number of original intents to convert to OOS class: {len(oos_labels_to_replace)}")
             print(f"Percentage of original intents to convert to OOS class: {len(oos_labels_to_replace)/len(sorted_intent)}")
             
-            # After conversion checks
-            expected_final_count = num_labels_to_preserve + 1  # 'oos' + N preserved non-OOS labels
+            # Calculate expected number of classes after conversion:
+            # - Always include num_labels_to_preserve (the non-OOS classes we're keeping)
+            # - Only add 1 for 'oos' if it wasn't in original dataset
+            # Examples:
+            # 1. banking77 (no original 'oos'):
+            #    - num_labels_to_preserve = 1, int_oos_in_orig_dataset = False
+            #    - expected_final_count = 1 + 1 = 2 ('oos' + 1 preserved class)
+            # 2. clinc150oos (has original 'oos'):
+            #    - num_labels_to_preserve = 115, int_oos_in_orig_dataset = True
+            #    - expected_final_count = 115 + 0 = 115 (already includes 'oos')
+            expected_final_count = num_labels_to_preserve + (0 if int_oos_in_orig_dataset else 1)
             actual_count = len(labels)
             print(f"Number of unique intents after conversion: {actual_count}")
             print(f"Labels after conversion: {labels}")
             print(f"Numbers match expected count: {actual_count == expected_final_count}")
             
+            # Warn if counts don't match, with clear explanation of why
             if actual_count != expected_final_count:
-                print(f"WARNING: Expected {expected_final_count} classes ('oos' + {num_labels_to_preserve} non-OOS), but found {actual_count}: {labels}")
+                oos_explanation = "already had 'oos'" if int_oos_in_orig_dataset else "adding 'oos'"
+                print(f"WARNING: Expected {expected_final_count} classes ({oos_explanation}, {num_labels_to_preserve} non-OOS), but found {actual_count}: {labels}")
             print("Prepared unique intents")
 
 
