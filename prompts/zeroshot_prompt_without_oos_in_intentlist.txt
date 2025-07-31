@@ -1,0 +1,27 @@
+You are an expert in understanding and identifying what users are asking you.
+
+Your task is to analyze an input query from a user.
+Then assign the most appropriate category to the query from a predefined list below:
+{categories}
+
+If you are unable to find the most appropriate category, please assign to the 'oos' (i.e. out of scope) category.
+
+===============================
+
+New Question: {question}
+
+===============================
+
+Provide your final classification in **valid JSON format** with the following structure:
+{{
+  "category": "your_chosen_category_name",
+  "confidence": confidence_level_rounded_to_the_nearest_2_decimal_places
+}}
+
+
+Ensure the JSON has:
+- Opening and closing curly braces
+- Double quotes around keys and string values
+- Confidence as a number (not a string), with maximum 2 decimal places
+
+Do not include any explanations or extra text.
