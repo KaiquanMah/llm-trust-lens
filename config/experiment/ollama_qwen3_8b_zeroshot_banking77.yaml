@@ -21,14 +21,12 @@ list_oos_idx: [2, 10, 14, 15, 16, 17, 19, 25, 31, 32, 33, 34, 36, 52, 53, 54, 57
 
 # 2. MODEL CONFIGURATION
 model_provider: "ollama"
-model_name: "deepseek-r1:7b" # The model name registered in your Ollama instance
+model_name: "qwen3:8b" # The model name registered in your Ollama instance
 ollama_host: "http://localhost:11434"
 
 # 3. TECHNIQUE CONFIGURATION
-technique: "fewshot"
-prompt_template_path: "prompts/fewshot_prompt.txt"
-few_shot:
-  examples_path: "prompts/few_shot_examples/banking77/banking_25perc_oos.txt"
+technique: "zeroshot"
+prompt_template_path: "prompts/zeroshot_prompt_without_oos_in_intentlist.txt"
 
 # 4. RUN CONTROL & PROCESSING
 # Parameters that control the behavior and scope of this specific experiment
@@ -39,7 +37,7 @@ run_control:
 
 # 5. DATA SUBSET TO TEST IMPACT OF OOS THRESHOLD ON METRICS
 threshold:
-  # If true, commence threshold test
+  # If true, commence threshold test 
   # to process questions to check non-oos classes vs oos (out-of-scope) class
   filter_oos_qns_only: false
   # where we filter the dataframe later to keep only the 1st non-oos class as examples to input to LLM
@@ -50,4 +48,4 @@ threshold:
   n_oos_qns: 100
 
 # 6. OUTPUT CONFIGURATION
-output_dir: "results/banking_fewshot_deepseek-r1_7b"
+output_dir: "results/banking_fewshot_qwen3_8b"
