@@ -55,22 +55,24 @@ class NebiusApiClient(BaseApiClient):
         return result['category'], result['confidence']
 
 class GeminiApiClient(BaseApiClient):
-    """Gemini API client implementation - placeholder."""
+    """Gemini API client implementation."""
     
     def initialize(self, config: dict):
-        # TODO: Implement Gemini client initialization
-        pass
-    
+        """Initialize the Gemini API client."""
+        from google_utils import GeminiClient
+        self.client = GeminiClient(config['api_config'])
+        
     def predict(self, prompt: str, schema: dict) -> tuple[str, float]:
-        # TODO: Implement Gemini prediction
-        raise NotImplementedError("Gemini API not yet implemented")
+        """Make a prediction using the Gemini API."""
+        result = self.client.generate_content(prompt, schema)
+        return result['category'], result['confidence']
 
 # --- API Factory ---
 def get_api_client(api_type: str) -> BaseApiClient:
     """Factory function to create the appropriate API client."""
     clients = {
         'nebius': NebiusApiClient,
-        'gemini': GeminiApiClient,
+        'google': GeminiApiClient,
         # Add new API clients here
     }
     
@@ -149,8 +151,12 @@ def run_api_experiment(config_path: str):
         try:
             # Get prediction using the appropriate API client
             schema = IntentSchema.model_json_schema()
-            # Nebius API expects the IntentSchema Pydantic classn, not the JSON schema
-            predicted, confidence = client.predict(prompt, IntentSchema)
+            if api_type == 'google':
+                # Google Gemini API expects the JSON schema
+                predicted, confidence = client.predict(prompt, schema)
+            else:
+                # Nebius API expects the IntentSchema Pydantic classn, not the JSON schema
+                predicted, confidence = client.predict(prompt, IntentSchema)
             
         except Exception as e:
             predicted = 'error'

@@ -11,3 +11,4 @@ matplotlib    # to visualise results in Jupyter notebook
 python-dotenv # for loading environment variables from .env file
 openai        # for Nebius and OpenAI API calls
 tenacity      # for API model retries
+google-genai  # for Gemini API calls
