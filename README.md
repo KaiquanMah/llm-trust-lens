@@ -215,7 +215,7 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │   │   ├── metrics_llama3.2_3b_banking.txt                              # Multi-class classification metrics (OOS vs individual known classes)
 │   │   ├── metrics_llama3.2_3b_banking_open_vs_known.txt                # Binary classification metrics (OOS/Open vs known class)
 │   │   └── results_llama3.2_3b_banking_0_7.json                         # Results JSON: list of dictionaries, with 1 dictionary per classified example
-│   ├── banking77_fewshot_nebiusqwen3-30b-a3b                            # Results from banking77, stackoverflow, oos pipeline test runs (after refactoring from Jupyter notebooks to GitHub repo)
+│   ├── banking77_fewshot_nebiusqwen3-30b-a3b                            # Experiment folders from banking77, stackoverflow, oos pipeline test runs (after refactoring from Jupyter notebooks to GitHub repo)
 │   ├── banking77_fewshot_thresholdtest
 │   ├── banking77_fewshot_thresholdtest_only1notoos
 │   ├── banking77_fewshot_thresholdtest_only4notoos
