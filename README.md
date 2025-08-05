@@ -105,7 +105,8 @@ python src/experiment_api.py --config config/experiment/api_nebius_qwen3-30b-a3b
 python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-flash-preview-05-20_fewshot_banking77.yaml
 ```
 
-
+### 3. Embedding-based Methods
+TBC
 
 
 
