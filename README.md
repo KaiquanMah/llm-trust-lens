@@ -193,12 +193,12 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │   │   │   ├── oos_25perc_oos.txt
 │   │   │   ├── oos_1notoos.txt
             ...
-│   │   │   ├── oos_100notoos.txt
+│   │   │   └── oos_100notoos.txt
 │   │   └── stackoverflow
 │   │       ├── stackoverflow_25perc_oos.txt
 │   │       ├── stackoverflow_only1notoos.txt
             ...
-│   │       ├── stackoverflow_only18notoos.txt
+│   │       └── stackoverflow_only18notoos.txt
 │   ├── fewshot_prompt.txt                                       # Last used fewshot prompt
 │   └── zeroshot_prompt_without_oos_in_intentlist.txt            # Last used zeroshot prompt
 ├── requirements.txt                                             # Python libraries to install
