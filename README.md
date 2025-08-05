@@ -45,7 +45,7 @@ ollama --version
 # As at August 2025: ollama version is 0.9.6
 
 ps aux | grep ollama
-codespa+    1425  0.0  0.0   7080  2048 pts/0    S+   14:21   0:00 grep --color=auto ollama
+# codespa+    1425  0.0  0.0   7080  2048 pts/0    S+   14:21   0:00 grep --color=auto ollama
 ```
 
 
