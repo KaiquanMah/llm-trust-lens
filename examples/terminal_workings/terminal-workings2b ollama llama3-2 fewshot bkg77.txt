@@ -1,0 +1,2459 @@
+(venv) ubuntu@computeinstance-e00f6h86c4me9as6r7:~/llm-trust-lens$ python src/experiment.py --config config/experiment/ollama_llama3_2_3b_fewshot_banking77.yaml
+--- Starting Experiment ---
+Experiment Config: config/experiment/ollama_llama3_2_3b_fewshot_banking77.yaml
+Dataset: banking, Model: llama3.2:3b, Technique: fewshot
+Results will be saved to: /home/ubuntu/llm-trust-lens/results/banking77_fewshot
+--- Initializing Ollama ---
+Ollama server is already running.
+Model 'llama3.2:3b' is already available locally.
+--- Ollama Initialization Complete ---
+Loading all splits from directory: /home/ubuntu/llm-trust-lens/data/banking
+Loading label map from: /home/ubuntu/llm-trust-lens/data/banking/banking77_idx2label.csv
+Successfully loaded dataset 'banking' with 3080 records and 77 labels.
+
+--- Applying Data Processing from Experiment Config ---
+================================================================================
+Original dataset intents: ['Refund_not_showing_up', 'activate_my_card', 'age_limit', 'apple_pay_or_google_pay', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_acceptance', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_not_working', 'card_payment_fee_charged', 'card_payment_not_recognised', 'card_payment_wrong_exchange_rate', 'card_swallowed', 'cash_withdrawal_charge', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_card_payment', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'exchange_charge', 'exchange_rate', 'exchange_via_app', 'extra_charge_on_statement', 'failed_transfer', 'fiat_currency_support', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'request_refund', 'reverted_card_payment?', 'supported_cards_and_currencies', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_card_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'visa_or_mastercard', 'why_verify_identity', 'wrong_amount_of_cash_received', 'wrong_exchange_rate_for_cash_withdrawal']
+Number of original intents: 77
+
+================================================================================
+Original intents to convert to OOS class:
+   0  apple_pay_or_google_pay
+   1  card_acceptance
+   2  card_not_working
+   3  card_payment_fee_charged
+   4  card_payment_not_recognised
+   5  card_payment_wrong_exchange_rate
+   6  cash_withdrawal_charge
+   7  declined_card_payment
+   8  exchange_charge
+   9  exchange_rate
+  10  exchange_via_app
+  11  extra_charge_on_statement
+  12  fiat_currency_support
+  13  request_refund
+  14  reverted_card_payment?
+  15  supported_cards_and_currencies
+  16  top_up_by_card_charge
+  17  visa_or_mastercard
+  18  wrong_exchange_rate_for_cash_withdrawal
+Percentage of original intents to convert to OOS class: 0.24675324675324675
+
+================================================================================
+Unique intents after converting some to OOS class:
+['Refund_not_showing_up', 'activate_my_card', 'age_limit', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_swallowed', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'failed_transfer', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'oos', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'why_verify_identity', 'wrong_amount_of_cash_received']
+Number of unique intents after converting some to OOS class: 59
+
+================================================================================
+sanity check
+Number of original intents: 77
+Number of original intents + 1 OOS class (if doesnt exist in original dataset): 78
+Number of original intents to convert to OOS class: 19
+Percentage of original intents to convert to OOS class: 0.3220338983050847
+Number of unique intents after converting some to OOS class: 59
+Number of original intents + 1 OOS class (if doesnt exist in original dataset) - converted classes: 59
+Numbers match: True
+Prepared unique intents
+
+--- Preparing Model and Prompts ---
+Loading few-shot examples content directly from: /home/ubuntu/llm-trust-lens/prompts/few_shot_examples/banking77/banking_25perc_oos.txt
+
+--- Running Inference ---
+Processing 8 records from index 0 to 8.
+
+--- Example Prompt (for first item) ---
+You are an expert in understanding and identifying what users are asking you.
+
+Your task is to analyze an input query from a user and assign the most appropriate category from the following list:
+- Refund_not_showing_up
+- activate_my_card
+- age_limit
+- atm_support
+- automatic_top_up
+- balance_not_updated_after_bank_transfer
+- balance_not_updated_after_cheque_or_cash_deposit
+- beneficiary_not_allowed
+- cancel_transfer
+- card_about_to_expire
+- card_arrival
+- card_delivery_estimate
+- card_linking
+- card_swallowed
+- cash_withdrawal_not_recognised
+- change_pin
+- compromised_card
+- contactless_not_working
+- country_support
+- declined_cash_withdrawal
+- declined_transfer
+- direct_debit_payment_not_recognised
+- disposable_card_limits
+- edit_personal_details
+- failed_transfer
+- get_disposable_virtual_card
+- get_physical_card
+- getting_spare_card
+- getting_virtual_card
+- lost_or_stolen_card
+- lost_or_stolen_phone
+- order_physical_card
+- passcode_forgotten
+- pending_card_payment
+- pending_cash_withdrawal
+- pending_top_up
+- pending_transfer
+- pin_blocked
+- receiving_money
+- terminate_account
+- top_up_by_bank_transfer_charge
+- top_up_by_cash_or_cheque
+- top_up_failed
+- top_up_limits
+- top_up_reverted
+- topping_up_by_card
+- transaction_charged_twice
+- transfer_fee_charged
+- transfer_into_account
+- transfer_not_received_by_recipient
+- transfer_timing
+- unable_to_verify_identity
+- verify_my_identity
+- verify_source_of_funds
+- verify_top_up
+- virtual_card_not_working
+- why_verify_identity
+- wrong_amount_of_cash_received
+
+Only classify as "oos" (out of scope category) if none of the other categories apply.
+
+Below are several examples to guide your classification:
+
+---
+Example 1:
+Question: "I am planning activating my card was it possible?"
+Category:
+{{
+  "category": "activate_my_card",
+  "confidence": 7.45
+}}
+
+Example 2:
+Question: "Where can I activate my card?"
+Category:
+{{
+  "category": "activate_my_card",
+  "confidence": 93.66
+}}
+
+Example 3:
+Question: "Can I get some help to get me card activated?"
+Category:
+{{
+  "category": "activate_my_card",
+  "confidence": 56.33
+}}
+
+Example 4:
+Question: "I just got a new card, and I want to know how to activate."
+Category:
+{{
+  "category": "activate_my_card",
+  "confidence": 45.5
+}}
+
+Example 5:
+Question: "How do I activate a card I received?"
+Category:
+{{
+  "category": "activate_my_card",
+  "confidence": 90.2
+}}
+
+Example 6:
+Question: "Is there a limit for age?"
+Category:
+{{
+  "category": "age_limit",
+  "confidence": 26.75
+}}
+
+Example 7:
+Question: "Do you offer services for children to have money saving experience?"
+Category:
+{{
+  "category": "age_limit",
+  "confidence": 89.21
+}}
+
+Example 8:
+Question: "What age do you have to be to open an account?"
+Category:
+{{
+  "category": "age_limit",
+  "confidence": 57.4
+}}
+
+Example 9:
+Question: "How old do you have to be to be able to open an account?"
+Category:
+{{
+  "category": "age_limit",
+  "confidence": 30.96
+}}
+
+Example 10:
+Question: "At what age can I open an account?"
+Category:
+{{
+  "category": "age_limit",
+  "confidence": 29.02
+}}
+
+Example 11:
+Question: "I need help from someone in your department with finding my nearest ATM."
+Category:
+{{
+  "category": "atm_support",
+  "confidence": 88.36
+}}
+
+Example 12:
+Question: "Which ATMs accept this placard ?"
+Category:
+{{
+  "category": "atm_support",
+  "confidence": 46.25
+}}
+
+Example 13:
+Question: "Is the closest ATM to me within 2 miles?"
+Category:
+{{
+  "category": "atm_support",
+  "confidence": 11.84
+}}
+
+Example 14:
+Question: "Where are the ATMs that accept this card?"
+Category:
+{{
+  "category": "atm_support",
+  "confidence": 66.18
+}}
+
+Example 15:
+Question: "Can I use my card to withdraw from my account?"
+Category:
+{{
+  "category": "atm_support",
+  "confidence": 92.06
+}}
+
+Example 16:
+Question: "Does auto top-up have a limit?"
+Category:
+{{
+  "category": "automatic_top_up",
+  "confidence": 4.24
+}}
+
+Example 17:
+Question: "Is there an auto top up option?"
+Category:
+{{
+  "category": "automatic_top_up",
+  "confidence": 24.46
+}}
+
+Example 18:
+Question: "Can I have my account add money automatically in certain intervals?"
+Category:
+{{
+  "category": "automatic_top_up",
+  "confidence": 22.97
+}}
+
+Example 19:
+Question: "Can it automatically top up my account?"
+Category:
+{{
+  "category": "automatic_top_up",
+  "confidence": 32.13
+}}
+
+Example 20:
+Question: "can you top up your account automatically"
+Category:
+{{
+  "category": "automatic_top_up",
+  "confidence": 71.62
+}}
+
+Example 21:
+Question: "I was wondering if international transfers take longer than normal because I made a transfer from France a couple of days ago and nothing has happened yet?"
+Category:
+{{
+  "category": "balance_not_updated_after_bank_transfer",
+  "confidence": 21.12
+}}
+
+Example 22:
+Question: "Hi. A couple hours ago I make a transfer from my UK bank account, but it hasn't shown up. Please, would you see what the delay is?"
+Category:
+{{
+  "category": "balance_not_updated_after_bank_transfer",
+  "confidence": 52.15
+}}
+
+Example 23:
+Question: "I did a money transfer to my account and it is not showing there."
+Category:
+{{
+  "category": "balance_not_updated_after_bank_transfer",
+  "confidence": 33.65
+}}
+
+Example 24:
+Question: "Although I transferred some money, it has not as of yet, arrived."
+Category:
+{{
+  "category": "balance_not_updated_after_bank_transfer",
+  "confidence": 42.76
+}}
+
+Example 25:
+Question: "What happened to the transfer I did?"
+Category:
+{{
+  "category": "balance_not_updated_after_bank_transfer",
+  "confidence": 46.34
+}}
+
+Example 26:
+Question: "I have paid money into my account but it doesn't show."
+Category:
+{{
+  "category": "balance_not_updated_after_cheque_or_cash_deposit",
+  "confidence": 10.5
+}}
+
+Example 27:
+Question: "I made a deposit this morning but it is still pending?"
+Category:
+{{
+  "category": "balance_not_updated_after_cheque_or_cash_deposit",
+  "confidence": 52.75
+}}
+
+Example 28:
+Question: "Where is my deposit?"
+Category:
+{{
+  "category": "balance_not_updated_after_cheque_or_cash_deposit",
+  "confidence": 94.17
+}}
+
+Example 29:
+Question: "My cheque is slow to cash"
+Category:
+{{
+  "category": "balance_not_updated_after_cheque_or_cash_deposit",
+  "confidence": 40.84
+}}
+
+Example 30:
+Question: "Why isn't my cash deposit showing up in my account? I deposited it this morning."
+Category:
+{{
+  "category": "balance_not_updated_after_cheque_or_cash_deposit",
+  "confidence": 92.51
+}}
+
+Example 31:
+Question: "My account transfer was blocked."
+Category:
+{{
+  "category": "beneficiary_not_allowed",
+  "confidence": 14.94
+}}
+
+Example 32:
+Question: "Why can't you allow my beneficiary?"
+Category:
+{{
+  "category": "beneficiary_not_allowed",
+  "confidence": 98.01
+}}
+
+Example 33:
+Question: "I have been trying to exchange this for crypto but the app won't work could you please help me?"
+Category:
+{{
+  "category": "beneficiary_not_allowed",
+  "confidence": 88.17
+}}
+
+Example 34:
+Question: "why didnt a transfer to my account process"
+Category:
+{{
+  "category": "beneficiary_not_allowed",
+  "confidence": 10.32
+}}
+
+Example 35:
+Question: "Explain why I can't do a transfer to an account."
+Category:
+{{
+  "category": "beneficiary_not_allowed",
+  "confidence": 23.16
+}}
+
+Example 36:
+Question: "I'm really upset because I made a typo during a transfer and now I've sent money to the wrong account.  I can't fix this with the app.  Please help me immediately!"
+Category:
+{{
+  "category": "cancel_transfer",
+  "confidence": 18.39
+}}
+
+Example 37:
+Question: "My morning transaction needs to be canceled."
+Category:
+{{
+  "category": "cancel_transfer",
+  "confidence": 43.78
+}}
+
+Example 38:
+Question: "What do I have to do to cancel a transfer?"
+Category:
+{{
+  "category": "cancel_transfer",
+  "confidence": 78.59
+}}
+
+Example 39:
+Question: "Can you help me to quickly cancel a transaction I accidentally did to the wrong account?"
+Category:
+{{
+  "category": "cancel_transfer",
+  "confidence": 24.34
+}}
+
+Example 40:
+Question: "How do I cancel my transfer?"
+Category:
+{{
+  "category": "cancel_transfer",
+  "confidence": 59.32
+}}
+
+Example 41:
+Question: "What would the price be for an expired card replacement and how long will it take me to get it?"
+Category:
+{{
+  "category": "card_about_to_expire",
+  "confidence": 76.01
+}}
+
+Example 42:
+Question: "How do I go about ordering a new bank card?"
+Category:
+{{
+  "category": "card_about_to_expire",
+  "confidence": 21.71
+}}
+
+Example 43:
+Question: "If I am in China, can I still order a new card and if so, how?"
+Category:
+{{
+  "category": "card_about_to_expire",
+  "confidence": 46.12
+}}
+
+Example 44:
+Question: "How do I replace my card?"
+Category:
+{{
+  "category": "card_about_to_expire",
+  "confidence": 91.57
+}}
+
+Example 45:
+Question: "Can I have a new card shipped to China?"
+Category:
+{{
+  "category": "card_about_to_expire",
+  "confidence": 59.63
+}}
+
+Example 46:
+Question: "What is the tracking number for the card you sent?"
+Category:
+{{
+  "category": "card_arrival",
+  "confidence": 6.94
+}}
+
+Example 47:
+Question: "If I ordered my new card last week, how much longer should I wait to receive it?"
+Category:
+{{
+  "category": "card_arrival",
+  "confidence": 79.25
+}}
+
+Example 48:
+Question: "When will I get my new card?"
+Category:
+{{
+  "category": "card_arrival",
+  "confidence": 62.02
+}}
+
+Example 49:
+Question: "How do I track my card?"
+Category:
+{{
+  "category": "card_arrival",
+  "confidence": 79.06
+}}
+
+Example 50:
+Question: "Can you tell me why I haven't received my new card?"
+Category:
+{{
+  "category": "card_arrival",
+  "confidence": 92.47
+}}
+
+Example 51:
+Question: "Can I have it by a certain date?"
+Category:
+{{
+  "category": "card_delivery_estimate",
+  "confidence": 62.13
+}}
+
+Example 52:
+Question: "When will it be delivered to the US?"
+Category:
+{{
+  "category": "card_delivery_estimate",
+  "confidence": 85.56
+}}
+
+Example 53:
+Question: "Send my card as soon as you are able to."
+Category:
+{{
+  "category": "card_delivery_estimate",
+  "confidence": 23.63
+}}
+
+Example 54:
+Question: "Does delivery to the US take long?"
+Category:
+{{
+  "category": "card_delivery_estimate",
+  "confidence": 61.13
+}}
+
+Example 55:
+Question: "Can I get my card expedited?"
+Category:
+{{
+  "category": "card_delivery_estimate",
+  "confidence": 32.67
+}}
+
+Example 56:
+Question: "Hey, I have my card, how do I get it to show in the app?"
+Category:
+{{
+  "category": "card_linking",
+  "confidence": 1.95
+}}
+
+Example 57:
+Question: "Can I reactivate my lost card that I found this morning in my jacket pocket?"
+Category:
+{{
+  "category": "card_linking",
+  "confidence": 13.77
+}}
+
+Example 58:
+Question: "Where in the app do I link a new card?"
+Category:
+{{
+  "category": "card_linking",
+  "confidence": 5.53
+}}
+
+Example 59:
+Question: "Could I reactivate my card please, I couldn't find it but it turns out it was in my jacket pocket."
+Category:
+{{
+  "category": "card_linking",
+  "confidence": 47.37
+}}
+
+Example 60:
+Question: "How do I view the card I received in the app?"
+Category:
+{{
+  "category": "card_linking",
+  "confidence": 11.31
+}}
+
+Example 61:
+Question: "Why would an ATM swallow my card?"
+Category:
+{{
+  "category": "card_swallowed",
+  "confidence": 3.54
+}}
+
+Example 62:
+Question: "I need a new card because the ATM took mine."
+Category:
+{{
+  "category": "card_swallowed",
+  "confidence": 72.33
+}}
+
+Example 63:
+Question: "My card got stuck in an ATM."
+Category:
+{{
+  "category": "card_swallowed",
+  "confidence": 61.32
+}}
+
+Example 64:
+Question: "atm ate my card"
+Category:
+{{
+  "category": "card_swallowed",
+  "confidence": 6.07
+}}
+
+Example 65:
+Question: "Why did the ATM take my card and keep it?"
+Category:
+{{
+  "category": "card_swallowed",
+  "confidence": 98.36
+}}
+
+Example 66:
+Question: "Cash I did not get showed up in my account"
+Category:
+{{
+  "category": "cash_withdrawal_not_recognised",
+  "confidence": 65.95
+}}
+
+Example 67:
+Question: "I am seeing unathorized transactions in the app, on my account."
+Category:
+{{
+  "category": "cash_withdrawal_not_recognised",
+  "confidence": 69.96
+}}
+
+Example 68:
+Question: "There is a suspicious cash withdraw on the account."
+Category:
+{{
+  "category": "cash_withdrawal_not_recognised",
+  "confidence": 73.58
+}}
+
+Example 69:
+Question: "What is the strange cash withdrawal on my statement?"
+Category:
+{{
+  "category": "cash_withdrawal_not_recognised",
+  "confidence": 1.93
+}}
+
+Example 70:
+Question: "A cash withdrawal that I didn't authorize is shown on my account - can you please cancel my card as soon as possible?"
+Category:
+{{
+  "category": "cash_withdrawal_not_recognised",
+  "confidence": 16.0
+}}
+
+Example 71:
+Question: "I need a new Pin how do I go about that?"
+Category:
+{{
+  "category": "change_pin",
+  "confidence": 7.01
+}}
+
+Example 72:
+Question: "Are their certain cash machines where I can change my pin?"
+Category:
+{{
+  "category": "change_pin",
+  "confidence": 17.78
+}}
+
+Example 73:
+Question: "Do I have to go into the bank to change my PIN?"
+Category:
+{{
+  "category": "change_pin",
+  "confidence": 15.93
+}}
+
+Example 74:
+Question: "May I receive a different card pin"
+Category:
+{{
+  "category": "change_pin",
+  "confidence": 11.63
+}}
+
+Example 75:
+Question: "If I wanted to change my PIN, how would I do that?"
+Category:
+{{
+  "category": "change_pin",
+  "confidence": 62.49
+}}
+
+Example 76:
+Question: "Someone besides me might be using my card."
+Category:
+{{
+  "category": "compromised_card",
+  "confidence": 61.67
+}}
+
+Example 77:
+Question: "I froze my account, but how do I order a replacement card?"
+Category:
+{{
+  "category": "compromised_card",
+  "confidence": 53.3
+}}
+
+Example 78:
+Question: "Somebody used my card without my knowledge!"
+Category:
+{{
+  "category": "compromised_card",
+  "confidence": 29.56
+}}
+
+Example 79:
+Question: "What can I do if my card details where stolen from my car? I think they used my card to buy gas."
+Category:
+{{
+  "category": "compromised_card",
+  "confidence": 14.33
+}}
+
+Example 80:
+Question: "Questionable transactions on my account."
+Category:
+{{
+  "category": "compromised_card",
+  "confidence": 79.01
+}}
+
+Example 81:
+Question: "I wanted to use my contactless at the metro today but it didn't accept it!"
+Category:
+{{
+  "category": "contactless_not_working",
+  "confidence": 11.22
+}}
+
+Example 82:
+Question: "What can I do if contactless doesn't work?"
+Category:
+{{
+  "category": "contactless_not_working",
+  "confidence": 50.44
+}}
+
+Example 83:
+Question: "Contactless payments need to be enabled for my card."
+Category:
+{{
+  "category": "contactless_not_working",
+  "confidence": 27.04
+}}
+
+Example 84:
+Question: "Are my contactless settings correct? I tried to use it today but it wasn't working."
+Category:
+{{
+  "category": "contactless_not_working",
+  "confidence": 49.23
+}}
+
+Example 85:
+Question: "Why is my contactless not working?"
+Category:
+{{
+  "category": "contactless_not_working",
+  "confidence": 15.08
+}}
+
+Example 86:
+Question: "Can you tell me the countries you provide support for."
+Category:
+{{
+  "category": "country_support",
+  "confidence": 94.13
+}}
+
+Example 87:
+Question: "Can an American resident apply to get a card?"
+Category:
+{{
+  "category": "country_support",
+  "confidence": 40.7
+}}
+
+Example 88:
+Question: "Where in the European Union can I get a card?"
+Category:
+{{
+  "category": "country_support",
+  "confidence": 84.51
+}}
+
+Example 89:
+Question: "Which countries do you operate in"
+Category:
+{{
+  "category": "country_support",
+  "confidence": 57.22
+}}
+
+Example 90:
+Question: "Are cards available in the EU?"
+Category:
+{{
+  "category": "country_support",
+  "confidence": 86.23
+}}
+
+Example 91:
+Question: "I can't get cash from the ATM!"
+Category:
+{{
+  "category": "declined_cash_withdrawal",
+  "confidence": 79.47
+}}
+
+Example 92:
+Question: "When I went to get cash, it was declined!"
+Category:
+{{
+  "category": "declined_cash_withdrawal",
+  "confidence": 72.98
+}}
+
+Example 93:
+Question: "This morning I wanted to make a withdrawal before work, but my card was declined! Please double check it for me as this is the first time it was declined."
+Category:
+{{
+  "category": "declined_cash_withdrawal",
+  "confidence": 84.1
+}}
+
+Example 94:
+Question: "my card was frozen due to putting in the wrong pin too much.  how many tries do i have"
+Category:
+{{
+  "category": "declined_cash_withdrawal",
+  "confidence": 7.8
+}}
+
+Example 95:
+Question: "totally unacceptable.  I'm stranded with no cash because the ATM wouldn't give me any money!"
+Category:
+{{
+  "category": "declined_cash_withdrawal",
+  "confidence": 29.81
+}}
+
+Example 96:
+Question: "Seems like my transfer was declined how come?"
+Category:
+{{
+  "category": "declined_transfer",
+  "confidence": 92.76
+}}
+
+Example 97:
+Question: "I tried to buy something online yesterday but it wouldn't stop saying declined. Tried again today but same thing happened. What's Broken?"
+Category:
+{{
+  "category": "declined_transfer",
+  "confidence": 36.97
+}}
+
+Example 98:
+Question: "why did i get declined transfer"
+Category:
+{{
+  "category": "declined_transfer",
+  "confidence": 38.12
+}}
+
+Example 99:
+Question: "Transfer was declined."
+Category:
+{{
+  "category": "declined_transfer",
+  "confidence": 23.5
+}}
+
+Example 100:
+Question: "My transfer has been declined."
+Category:
+{{
+  "category": "declined_transfer",
+  "confidence": 13.51
+}}
+
+Example 101:
+Question: "Is it possible to dispute a debit payment from a couple of months ago."
+Category:
+{{
+  "category": "direct_debit_payment_not_recognised",
+  "confidence": 11.7
+}}
+
+Example 102:
+Question: "Why is there a direct debit payment on my statement that I didn't do?"
+Category:
+{{
+  "category": "direct_debit_payment_not_recognised",
+  "confidence": 74.39
+}}
+
+Example 103:
+Question: "I found a direct debit I would like to dispute"
+Category:
+{{
+  "category": "direct_debit_payment_not_recognised",
+  "confidence": 46.61
+}}
+
+Example 104:
+Question: "It seems there is an incorrect listing of a direct debit payment on my app that I did not make"
+Category:
+{{
+  "category": "direct_debit_payment_not_recognised",
+  "confidence": 40.38
+}}
+
+Example 105:
+Question: "what is this charge on my account"
+Category:
+{{
+  "category": "direct_debit_payment_not_recognised",
+  "confidence": 76.46
+}}
+
+Example 106:
+Question: "How many transactions can be made with a disposable card?"
+Category:
+{{
+  "category": "disposable_card_limits",
+  "confidence": 9.43
+}}
+
+Example 107:
+Question: "How many disposable cards per person?"
+Category:
+{{
+  "category": "disposable_card_limits",
+  "confidence": 30.27
+}}
+
+Example 108:
+Question: "How many disposable cards can I have?"
+Category:
+{{
+  "category": "disposable_card_limits",
+  "confidence": 92.09
+}}
+
+Example 109:
+Question: "What is the limit on disposable cards?"
+Category:
+{{
+  "category": "disposable_card_limits",
+  "confidence": 46.19
+}}
+
+Example 110:
+Question: "Is there a limit on making disposable cards?"
+Category:
+{{
+  "category": "disposable_card_limits",
+  "confidence": 49.96
+}}
+
+Example 111:
+Question: "My address has changed. How do I report it?"
+Category:
+{{
+  "category": "edit_personal_details",
+  "confidence": 49.77
+}}
+
+Example 112:
+Question: "My address details have changed and I want to update them"
+Category:
+{{
+  "category": "edit_personal_details",
+  "confidence": 17.45
+}}
+
+Example 113:
+Question: "Where can I go to modify my detail?"
+Category:
+{{
+  "category": "edit_personal_details",
+  "confidence": 79.41
+}}
+
+Example 114:
+Question: "I would like to edit my personal information ."
+Category:
+{{
+  "category": "edit_personal_details",
+  "confidence": 77.87
+}}
+
+Example 115:
+Question: "How can I modify my details?"
+Category:
+{{
+  "category": "edit_personal_details",
+  "confidence": 30.62
+}}
+
+Example 116:
+Question: "dont understand why transfer failed"
+Category:
+{{
+  "category": "failed_transfer",
+  "confidence": 74.34
+}}
+
+Example 117:
+Question: "I have made 5 attempts to make a very standard survey, yet I can't get it to work. What is the problem? Is there an issue related to your system?"
+Category:
+{{
+  "category": "failed_transfer",
+  "confidence": 6.0
+}}
+
+Example 118:
+Question: "I tried to do a transfer and it hasn't worked!"
+Category:
+{{
+  "category": "failed_transfer",
+  "confidence": 77.73
+}}
+
+Example 119:
+Question: "I've now been trying to do a really standard transfer 5 times already. What's going on, is your system broken or something?!"
+Category:
+{{
+  "category": "failed_transfer",
+  "confidence": 38.02
+}}
+
+Example 120:
+Question: "Why hasn't my transfer gone through"
+Category:
+{{
+  "category": "failed_transfer",
+  "confidence": 65.82
+}}
+
+Example 121:
+Question: "Is there a disposable virtual card I can order?"
+Category:
+{{
+  "category": "get_disposable_virtual_card",
+  "confidence": 95.97
+}}
+
+Example 122:
+Question: "How do I create a disposable virtual card?"
+Category:
+{{
+  "category": "get_disposable_virtual_card",
+  "confidence": 62.05
+}}
+
+Example 123:
+Question: "Can you tell me where to go to get a disposable virtual card?"
+Category:
+{{
+  "category": "get_disposable_virtual_card",
+  "confidence": 69.44
+}}
+
+Example 124:
+Question: "Will I be able to get a disposable virtual card as well?"
+Category:
+{{
+  "category": "get_disposable_virtual_card",
+  "confidence": 47.68
+}}
+
+Example 125:
+Question: "What is the disposable card for?"
+Category:
+{{
+  "category": "get_disposable_virtual_card",
+  "confidence": 80.29
+}}
+
+Example 126:
+Question: "my pin hasn't arrived in the post! How do I cancel it or get a new one?"
+Category:
+{{
+  "category": "get_physical_card",
+  "confidence": 48.19
+}}
+
+Example 127:
+Question: "Are PIN separately?"
+Category:
+{{
+  "category": "get_physical_card",
+  "confidence": 46.9
+}}
+
+Example 128:
+Question: "How do I find my card PIN?"
+Category:
+{{
+  "category": "get_physical_card",
+  "confidence": 48.55
+}}
+
+Example 129:
+Question: "How do I get a PIN?"
+Category:
+{{
+  "category": "get_physical_card",
+  "confidence": 87.53
+}}
+
+Example 130:
+Question: "Where is my pin? I don't have it yet"
+Category:
+{{
+  "category": "get_physical_card",
+  "confidence": 26.01
+}}
+
+Example 131:
+Question: "Can I order extra cards?"
+Category:
+{{
+  "category": "getting_spare_card",
+  "confidence": 33.63
+}}
+
+Example 132:
+Question: "Are there restrictions for ordering extra cards?"
+Category:
+{{
+  "category": "getting_spare_card",
+  "confidence": 12.84
+}}
+
+Example 133:
+Question: "My child needs a card, how can I add them to the account I currently have?"
+Category:
+{{
+  "category": "getting_spare_card",
+  "confidence": 12.63
+}}
+
+Example 134:
+Question: "How do I get a spare card?"
+Category:
+{{
+  "category": "getting_spare_card",
+  "confidence": 64.49
+}}
+
+Example 135:
+Question: "How many active cards can I have?"
+Category:
+{{
+  "category": "getting_spare_card",
+  "confidence": 11.73
+}}
+
+Example 136:
+Question: "I haven't received my virtual card yet, do yo know why?"
+Category:
+{{
+  "category": "getting_virtual_card",
+  "confidence": 98.8
+}}
+
+Example 137:
+Question: "Where can i find the virtual card?"
+Category:
+{{
+  "category": "getting_virtual_card",
+  "confidence": 63.26
+}}
+
+Example 138:
+Question: "Where can I sign up for a virtual card?"
+Category:
+{{
+  "category": "getting_virtual_card",
+  "confidence": 16.84
+}}
+
+Example 139:
+Question: "I need to order a new card, can you please direct me to the virtual cards?"
+Category:
+{{
+  "category": "getting_virtual_card",
+  "confidence": 93.33
+}}
+
+Example 140:
+Question: "I want one of the virtual cards!"
+Category:
+{{
+  "category": "getting_virtual_card",
+  "confidence": 40.67
+}}
+
+Example 141:
+Question: "I believe my card has been stolen, what can I do about this situation? It's urgent."
+Category:
+{{
+  "category": "lost_or_stolen_card",
+  "confidence": 4.77
+}}
+
+Example 142:
+Question: "Help! I lost my card!"
+Category:
+{{
+  "category": "lost_or_stolen_card",
+  "confidence": 47.41
+}}
+
+Example 143:
+Question: "My card has gone missing."
+Category:
+{{
+  "category": "lost_or_stolen_card",
+  "confidence": 70.32
+}}
+
+Example 144:
+Question: "Is there any way for you to find my card?"
+Category:
+{{
+  "category": "lost_or_stolen_card",
+  "confidence": 55.46
+}}
+
+Example 145:
+Question: "I cannot find my credit card."
+Category:
+{{
+  "category": "lost_or_stolen_card",
+  "confidence": 93.99
+}}
+
+Example 146:
+Question: "Can you tell me what i steps i should take since my card was stolen?"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 62.04
+}}
+
+Example 147:
+Question: "Help!  I think my phone may be stolen or lost!"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 17.81
+}}
+
+Example 148:
+Question: "Someone stole my phone yesterday :( is there anything I need to do?"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 66.1
+}}
+
+Example 149:
+Question: "How can I access my account when I have lost my phone?"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 7.15
+}}
+
+Example 150:
+Question: "Hi, I lost my phone yesterday, what can I do to stop someone using my account on it?"
+Category:
+{{
+  "category": "lost_or_stolen_phone",
+  "confidence": 55.56
+}}
+
+Example 151:
+Question: "Where are cards delivered to?"
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 2.58
+}}
+
+Example 152:
+Question: "Are physical card available?"
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 76.48
+}}
+
+Example 153:
+Question: "I need to get hold of a physical card?"
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 46.92
+}}
+
+Example 154:
+Question: "I would like to have a physical card to carry around and use. How can I get one?"
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 31.6
+}}
+
+Example 155:
+Question: "how do i get a new card"
+Category:
+{{
+  "category": "order_physical_card",
+  "confidence": 49.31
+}}
+
+Example 156:
+Question: "what is going on, i have entered my passcode and its not working"
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 55.95
+}}
+
+Example 157:
+Question: "What are the steps to reset my passcode?"
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 16.88
+}}
+
+Example 158:
+Question: "I don't know my password anymore."
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 90.28
+}}
+
+Example 159:
+Question: "What do I do if I forgot my passcode?"
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 66.43
+}}
+
+Example 160:
+Question: "I used to know my password, but not anymore."
+Category:
+{{
+  "category": "passcode_forgotten",
+  "confidence": 29.93
+}}
+
+Example 161:
+Question: "I have waited 15 days, but my payment still hasn't cleared."
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 1.16
+}}
+
+Example 162:
+Question: "Hi, status of one of my card payment is still pending from a while. Please let e know how much time it will take to complete."
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 4.46
+}}
+
+Example 163:
+Question: "How long does it take for a purchase to go from pending to authorised?"
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 13.84
+}}
+
+Example 164:
+Question: "My card payment has been pending for a long time now. Why is it taking so long to take. It should have already made it through."
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 62.03
+}}
+
+Example 165:
+Question: "After making a payment with my card it doesn't seem to have worked. It's just showing to be pending. When will this actually be going through?"
+Category:
+{{
+  "category": "pending_card_payment",
+  "confidence": 41.56
+}}
+
+Example 166:
+Question: "Why is the cash withdraw I made shown as pending?"
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 10.37
+}}
+
+Example 167:
+Question: "I tried to take money from my card, but it didn't work. Later I saw that the transaction is still in progress. What's goign on?"
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 28.62
+}}
+
+Example 168:
+Question: "I didn't receive my money earlier and it says the transaction is still in progress. Can you fix it?"
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 14.31
+}}
+
+Example 169:
+Question: "Why has my deposit in the ATM not cleared yet?"
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 53.96
+}}
+
+Example 170:
+Question: "My cash withdrawal says pending, why?"
+Category:
+{{
+  "category": "pending_cash_withdrawal",
+  "confidence": 47.94
+}}
+
+Example 171:
+Question: "What's taking my top-up so long?"
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 34.65
+}}
+
+Example 172:
+Question: "Why hasn't my top-up finished pending yet?"
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 39.17
+}}
+
+Example 173:
+Question: "Seems like my top-up has not gone through"
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 76.49
+}}
+
+Example 174:
+Question: "What is the reason my top-up is still pending?"
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 66.19
+}}
+
+Example 175:
+Question: "I have been waiting for my top-up to complete and it still hasn't gone through."
+Category:
+{{
+  "category": "pending_top_up",
+  "confidence": 3.74
+}}
+
+Example 176:
+Question: "Why is my transfer still pending?"
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 38.35
+}}
+
+Example 177:
+Question: "Hello. How long does it usually take to transfer money to another country? I've made sure all the information is correct, but the transfer still says that it's "pending.""
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 2.2
+}}
+
+Example 178:
+Question: "How long does it take for pending to go through"
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 30.47
+}}
+
+Example 179:
+Question: "Transfers may show up as pending for up to one business day while they are processed, and then they'll depart for the beneficiary accounts. Please confirm that you have correctly entered your account details. SEPA transfers typically take up to two working days, while SWIFT transfers can take up to five working days."
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 67.82
+}}
+
+Example 180:
+Question: "Pending still shows on this transfer, why?"
+Category:
+{{
+  "category": "pending_transfer",
+  "confidence": 61.36
+}}
+
+Example 181:
+Question: "I was blocked by using the wrong pin too many times, can you help me?"
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 97.28
+}}
+
+Example 182:
+Question: "How do I reset my PIN?"
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 34.29
+}}
+
+Example 183:
+Question: "How do I deal with a blocked PIN?"
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 92.4
+}}
+
+Example 184:
+Question: "Can you assist me with unblocking my PIN? I put it in wrong too many times."
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 55.89
+}}
+
+Example 185:
+Question: "Can I unblock my PIN in the app?"
+Category:
+{{
+  "category": "pin_blocked",
+  "confidence": 55.94
+}}
+
+Example 186:
+Question: "Is it possible for a friend to personally send me a payment?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 34.05
+}}
+
+Example 187:
+Question: "Can I transfer my payroll to the bank?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 77.89
+}}
+
+Example 188:
+Question: "What are the ways for others to transfer me money?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 66.45
+}}
+
+Example 189:
+Question: "My friend wants to send me money, can she?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 43.95
+}}
+
+Example 190:
+Question: "My salary is deposited in GBP. Do I need to choose the currency?"
+Category:
+{{
+  "category": "receiving_money",
+  "confidence": 59.46
+}}
+
+Example 191:
+Question: "I want to terminate my account"
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 82.09
+}}
+
+Example 192:
+Question: "Can you remove my account please?"
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 24.23
+}}
+
+Example 193:
+Question: "make my account go away"
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 94.18
+}}
+
+Example 194:
+Question: "I want to inactivate my account."
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 93.93
+}}
+
+Example 195:
+Question: "This company isn't good, I would like to delete my account."
+Category:
+{{
+  "category": "terminate_account",
+  "confidence": 67.8
+}}
+
+Example 196:
+Question: "Are there topping up fees if I have to transfer?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 6.14
+}}
+
+Example 197:
+Question: "Do I pay a fee for SEPA transfers?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 69.0
+}}
+
+Example 198:
+Question: "Does this program take SWIFT transfers?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 5.49
+}}
+
+Example 199:
+Question: "What is the charge for receiving a SEPA transfer?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 45.63
+}}
+
+Example 200:
+Question: "Is there a fee for transfer top-up?"
+Category:
+{{
+  "category": "top_up_by_bank_transfer_charge",
+  "confidence": 41.67
+}}
+
+Example 201:
+Question: "Can I top up my balance with a cheque?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 95.98
+}}
+
+Example 202:
+Question: "Is it possible to top up with cash? If so how do I do it?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 11.46
+}}
+
+Example 203:
+Question: "Is there an option to top up a with cheque?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 80.27
+}}
+
+Example 204:
+Question: "I got a cheque that I want to top up with?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 29.77
+}}
+
+Example 205:
+Question: "I can't find how to top up my account with a check.  Where is that?"
+Category:
+{{
+  "category": "top_up_by_cash_or_cheque",
+  "confidence": 84.79
+}}
+
+Example 206:
+Question: "I don't know why my credit card was declined while I was trying to top-up. Was it something on my end or was there something wrong with the top-up function?"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 86.37
+}}
+
+Example 207:
+Question: "My top up was denied in the app."
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 31.94
+}}
+
+Example 208:
+Question: "I've been trying to transfer funds to top-up my card, but the transaction is not going through.  Is there something I'm doing wrong?"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 61.04
+}}
+
+Example 209:
+Question: "I don't think my top up is working correctly"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 12.32
+}}
+
+Example 210:
+Question: "Why isn't my topup working?"
+Category:
+{{
+  "category": "top_up_failed",
+  "confidence": 30.74
+}}
+
+Example 211:
+Question: "I want to know if there is a maximum I can top up."
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 36.65
+}}
+
+Example 212:
+Question: "need to know if there is a maximum i can top up"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 24.58
+}}
+
+Example 213:
+Question: "What is maximum top up?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 0.46
+}}
+
+Example 214:
+Question: "Do you have any top-up limits?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 2.56
+}}
+
+Example 215:
+Question: "How much can I top up in a day?"
+Category:
+{{
+  "category": "top_up_limits",
+  "confidence": 97.06
+}}
+
+Example 216:
+Question: "How do I tell if my top up was reverted?"
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 83.62
+}}
+
+Example 217:
+Question: "My top-up has been reverted and I would like to know why."
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 27.5
+}}
+
+Example 218:
+Question: "Why didn't my top up work?"
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 38.52
+}}
+
+Example 219:
+Question: "The app reverted after I topped-up"
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 96.61
+}}
+
+Example 220:
+Question: "I'm having an issue with transaction. I topped up my account and saw it went through, but that was a few days ago and the money isn't in my account any more. What's up with that?"
+Category:
+{{
+  "category": "top_up_reverted",
+  "confidence": 33.57
+}}
+
+Example 221:
+Question: "How do my friends top up my account"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 39.23
+}}
+
+Example 222:
+Question: "How can I use my credit card to transfer money?"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 26.95
+}}
+
+Example 223:
+Question: "How can I transfer money using my credit card?"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 27.81
+}}
+
+Example 224:
+Question: "How do I top up my card using your app? I'm new to this."
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 8.32
+}}
+
+Example 225:
+Question: "I don't see me 'top up' in my wallet"
+Category:
+{{
+  "category": "topping_up_by_card",
+  "confidence": 36.15
+}}
+
+Example 226:
+Question: "Can you help me? I have a duplicate transaction on my account and I don't understand why."
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 78.33
+}}
+
+Example 227:
+Question: "A transaction is repeated several times on my account."
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 86.07
+}}
+
+Example 228:
+Question: "Why would I be charged more than once for the same transaction?"
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 38.01
+}}
+
+Example 229:
+Question: "I have been charged twice"
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 18.06
+}}
+
+Example 230:
+Question: "I was charged twice."
+Category:
+{{
+  "category": "transaction_charged_twice",
+  "confidence": 58.08
+}}
+
+Example 231:
+Question: "This isn't fair! I thought transfers could be made for free. I just made  a purchase online from abroad and now see some strange fee that I've never seen before."
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 33.46
+}}
+
+Example 232:
+Question: "I had an unexpected fee"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 21.95
+}}
+
+Example 233:
+Question: "Where did my extra fee for the transfer come from?"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 10.6
+}}
+
+Example 234:
+Question: "Why was I charged a fee for transferring money"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 41.84
+}}
+
+Example 235:
+Question: "Why is there a charge for my transfer?"
+Category:
+{{
+  "category": "transfer_fee_charged",
+  "confidence": 50.63
+}}
+
+Example 236:
+Question: "Tell me how to top up my account using bank transfer."
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 73.85
+}}
+
+Example 237:
+Question: "How can I transfer money from an outside bank?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 63.62
+}}
+
+Example 238:
+Question: "How do I go forth on transferring money into my account?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 87.89
+}}
+
+Example 239:
+Question: "How can I move money from an account at another bank to this one?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 40.19
+}}
+
+Example 240:
+Question: "How can I fund my top-up account using my bank account?"
+Category:
+{{
+  "category": "transfer_into_account",
+  "confidence": 58.49
+}}
+
+Example 241:
+Question: "I transferred some money and it didint arrive"
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 55.73
+}}
+
+Example 242:
+Question: "How long will it take to receive my money from my transfer transaction?"
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 2.07
+}}
+
+Example 243:
+Question: "I did a money transaction and the recipient doesn't see it"
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 54.3
+}}
+
+Example 244:
+Question: "I sent some money and the receiver can't access it."
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 45.46
+}}
+
+Example 245:
+Question: "How much time do transfers take? I sent money to a friend who needs it fast. It's been hours, and the money has not gone through."
+Category:
+{{
+  "category": "transfer_not_received_by_recipient",
+  "confidence": 74.52
+}}
+
+Example 246:
+Question: "Why hasn't my transfer from Europe gone through?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 18.29
+}}
+
+Example 247:
+Question: "I must quickly transfer something from China, and I need to know how long it will take."
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 12.13
+}}
+
+Example 248:
+Question: "I have to transfer something to China as fast as I can. How long will it take to arrive in China?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 94.56
+}}
+
+Example 249:
+Question: "How many days until my US transfer arrives?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 32.4
+}}
+
+Example 250:
+Question: "How fast can I transfer something from China?"
+Category:
+{{
+  "category": "transfer_timing",
+  "confidence": 1.82
+}}
+
+Example 251:
+Question: "Why am I having trouble verifying my id?"
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 25.63
+}}
+
+Example 252:
+Question: "Hearing about your verification results from us may take anywhere from 10 minutes to approximately one hour.  If this verification has in fact, failed, double-check to make sure that your images are clear.  Also make sure that your document photos have no blur or glare. They need to be readable.  You must also be 18 years of age or older and be a resident of Switzerland or the European Economic Area to open an account."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 58.19
+}}
+
+Example 253:
+Question: "The app won't let me log in as myself."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 7.3
+}}
+
+Example 254:
+Question: "I don't have a way to prove my identity."
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 61.97
+}}
+
+Example 255:
+Question: "The app doesn't believe that I am myself"
+Category:
+{{
+  "category": "unable_to_verify_identity",
+  "confidence": 18.41
+}}
+
+Example 256:
+Question: "Please tell me how I verify my identity."
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 56.46
+}}
+
+Example 257:
+Question: "Which documents do I need for this identity check?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 85.09
+}}
+
+Example 258:
+Question: "Can I get information on the identity checks?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 32.77
+}}
+
+Example 259:
+Question: "What forms of ID do you need for identity verification?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 91.07
+}}
+
+Example 260:
+Question: "What proof of identification is needed?"
+Category:
+{{
+  "category": "verify_my_identity",
+  "confidence": 7.72
+}}
+
+Example 261:
+Question: "Can I verify the source of my funds?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 42.64
+}}
+
+Example 262:
+Question: "What do I do to verify my source of funds?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 71.51
+}}
+
+Example 263:
+Question: "Can you tell me where my funds come from?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 60.64
+}}
+
+Example 264:
+Question: "What kind of security protects my money?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 56.79
+}}
+
+Example 265:
+Question: "Are there steps to see where my funds come from?"
+Category:
+{{
+  "category": "verify_source_of_funds",
+  "confidence": 22.22
+}}
+
+Example 266:
+Question: "Where do I find the top-up verification code?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 99.87
+}}
+
+Example 267:
+Question: "Where's the verification code for the top-up card?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 45.97
+}}
+
+Example 268:
+Question: "Why do the top-ups need to be verified?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 2.49
+}}
+
+Example 269:
+Question: "For what reason must I authenticate the top up?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 55.38
+}}
+
+Example 270:
+Question: "Why do I need to verify a top-up?"
+Category:
+{{
+  "category": "verify_top_up",
+  "confidence": 99.99
+}}
+
+Example 271:
+Question: "My virtual car is not working."
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 34.86
+}}
+
+Example 272:
+Question: "My disposable virtual card won't work."
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 21.68
+}}
+
+Example 273:
+Question: "I cannot get my virtual card to function."
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 41.79
+}}
+
+Example 274:
+Question: "My virtual card won't work."
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 9.31
+}}
+
+Example 275:
+Question: "What do I do if my disposable virtual card doesn't work?"
+Category:
+{{
+  "category": "virtual_card_not_working",
+  "confidence": 33.83
+}}
+
+Example 276:
+Question: "I don't want to use this method to identify myself."
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 26.4
+}}
+
+Example 277:
+Question: "I am afraid to give you all my identify details."
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 45.61
+}}
+
+Example 278:
+Question: "Why am I being asked to have an identity check"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 15.22
+}}
+
+Example 279:
+Question: "Am I supposed to verify my identity?"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 46.04
+}}
+
+Example 280:
+Question: "What is the purpose for the identity check"
+Category:
+{{
+  "category": "why_verify_identity",
+  "confidence": 81.02
+}}
+
+Example 281:
+Question: "I did not get enough cash"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 72.85
+}}
+
+Example 282:
+Question: "I requested $100 but only got $20"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 72.98
+}}
+
+Example 283:
+Question: "Cash withdrawal was incorrect at ATM."
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 87.03
+}}
+
+Example 284:
+Question: "The ATM is messed up. It gave me less than I wanted."
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 95.11
+}}
+
+Example 285:
+Question: "ATM is broken. It did not give me the full amount (30 pounds.)  I'm standing here with only 10 pounds and it's telling me it gave me 30 pounds. I need assistance now!"
+Category:
+{{
+  "category": "wrong_amount_of_cash_received",
+  "confidence": 11.21
+}}
+---
+
+===============================
+
+New Question: Could you help my figure out the exchange fee?
+
+===============================
+
+Provide your final classification in **valid JSON format** with the following structure:
+{
+  "category": "your_chosen_category_name",
+  "confidence": confidence_level_rounded_to_the_nearest_2_decimal_places
+}
+
+
+Ensure the JSON has:
+- Opening and closing curly braces
+- Double quotes around keys and string values
+- Confidence as a number (not a string), with maximum 2 decimal places
+
+Do not include any explanations or extra text.
+
+--------------------------------------
+
+  Processed 2/8 | Elapsed: 00:01:51 | ETA: 00:05:33
+  Processed 4/8 | Elapsed: 00:03:39 | ETA: 00:03:39
+  Processed 6/8 | Elapsed: 00:05:27 | ETA: 00:01:49
+  Processed 8/8 | Elapsed: 00:07:16 | ETA: 00:00:00
+
+Raw predictions saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/results_llama3.2_3b_banking_0_7.json
+
+--- Generating Evaluation Metrics ---
+
+Metrics summary saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/metrics_llama3.2_3b_banking.txt
+Open vs Known metrics summary saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/metrics_llama3.2_3b_banking_open_vs_known.txt
+
+Classification Report saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/classification_report_llama3.2_3b_banking.txt
+Open vs Known Classification Report saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/classification_report_llama3.2_3b_banking_open_vs_known.txt
+Confusion matrix saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/cm_llama3.2_3b_banking.csv
+Confusion matrix plot saved to /home/ubuntu/llm-trust-lens/results/banking77_fewshot/cm_llama3.2_3b_banking.png
+
+--- Experiment Finished ---
+
+
+
+
+
+
+
