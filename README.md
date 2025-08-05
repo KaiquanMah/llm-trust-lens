@@ -22,12 +22,16 @@ There are 2 ways to evaluate open intent classification:
 ## Setup
 1. Clone the Repository
 ```bash
+sudo apt update && sudo apt install git -y
+
 git clone https://github.com/KaiquanMah/llm-trust-lens.git
 cd llm-trust-lens
 ```
 
 2. Create a Virtual Environment (Recommended)
 ```bash
+sudo apt update && sudo apt install -y python3 python3-pip python3-venv
+
 python -m venv venv
 source venv/bin/activate    # On Windows use `venv\Scripts\activate`
 ```
@@ -35,6 +39,8 @@ source venv/bin/activate    # On Windows use `venv\Scripts\activate`
 3. Install Dependencies. Install Ollama, then install the required Python packages using the requirements.txt file.
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
+
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
