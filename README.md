@@ -160,7 +160,7 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │   │   ├── 01l9a-openintent-nebiusqwen-clincoos-batchfull.ipynb
 │   │   ├── 01l9b-openintent-nebiusqwen-clincoos-downloadresults.ipynb
 │   │   └── 01l9c-openintent-nebiusqwen-c150oos-stitchresults.ipynb
-│   ├── thresholdtest                # Fewshot threshold test notebook examples
+│   ├── thresholdtest                 # Fewshot threshold test notebook examples
 │   │   ├── 01k1-openintent-ollama-llama3-2-3b-banking77-1notoos.ipynb
 │   │   ├── 01k1-openintent-ollama-llama3-2-3b-banking77-4notoos.ipynb
 │   │   ├── 01k2-openintent-ollama-llama3-2-3b-stackoverflow-5notoos.ipynb
@@ -177,6 +177,7 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │       ├── 01g7-openintent-ollama-mistral-7b-banking77-test-generalmodel.ipynb
 │       ├── 01g8-openintent-ollama-tulu3-8b-banking77-test-instructiontunedmodel.ipynb
 │       └── 01h1-openintent-ollama-llama3-2-3b-banking77-group4similarclassesinoos-zeroshot.ipynb
+│   └── terminal_workings             # Terminal workings on how to run the Ollama or API Model pipeline
 ├── prompts
 │   ├── archive_zeroshot_fewshot        # Archived zeroshot, fewshot prompts
 │   │   ├── fewshot_prompt_with_5hardcoded-previouslymisclassifiedexamples.txt
