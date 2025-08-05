@@ -19,6 +19,41 @@ There are 2 ways to evaluate open intent classification:
 - **Configurable Experiments**: YAML-based configuration system for easy experiment setup
 - **Traceable Results**: Generate LLM predictions, classification metrics and confusion matrix files for evaluation
 
+## Setup
+1. Clone the Repository
+```bash
+git clone https://github.com/KaiquanMah/llm-trust-lens.git
+cd llm-trust-lens
+```
+
+2. Create a Virtual Environment (Recommended)
+```bash
+python -m venv venv
+source venv/bin/activate    # On Windows use `venv\Scripts\activate`
+```
+
+3. Install Dependencies. Install Ollama, then install the required Python packages using the requirements.txt file.
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+pip install -r requirements.txt
+```
+
+4. Test Ollama has been installed successfully
+```bash
+# check Ollama version
+ollama --version
+# As at August 2025: ollama version is 0.9.6
+
+ps aux | grep ollama
+codespa+    1425  0.0  0.0   7080  2048 pts/0    S+   14:21   0:00 grep --color=auto ollama
+```
+
+
+## Usage
+
+```python
+!python3 /workspaces/llm-trust-lens/main.py
+```
 
 ## Folder Structure
 ```bash
@@ -157,15 +192,7 @@ There are 2 ways to evaluate open intent classification:
 
 ```
 
-## Usage
-
-```python
-!python3 /workspaces/llm-trust-lens/main.py
-```
-
 
 ## License  
-MIT License.  
-
-
+This project is licensed under the MIT License - see the LICENSE file for details.
 
