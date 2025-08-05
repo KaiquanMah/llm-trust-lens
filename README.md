@@ -66,40 +66,40 @@ GOOGLE_API_KEY = "your_google_api_key_here"
 
 ### 1. Run Ollama/Local Model Experiments
 
-**1.1 Zero-Shot llama3-2-3b** on Banking77 dataset
+**1.1. Zero-Shot llama3-2-3b** on Banking77 dataset
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_zeroshot_banking77.yaml
 ```
 
-**1.2 Zero-Shot gemma-3-4b-it-qat** on Banking77 dataset
+**1.2. Zero-Shot gemma-3-4b-it-qat** on Banking77 dataset
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_gemma3_4b-it-qat_zeroshot_banking77.yaml
 ```
 
-**1.3 Few-Shot** llama3-2-3b on **Banking77 dataset**
+**1.3. Few-Shot** llama3-2-3b on **Banking77 dataset**
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_fewshot_banking77.yaml
 ```
 
 
-**1.4 Few-Shot** llama3-2-3b on **Stackoverflow dataset**
+**1.4. Few-Shot** llama3-2-3b on **Stackoverflow dataset**
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_fewshot_stackoverflow.yaml
 ```
 
-**1.5 Few-Shot** llama3-2-3b on **CLINIC150OOS dataset**
+**1.5. Few-Shot** llama3-2-3b on **CLINIC150OOS dataset**
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_fewshot_clinc150oos.yaml
 ```
 
 ### 2. Run API Model Experiments
 
-**2.1 Few-Shot Nebius Qwen API** on Banking77 dataset
+**2.1. Few-Shot Nebius Qwen API** on Banking77 dataset
 ```bash
 python src/experiment_api.py --config config/experiment/api_nebius_qwen3-30b-a3b_fewshot_banking77.yaml
 ```
 
-**2.2 Few-Shot Google Gemini API** on Banking77 dataset
+**2.2. Few-Shot Google Gemini API** on Banking77 dataset
 ```bash
 python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-flash-preview-05-20_fewshot_banking77.yaml
 ```
