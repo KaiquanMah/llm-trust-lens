@@ -1,7 +1,6 @@
 pandas
 pydantic      # to enforce schema for LLM outputs
 typing        # to enforce schema for LLM outputs
-# huggingface-hub
 ollama
 tqdm          # progress bar for each experiment
 PyYAML
@@ -12,3 +11,9 @@ python-dotenv # for loading environment variables from .env file
 openai        # for Nebius and OpenAI API calls
 tenacity      # for API model retries
 google-genai  # for Gemini API calls
+# # Below: libraries for embedding approaches
+# huggingface-hub
+# datasets      # to convert datasets from TSV to Hugging Face Dataset format
+# transformers  # to use Hugging Face Transformers eg BERT
+# torch          # to use PyTorch to train and evaluate BERT
+
