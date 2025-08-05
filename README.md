@@ -226,7 +226,7 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │   ├── banking77_zeroshot_qwen3_8b
 │   ├── banking77_zeroshot_tulu3_8b
 │   ├── oos_fewshot_llama3.2_3b
-│   ├── round1                                                           # round1 to round9: Results from experiments conducted in Jupyter notebooks
+│   ├── round1                                                           # round1 to round9 folders: Results from experiments conducted in Jupyter notebooks
 │   ├── round2-force_oos
 │   ├── round3-pydantic
 │   ├── round4-oos-out-of-prompt
