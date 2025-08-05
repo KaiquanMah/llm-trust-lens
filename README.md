@@ -63,6 +63,7 @@ GOOGLE_API_KEY = "your_google_api_key_here"
 
 * The Terminal commands shown below run experiments from the root directory of the project
 * You can execute different experiments by using the appropriate **experiment_*.py file** and **experiment configuration file**
+* If you wish to check out the terminal workings and printouts during each pipeline run, please visit the [terminal_workings folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/examples/terminal_workings)
 
 ### 1. Run Ollama/Local Model Experiments
 
