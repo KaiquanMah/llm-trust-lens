@@ -1,0 +1,35 @@
+curl -fsSL https://ollama.com/install.sh | sh
+pip install -r requirements.txt
+
+
+
+@KaiquanMah ➜ /workspaces/llm-trust-lens (main) $ ollama --version
+ollama version is 0.9.6
+@KaiquanMah ➜ /workspaces/llm-trust-lens (main) $ ps aux | grep ollama
+codespa+    4869  0.0  0.0   2804  1664 pts/2    S    00:56   0:00 /bin/sh -c ollama serve
+codespa+    4870  1.5  0.4 2428480 37032 pts/2   Sl   00:56   0:09 ollama serve
+codespa+   10103  0.0  0.0   7080  2176 pts/3    S+   01:07   0:00 grep --color=auto ollama
+@KaiquanMah ➜ /workspaces/llm-trust-lens (main) $ ollama list
+NAME           ID              SIZE      MODIFIED       
+llama3.2:3b    a80c4f17acd5    2.0 GB    10 minutes ago    
+
+
+@KaiquanMah ➜ /workspaces/llm-trust-lens (main) $ python debug_ollama.py
+Type of result: <class 'ollama._types.ListResponse'>
+Attributes:
+Model attributes: {'model': 'llama3.2:3b', 'modified_at': datetime.datetime(2025, 7, 30, 0, 57, 22, 708927, tzinfo=TzInfo(UTC)), 'digest': 'a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72', 'size': 2019393189, 'details': ModelDetails(parent_model='', format='gguf', family='llama', families=['llama'], parameter_size='3.2B', quantization_level='Q4_K_M')}
+
+
+
+
+python src/experiment.py --config config/experiment/ollama_llama3_2_3b_fewshot_banking77.yaml
+
+
+
+
+
+
+
+
+
+
