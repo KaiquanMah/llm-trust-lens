@@ -11,9 +11,9 @@ There are 2 ways to evaluate open intent classification:
 2. Multi-class Classification of open-intent/oos/unknown class vs individual known classes
 
 **Project Team Members**
-* Members: Kaiquan Mah, Michael Bernovskiy, Ruslan Shuvalov
-* Mentor: Liat Antwarg
-* CitrusX Representatives: Shlomit Finegold, Dagan Eshar, Ran Emuna (left around mid-July 2025)
+* Members: [Kaiquan Mah](https://www.linkedin.com/in/kaiquan-mah), [Michael Bernovskiy](https://www.linkedin.com/in/bernovskiy), [Ruslan Shuvalov](https://www.linkedin.com/in/rsshuvalov)
+* Mentor: [Liat Friedman Antwarg](https://www.linkedin.com/in/liat-antwarg-friedman-a2367b6)
+* CitrusX Representatives: [Shlomit Finegold](https://www.linkedin.com/in/shlomit-finegold), [Dagan Eshar](https://www.linkedin.com/in/dagan), [Ran Emuna (left around mid-July 2025)](https://www.linkedin.com/in/ran-emuna-ba902579)
 
 
 ## 2. Key Features
@@ -23,6 +23,7 @@ There are 2 ways to evaluate open intent classification:
 - **Multiple Datasets**: Built-in support for Banking77, StackOverflow, and CLINC150OOS TSV datasets (Source: [2021 Adaptive Decision Boundary Clustering GitHub repo](https://github.com/thuiar/Adaptive-Decision-Boundary/tree/main/data)). For new datasets, bring them into the pipeline!
 - **Configurable Experiments**: YAML-based configuration system for easy experiment setup
 - **Traceable Results**: Generate LLM predictions, classification metrics and confusion matrix files for evaluation
+
 
 ## 3. Setup
 1. Clone the Repository
