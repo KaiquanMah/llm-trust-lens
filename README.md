@@ -319,6 +319,9 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 ## 7. Results Summary
 
+Please note that for the results section below, we will show only experiments using 25% of OOS classes, to compare to the THUIAR paper.
+For experiments with other percentage of OOS classes, you can still access the results in the [results folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/results).
+
 ### 7.1 Overall Accuracy & Macro F1-score - 25% OOS Class
 
 * From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the Overall Accuracy & Macro F1-scores.
@@ -342,8 +345,8 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
       <th style="text-align:center">Overall Macro F1-score</th>
     </tr>
   </thead>
-  <!--2021 THUIAR ADB Paper's Metrics-->
   <tbody>
+    <!--2021 THUIAR ADB Paper's Metrics-->
     <tr>
       <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">78.85</td>
@@ -353,8 +356,81 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
       <td style="text-align:center">87.59</td>
       <td style="text-align:center">77.19</td>
     </tr>
+    <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
+    <tr>
+      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:center">43.74</td>
+      <td style="text-align:center">53</td>
+      <td style="text-align:center">66.62</td>
+      <td style="text-align:center">73.10</td>
+      <td style="text-align:center">45.76</td>
+      <td style="text-align:center">55.79</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:center">53.86</td>
+      <td style="text-align:center">63.97</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">48.17</td>
+        <td style="text-align:center">57.48</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">35%</td>
+        <td style="text-align:center">3%</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">46.62</td>
+        <td style="text-align:center">54.99</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">21%</td>
+        <td style="text-align:center">0%</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">44.58</td>
+        <td style="text-align:center">52.69</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">0%</td>
+        <td style="text-align:center">0%</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">32.14</td>
+        <td style="text-align:center">36.70</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">14%</td>
+        <td style="text-align:center">1%</td>
+      </tr>
+      <!--Our Metrics: fewshot models-->
+      <tr>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:center">14.09</td>
+         <td style="text-align:center">16.30</td>
+         <td style="text-align:center">69.67</td>
+         <td style="text-align:center">75.72</td>
+         <td style="text-align:center">23.23</td>
+         <td style="text-align:center">28.09</td>
+       </tr>
+       <tr>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:center">70.28</td>
+         <td style="text-align:center">76.48</td>
+         <td style="text-align:center">85.72</td>
+         <td style="text-align:center">87.87</td>
+         <td style="text-align:center">80.35</td>
+         <td style="text-align:center">85.39</td>
+       </tr>
   </tbody>
-  <!--Our Metrics-->
 </table>
 
 
