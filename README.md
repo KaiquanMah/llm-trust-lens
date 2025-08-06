@@ -322,6 +322,7 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 Please note that for the results section below, we will show only 
 * experiments using 25% of OOS classes, to compare to the THUIAR paper
 * zero-shot and few-shot experiments using pydantic enums to enforce allowed list of classes for prediction
+
 For experiments with other percentage of OOS classes or where we initially explored not enforcing allowed list of classes, you can still access the results in the [results folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/results).
 
 
