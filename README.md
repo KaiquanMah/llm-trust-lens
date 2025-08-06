@@ -81,7 +81,7 @@ GOOGLE_API_KEY = "your_google_api_key_here"
 * You can execute different experiments by using the appropriate **experiment_*.py file** and **experiment configuration file**
 * If you wish to check out the terminal workings and printouts during each pipeline run, please visit the [terminal_workings folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/examples/terminal_workings)
 
-### 5.1.1. Common Steps for Ollama/Local Model and API Model Experiments
+#### 5.1.1. Common Steps for Ollama/Local Model and API Model Experiments
 
 1. Navigate to the **llm-trust-lens folder**
 2. Activate your venv virtual environment containing the required python libraries to run the pipeline
@@ -96,9 +96,9 @@ GOOGLE_API_KEY = "your_google_api_key_here"
 6. Use an existing experiment yaml file or create a new experiment yaml file in the [experiment yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/experiment)
    * We recommend creating separate experiment yaml files to trace back to each experiment's configuration (eg ollama vs api, the model you use, zeroshot vs fewshot, thresholdtest or not)
 
-### 5.1.2. Run Ollama/Local Model Experiments
+#### 5.1.2. Run Ollama/Local Model Experiments
 
-* For Ollama models, we have ran the pipeline successfully for 6 models
+* For Ollama models, we ran the pipeline successfully for 6 models
   ```
   llama3.2:3b
   qwen3:8b (Mixture-of-Experts LLM)
@@ -110,44 +110,56 @@ GOOGLE_API_KEY = "your_google_api_key_here"
   * We expect the pipeline to be able to support other models that will be published onto Ollama
   * To explore Ollama models you can use, please visit [Ollama's model directory](https://ollama.com/search)
 
-
-**1.1. Zero-Shot llama3-2-3b** on Banking77 dataset
+**5.1.2.1. Zero-Shot llama3-2-3b** on Banking77 dataset
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_zeroshot_banking77.yaml
 ```
 
-**1.2. Zero-Shot gemma-3-4b-it-qat** on Banking77 dataset
+**5.1.2.2. Zero-Shot gemma-3-4b-it-qat** on Banking77 dataset
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_gemma3_4b-it-qat_zeroshot_banking77.yaml
 ```
 
-**1.3. Few-Shot** llama3-2-3b on **Banking77 dataset**
+**5.1.2.3. Few-Shot** llama3-2-3b on **Banking77 dataset**
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_fewshot_banking77.yaml
 ```
 
 
-**1.4. Few-Shot** llama3-2-3b on **Stackoverflow dataset**
+**5.1.2.4. Few-Shot** llama3-2-3b on **Stackoverflow dataset**
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_fewshot_stackoverflow.yaml
 ```
 
-**1.5. Few-Shot** llama3-2-3b on **CLINIC150OOS dataset**
+**5.1.2.5. Few-Shot** llama3-2-3b on **CLINIC150OOS dataset**
 ```bash
 python src/experiment_ollama.py --config config/experiment/ollama_llama3_2_3b_fewshot_clinc150oos.yaml
 ```
 
-### 2. Run API Model Experiments
+#### 5.1.3. Run API Model Experiments
 
-**2.1. Few-Shot Nebius Qwen API** on Banking77 dataset
+* For API models, our pipeline currently supports individual calls to 2 API providers (where we had some credits)
+  ```
+  Nebius
+  Google
+  ```
+* To understand how to use the Nebius batch API, please visit [notebooks 01l6 to 01l9*](https://github.com/KaiquanMah/llm-trust-lens/tree/main/examples/few_shot_examples) where we prepared inputs for the batch API, called it, downloaded results, then stitched with the original dataset to get the output we expect for further analysis
+* To integrate with other model providers, you will need to
+  * Create a <model_provider>_utils.py file using [nebius_utils.py](https://github.com/KaiquanMah/llm-trust-lens/blob/main/src/nebius_utils.py) as a template. This file covers initialising your API client, retry config, and how to work with messages
+  * Add a <ModelProviderApiClient> class to [experiment_api.py](https://github.com/KaiquanMah/llm-trust-lens/blob/main/src/experiment_api.py). The class should have 2 basic functions: `initialize, predict`
+* For all API models, please remember to specify your model_provider, model_name and configuration in the [experiment yaml file which we shared in section 5.1.1. Common Steps - Step 6](https://github.com/KaiquanMah/llm-trust-lens/blob/main/config/experiment/api_nebius_qwen3-30b-a3b_fewshot_banking77.yaml)
+
+
+**5.1.3.1. Few-Shot Nebius Qwen API** on Banking77 dataset
 ```bash
 python src/experiment_api.py --config config/experiment/api_nebius_qwen3-30b-a3b_fewshot_banking77.yaml
 ```
 
-**2.2. Few-Shot Google Gemini API** on Banking77 dataset
+**5.1.3.2. Few-Shot Google Gemini API** on Banking77 dataset
 ```bash
 python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-flash-preview-05-20_fewshot_banking77.yaml
 ```
+
 
 ### 3. Embedding-based Methods
 TBC
