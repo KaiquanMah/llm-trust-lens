@@ -161,8 +161,9 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 ```
 
 
-### 3. Embedding-based Methods
-TBC
+
+### 5.2. Embedding-based Methods (Adaptive Decision Boundary Clustering and Variational Autoencoder)
+TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 
 
