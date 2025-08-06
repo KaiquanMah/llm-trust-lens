@@ -319,7 +319,10 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 ## 7. Results Summary
 
-### 7.1 25% OOS Class Results
+### 7.1 Overall Accuracy & Macro F1-score - 25% OOS Class
+
+* From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the Overall Accuracy & Macro F1-scores.
+* Note that **overall refers to all questions/examples across the entire dataset**
 
 <table>
   <!--2-row header: Dataset, Metric-->
@@ -353,6 +356,63 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
   </tbody>
   <!--Our Metrics-->
 </table>
+
+
+### 7.2 OOS/Open vs Known Macro F1-score - 25% OOS Class
+
+* From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the OOS/Open vs Known Macro F1-scores.
+* Note that
+  * **Non-embedding methods (zero-shot prompt, few-shot prompt) perform multi-class classification. So to get the 'known' class, we grouped all non-oos classes under 'known'**. Therefore for such experiments, we have
+    * For multi-class classification
+      * 1 classification_report.txt
+      * 1 metrics.txt (Overall accuracy, Overall Weighted F1, Overall Macro F1)
+      * 1 confusion_matrix.csv
+      * 1 confusion_matrix.png
+      * 1 results.json - containing the individual multi-class classification predictions
+    * For open vs known (after grouping)
+      * **1 classification_report.txt - We use the F1 scores for open vs known in this report for the table**
+      * 1 metrics.txt (Accuracy, Weighted F1, Macro F1)
+  * **Embedding methods (Adaptive Decision Boundary Clustering and Variational Autoencoder) currently perform only binary classification: open vs known**
+
+
+
+<table>
+  <!--2-row header: Dataset, Open vs Known-->
+  <thead>
+    <tr>
+      <th rowspan="2" style="text-align:left">Methods</th>
+      <th colspan="2" style="text-align:center">Banking77</th>
+      <th colspan="2" style="text-align:center">StackOverflow</th>
+      <th colspan="2" style="text-align:center">CLINC150OOS</th>
+    </tr>
+    <tr>
+      <th style="text-align:center">Open</th>
+      <th style="text-align:center">Known</th>
+      <th style="text-align:center">Open</th>
+      <th style="text-align:center">Known</th>
+      <th style="text-align:center">Open</th>
+      <th style="text-align:center">Known</th>
+    </tr>
+  </thead>
+  <!--2021 THUIAR ADB Paper's F1-->
+  <tbody>
+    <tr>
+      <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
+      <td style="text-align:center">84.56</td>
+      <td style="text-align:center">70.94</td>
+      <td style="text-align:center">90.88</td>
+      <td style="text-align:center">78.82</td>
+      <td style="text-align:center">91.84</td>
+      <td style="text-align:center">76.80</td>
+    </tr>
+  </tbody>
+  <!--Our F1-->
+</table>
+
+
+
+
+
 
 ## 8. License  
 This project is licensed under the MIT License - see the LICENSE file for details.
