@@ -167,7 +167,7 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 
 
-## Folder Structure
+## 6. Folder Structure
 ```bash
 .
 ├── LICENSE
@@ -307,10 +307,10 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 
 
-## Results Summary
+## 7. Results Summary
 TBC
 
 
-## License  
+## 8. License  
 This project is licensed under the MIT License - see the LICENSE file for details.
 
