@@ -95,12 +95,15 @@ GOOGLE_API_KEY = "your_google_api_key_here"
    python3 -m venv venv
    source venv/bin/activate
    ```
-3. Use an existing TSV dataset or bring in new datasets into the [data folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data)
-4. Use an existing idx2label.csv (mapping class indexes to labels) or create a new idx2label.csv in the [respective data folder]([https://github.com/KaiquanMah/llm-trust-lens/tree/main/data](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data/banking)
+3. **Dataset**: Use an existing TSV dataset or bring in new datasets into the [data folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data)
+4. **idx2label**: Use an existing idx2label.csv (mapping class indexes to labels) or create a new idx2label.csv in the [respective data folder]([https://github.com/KaiquanMah/llm-trust-lens/tree/main/data](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data/banking)
    * To understand how to create a new idx2label.csv, please visit [analyse-results-zeroshot-fewshot, create-idx2label.ipynb](https://github.com/KaiquanMah/llm-trust-lens/blob/main/results/analysis/analyse-results-zeroshot-fewshot%2C%20create-idx2label.ipynb), then search for the sections near the end of the workbook using the **"idx2label_to_nonoos_listlabels" function**
-5. Use an existing dataset yaml file or create a new dataset yaml file in the [dataset yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/dataset)
-6. Use an existing experiment yaml file or create a new experiment yaml file in the [experiment yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/experiment)
+5. **Dataset yaml**: Use an existing dataset yaml file or create a new dataset yaml file in the [dataset yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/dataset)
+6. **Experiment yaml**: Use an existing experiment yaml file or create a new experiment yaml file in the [experiment yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/experiment)
    * We recommend creating separate experiment yaml files to trace back to each experiment's configuration (eg ollama vs api, the model you use, zeroshot vs fewshot, thresholdtest or not)
+7. **Prompt**: Use an existing zero-shot or few-shot prompt, or create a new prompt.txt in the [prompts folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/prompts)
+   * Remember to move old prompts to the [archive_zeroshot_fewshot folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/prompts/archive_zeroshot_fewshot)
+8. **Few-shot Prompt Examples**: If you wish to use the few-shot prompt method, please use an existing few-shot examples file, or create a new few-shot examples txt file in the [few_shot_examples folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/prompts/few_shot_examples)
 
 #### 5.1.2. Run Ollama/Local Model Experiments
 
