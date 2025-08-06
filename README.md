@@ -263,7 +263,8 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 ├── results                                                      # Folder containing experiment results
 │   ├── analysis                                                 # Folder containing analysis of zeroshot, fewshot, threshold-test
 │   │   ├── analyse-results-fewshot-threshold-test.ipynb
-│   │   └── analyse-results-zeroshot-fewshot, create-idx2label.ipynb
+│   │   ├── analyse-results-zeroshot-fewshot, create-idx2label.ipynb
+│   │   └── EDA_THUIAR_Banking_n_StackOverflow_n_OOS_Query_Classification_Datasets.ipynb
 │   ├── banking77_fewshot_google_gemini-2.5-flash-preview-05-20
 │   ├── banking77_fewshot_llama3.2_3b                                    # In each experiment folder
 │   │   ├── classification_report_llama3.2_3b_banking.txt                # Multi-class classification report (OOS vs individual known classes)
