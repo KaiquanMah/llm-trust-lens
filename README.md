@@ -319,19 +319,10 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 ## 7. Results Summary
 
-| Methods | Accuracy (Banking77) | F1-score (Banking77) | Accuracy (StackOverflow) | F1-score (StackOverflow) | Accuracy (CLINC150OOS) | F1-score (CLINC150OOS) |
-| :---    | :------------------: | :------------------: | :----------------------: | :-----------------------: | :--------------------: | :--------------------: |
-| ADB     | 78.85                | 71.62                | 86.72                    | 80.83                     | 87.59                  | 77.19                  |
-
-
-| Methods |       Banking77       |                     |      StackOverflow      |                       |      CLINC150OOS      |                     |
-| :---    | :-------------------: | :-----------------: | :---------------------: | :-------------------: | :-------------------: | :-----------------: |
-|         | Accuracy              | F1-score            | Accuracy                | F1-score              | Accuracy              | F1-score            |
-| ADB     | 78.85                 | 71.62               | 86.72                   | 80.83                 | 87.59                 | 77.19               |
-
-
+### 7.1 25% OOS Class Results
 
 <table>
+  <!--2-row header: Dataset, Metric-->
   <thead>
     <tr>
       <th rowspan="2" style="text-align:left">Methods</th>
@@ -340,17 +331,18 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
       <th colspan="2" style="text-align:center">CLINC150OOS</th>
     </tr>
     <tr>
-      <th style="text-align:center">Accuracy</th>
-      <th style="text-align:center">F1-score</th>
-      <th style="text-align:center">Accuracy</th>
-      <th style="text-align:center">F1-score</th>
-      <th style="text-align:center">Accuracy</th>
-      <th style="text-align:center">F1-score</th>
+      <th style="text-align:center">Overall Accuracy</th>
+      <th style="text-align:center">Overall Macro F1-score</th>
+      <th style="text-align:center">Overall Accuracy</th>
+      <th style="text-align:center">Overall Macro F1-score</th>
+      <th style="text-align:center">Overall Accuracy</th>
+      <th style="text-align:center">Overall Macro F1-score</th>
     </tr>
   </thead>
+  <!--2021 THUIAR ADB Paper's Metrics-->
   <tbody>
     <tr>
-      <td style="text-align:left">ADB</td>
+      <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">78.85</td>
       <td style="text-align:center">71.62</td>
       <td style="text-align:center">86.72</td>
@@ -359,6 +351,7 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
       <td style="text-align:center">77.19</td>
     </tr>
   </tbody>
+  <!--Our Metrics-->
 </table>
 
 ## 8. License  
