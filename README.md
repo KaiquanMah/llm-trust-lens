@@ -325,6 +325,8 @@ Please note that for the results section below, we will show only
 
 For experiments with other percentage of OOS classes or where we initially explored not enforcing allowed list of classes, you can still access the results in the [results folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/results).
 
+To analyse results in Jupyter notebooks instead, please visit the [results/analysis folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/results/analysis).
+
 
 ### 7.1 Overall Accuracy & Macro F1-score - 25% OOS Class
 
