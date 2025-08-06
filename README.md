@@ -10,7 +10,7 @@ There are 2 ways to evaluate open intent classification:
 1. Binary classification of open-intent/oos/unknown class vs 1 known class (grouped from all known classes)
 2. Multi-class Classification of open-intent/oos/unknown class vs individual known classes
 
-Project Team Members
+**Project Team Members**
 * Members: Kaiquan Mah, Michael Bernovskiy, Ruslan Shuvalov
 * Mentor: Liat Antwarg
 * CitrusX Representatives: Shlomit Finegold, Dagan Eshar, Ran Emuna (left around mid-July 2025)
