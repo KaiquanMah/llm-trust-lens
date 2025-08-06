@@ -1,6 +1,6 @@
 # LLM Trust Lens - Open Intent Classification
 
-## Overview
+## 1. Overview
 
 **LLM Trust Lens - Open Intent Classification** is a pipeline to evaluate the performance of various methods (such as LLMs) on various datasets, focusing on the topic of "Open Intent Classification".
 
@@ -11,7 +11,7 @@ There are 2 ways to evaluate open intent classification:
 2. Multi-class Classification of open-intent/oos/unknown class vs individual known classes
 
 
-## Key Features
+## 2. Key Features
 
 - **Multi-Model Support**: Evaluate both local models (via Ollama) and API-based models (Nebius, Google Gemini)
 - **Flexible Prompt Scenarios**: Support for both zero-shot and few-shot prompt scenarios
@@ -19,9 +19,10 @@ There are 2 ways to evaluate open intent classification:
 - **Configurable Experiments**: YAML-based configuration system for easy experiment setup
 - **Traceable Results**: Generate LLM predictions, classification metrics and confusion matrix files for evaluation
 
-## Setup
+## 3. Setup
 1. Clone the Repository
 ```bash
+# If you have not done so, update your Ubuntu packages and install git
 sudo apt update && sudo apt install git -y
 
 git clone https://github.com/KaiquanMah/llm-trust-lens.git
@@ -30,23 +31,27 @@ cd llm-trust-lens
 
 2. Create a Virtual Environment (Recommended)
 ```bash
-sudo apt update && sudo apt install -y python3 python3-pip python3-venv
+# If you have not done so, install python, pip and venv on your Ubuntu machine
+sudo apt install -y python3 python3-pip python3-venv
 
 python -m venv venv
 source venv/bin/activate    # On Windows use `venv\Scripts\activate`
 ```
 
-3. Install Dependencies. Install Ollama, then install the required Python packages using the requirements.txt file.
+3. Install Dependencies. Install Ollama, then install the required Python packages using the requirements.txt file
 ```bash
+# Install Ollama
 curl -fsSL https://ollama.com/install.sh | sh
 
+# Upgrade pip
 pip install --upgrade pip
+# Install python dependencies to run the pipeline
 pip install -r requirements.txt
 ```
 
 4. Test Ollama has been installed successfully
 ```bash
-# check Ollama version
+# Check Ollama version
 ollama --version
 # As at August 2025: ollama version is 0.9.6
 
@@ -55,7 +60,7 @@ ps aux | grep ollama
 ```
 
 
-## Environment Configuration
+## 4. Environment Configuration
 To use API-based models from providers like Nebius or Google, you must configure your API keys in an environment file.
 
 Create an **.env file** and add your API Keys.
@@ -65,13 +70,46 @@ GOOGLE_API_KEY = "your_google_api_key_here"
 ```
 
 
-## Usage
+## 5. Usage
+
+* Non-embedding methods: Note that the experiment_*.py pipeline files currently work for non-embedding methods (zero-shot prompt and few-shot prompt)
+* Embedding methods: For embedding methods (finetune BERT, then run Adaptive Decision Boundary Clustering or Variational Autoencoder), the team was still exploring these methods. Please visit the workings in the *.ipynb files we will share below.
+
+### 5.1. Non-Embedding Methods (Zero-Shot Prompt and Few-Shot Prompt)
 
 * The Terminal commands shown below run experiments from the root directory of the project
 * You can execute different experiments by using the appropriate **experiment_*.py file** and **experiment configuration file**
 * If you wish to check out the terminal workings and printouts during each pipeline run, please visit the [terminal_workings folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/examples/terminal_workings)
 
-### 1. Run Ollama/Local Model Experiments
+### 5.1.1. Common Steps for Ollama/Local Model and API Model Experiments
+
+1. Navigate to the **llm-trust-lens folder**
+2. Activate your venv virtual environment containing the required python libraries to run the pipeline
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+3. Use an existing TSV dataset or bring in new datasets into the [data folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data)
+4. Use an existing idx2label.csv (mapping class indexes to labels) or create a new idx2label.csv in the [respective data folder]([https://github.com/KaiquanMah/llm-trust-lens/tree/main/data](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data/banking)
+   * To understand how to create a new idx2label.csv, please visit [analyse-results-zeroshot-fewshot, create-idx2label.ipynb](https://github.com/KaiquanMah/llm-trust-lens/blob/main/results/analysis/analyse-results-zeroshot-fewshot%2C%20create-idx2label.ipynb), then search for the sections near the end of the workbook using the **"idx2label_to_nonoos_listlabels" function**
+5. Use an existing dataset yaml file or create a new dataset yaml file in the [dataset yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/dataset)
+6. Use an existing experiment yaml file or create a new experiment yaml file in the [experiment yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/experiment)
+   * We recommend creating separate experiment yaml files to trace back to each experiment's configuration (eg ollama vs api, the model you use, zeroshot vs fewshot, thresholdtest or not)
+
+### 5.1.2. Run Ollama/Local Model Experiments
+
+* For Ollama models, we have ran the pipeline successfully for 6 models
+  ```
+  llama3.2:3b
+  qwen3:8b (Mixture-of-Experts LLM)
+  gemma3:4b-it-qat (instruction-Following and Quantised LLM)
+  mistral:7b (General-Purpose LLM)
+  tulu3:8b (Instruction-Following LLM)
+  deepseek-r1:7b (Reasoning LLM)
+  ```
+  * We expect the pipeline to be able to support other models that will be published onto Ollama
+  * To explore Ollama models you can use, please visit [Ollama's model directory](https://ollama.com/search)
+
 
 **1.1. Zero-Shot llama3-2-3b** on Banking77 dataset
 ```bash
