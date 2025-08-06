@@ -381,8 +381,8 @@ For experiments with other percentage of OOS classes, you can still access the r
         <td style="text-align:center">57.48</td>
         <td style="text-align:center">-</td>
         <td style="text-align:center">-</td>
-        <td style="text-align:center">35%</td>
-        <td style="text-align:center">3%</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
       </tr>
       <tr>
         <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
@@ -390,8 +390,8 @@ For experiments with other percentage of OOS classes, you can still access the r
         <td style="text-align:center">54.99</td>
         <td style="text-align:center">-</td>
         <td style="text-align:center">-</td>
-        <td style="text-align:center">21%</td>
-        <td style="text-align:center">0%</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
       </tr>
       <tr>
         <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
@@ -399,8 +399,8 @@ For experiments with other percentage of OOS classes, you can still access the r
         <td style="text-align:center">52.69</td>
         <td style="text-align:center">-</td>
         <td style="text-align:center">-</td>
-        <td style="text-align:center">0%</td>
-        <td style="text-align:center">0%</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
       </tr>
       <tr>
         <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
@@ -408,8 +408,8 @@ For experiments with other percentage of OOS classes, you can still access the r
         <td style="text-align:center">36.70</td>
         <td style="text-align:center">-</td>
         <td style="text-align:center">-</td>
-        <td style="text-align:center">14%</td>
-        <td style="text-align:center">1%</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
       </tr>
       <!--Our Metrics: fewshot models-->
       <tr>
