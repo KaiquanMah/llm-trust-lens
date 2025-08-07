@@ -1,0 +1,89 @@
+@kaiquanmah0 ➜ /workspaces/llm-trust-lens (main) $ python src/experiment_api.py --config config/experiment/api_nebius_qwen3-30b-a3b_fewshot_banking77.yaml
+--- Starting Experiment ---
+Experiment Config: config/experiment/api_nebius_qwen3-30b-a3b_fewshot_banking77.yaml
+Dataset: banking, Model: Qwen/Qwen3-30B-A3B, Technique: fewshot
+Results will be saved to: /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b
+
+--- Applying Data Processing from Experiment Config ---
+Loading all splits from directory: /workspaces/llm-trust-lens/data/banking
+Found 'train' split file: train.tsv
+Found 'dev' split file: dev.tsv
+Found 'test' split file: test.tsv
+Loading label map from: /workspaces/llm-trust-lens/data/banking/banking77_idx2label.csv
+Successfully loaded dataset 'banking' with 13083 records and 77 labels.
+================================================================================
+Original dataset intents: ['Refund_not_showing_up', 'activate_my_card', 'age_limit', 'apple_pay_or_google_pay', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_acceptance', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_not_working', 'card_payment_fee_charged', 'card_payment_not_recognised', 'card_payment_wrong_exchange_rate', 'card_swallowed', 'cash_withdrawal_charge', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_card_payment', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'exchange_charge', 'exchange_rate', 'exchange_via_app', 'extra_charge_on_statement', 'failed_transfer', 'fiat_currency_support', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'request_refund', 'reverted_card_payment?', 'supported_cards_and_currencies', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_card_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'visa_or_mastercard', 'why_verify_identity', 'wrong_amount_of_cash_received', 'wrong_exchange_rate_for_cash_withdrawal']
+Number of original intents: 77
+
+================================================================================
+Original intents to convert to OOS class:
+   0  apple_pay_or_google_pay
+   1  card_acceptance
+   2  card_not_working
+   3  card_payment_fee_charged
+   4  card_payment_not_recognised
+   5  card_payment_wrong_exchange_rate
+   6  cash_withdrawal_charge
+   7  declined_card_payment
+   8  exchange_charge
+   9  exchange_rate
+  10  exchange_via_app
+  11  extra_charge_on_statement
+  12  fiat_currency_support
+  13  request_refund
+  14  reverted_card_payment?
+  15  supported_cards_and_currencies
+  16  top_up_by_card_charge
+  17  visa_or_mastercard
+  18  wrong_exchange_rate_for_cash_withdrawal
+Percentage of original intents to convert to OOS class: 0.24675324675324675
+
+Non-OOS labels to preserve: ['activate_my_card', 'age_limit', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_swallowed', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'failed_transfer', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'refund_not_showing_up', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'why_verify_identity', 'wrong_amount_of_cash_received']
+
+Preserving 58 non-OOS labels (Total classes: 77, Converting to OOS: 19)
+Labels to preserve: ['activate_my_card', 'age_limit', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_swallowed', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'failed_transfer', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'refund_not_showing_up', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'why_verify_identity', 'wrong_amount_of_cash_received']
+Final label count: 59 labels
+Labels: ['oos', 'activate_my_card', 'age_limit', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_swallowed', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'failed_transfer', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'refund_not_showing_up', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'why_verify_identity', 'wrong_amount_of_cash_received']
+================================================================================
+Unique intents after converting some to OOS class:
+['oos', 'activate_my_card', 'age_limit', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_swallowed', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'failed_transfer', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'refund_not_showing_up', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'why_verify_identity', 'wrong_amount_of_cash_received']
+Number of unique intents after converting some to OOS class: 59
+
+================================================================================
+sanity check
+Number of original intents: 77
+Number of original intents to convert to OOS class: 19
+Percentage of original intents to convert to OOS class: 0.24675324675324675
+Number of unique intents after conversion: 59
+Labels after conversion: ['oos', 'activate_my_card', 'age_limit', 'atm_support', 'automatic_top_up', 'balance_not_updated_after_bank_transfer', 'balance_not_updated_after_cheque_or_cash_deposit', 'beneficiary_not_allowed', 'cancel_transfer', 'card_about_to_expire', 'card_arrival', 'card_delivery_estimate', 'card_linking', 'card_swallowed', 'cash_withdrawal_not_recognised', 'change_pin', 'compromised_card', 'contactless_not_working', 'country_support', 'declined_cash_withdrawal', 'declined_transfer', 'direct_debit_payment_not_recognised', 'disposable_card_limits', 'edit_personal_details', 'failed_transfer', 'get_disposable_virtual_card', 'get_physical_card', 'getting_spare_card', 'getting_virtual_card', 'lost_or_stolen_card', 'lost_or_stolen_phone', 'order_physical_card', 'passcode_forgotten', 'pending_card_payment', 'pending_cash_withdrawal', 'pending_top_up', 'pending_transfer', 'pin_blocked', 'receiving_money', 'refund_not_showing_up', 'terminate_account', 'top_up_by_bank_transfer_charge', 'top_up_by_cash_or_cheque', 'top_up_failed', 'top_up_limits', 'top_up_reverted', 'topping_up_by_card', 'transaction_charged_twice', 'transfer_fee_charged', 'transfer_into_account', 'transfer_not_received_by_recipient', 'transfer_timing', 'unable_to_verify_identity', 'verify_my_identity', 'verify_source_of_funds', 'verify_top_up', 'virtual_card_not_working', 'why_verify_identity', 'wrong_amount_of_cash_received']
+Numbers match expected count: True
+Prepared unique intents
+
+--- Preparing Model and Prompts ---
+Loading few-shot examples content directly from: /workspaces/llm-trust-lens/prompts/few_shot_examples/banking77/banking_25perc_oos.txt
+
+--- Running Inference ---
+Processing 8 records from index 0 to 7.
+Processed 2/8 | Elapsed: 00:00:05 | ETA: 00:00:15
+Processed 4/8 | Elapsed: 00:00:06 | ETA: 00:00:06
+Processed 6/8 | Elapsed: 00:00:08 | ETA: 00:00:02
+Processed 8/8 | Elapsed: 00:00:12 | ETA: 00:00:00
+
+Raw predictions saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/results_qwen_qwen3-30b-a3b_banking_0_7.json
+
+--- Generating Evaluation Metrics ---
+
+Calculating intent classification metrics...
+
+Metrics summary saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/metrics_qwen_qwen3-30b-a3b_banking.txt
+
+Calculating open vs known metrics...
+Open vs Known metrics summary saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/metrics_qwen_qwen3-30b-a3b_banking_open_vs_known.txt
+
+Classification Report saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/classification_report_qwen_qwen3-30b-a3b_banking.txt
+Open vs Known Classification Report saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/classification_report_qwen_qwen3-30b-a3b_banking_open_vs_known.txt
+Confusion matrix saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/cm_qwen_qwen3-30b-a3b_banking.csv
+Confusion matrix plot saved to /workspaces/llm-trust-lens/results/banking77_fewshot_nebiusqwen3-30b-a3b/cm_qwen_qwen3-30b-a3b_banking.png
+
+--- Experiment Finished ---
+
