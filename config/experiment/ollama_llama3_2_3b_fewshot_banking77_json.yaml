@@ -1,0 +1,53 @@
+# Defines a Few-shot experiment using an Ollama model on the Banking77 dataset.
+
+# 1. DATASET CONFIGURATION
+dataset_config: "config/dataset/banking77_json.yaml"
+# The starting row index from the dataset to process (0-based)
+start_index: 0
+# process up to and excluding the end_index row of the dataset
+# The ending row index. Use 'null' to process to the end of the dataset
+# 'null' is the YAML equivalent of Python's None
+# eg: 10, 10000, 11850 or null
+end_index: 10 # 10 # null
+# Force dataset to contain an 'oos' class
+# using the last class value (sorted alphabetically), 
+# if 'oos' class does not exist in the original dataset
+force_oos: true
+# list of indexes to use as 'oos' class
+# please analyse the classes to gather this list of 'oos' indexes, 
+# then use within the team across various open intent classification approaches 
+# -> for reproducible and comparable results
+list_oos_idx: [2, 10, 14, 15, 16, 17, 19, 25, 31, 32, 33, 34, 36, 52, 53, 54, 57, 73, 76]
+
+# 2. MODEL CONFIGURATION
+model_provider: "ollama"
+model_name: "llama3.2:3b" # The model name registered in your Ollama instance
+ollama_host: "http://localhost:11434"
+
+# 3. TECHNIQUE CONFIGURATION
+technique: "fewshot"
+prompt_template_path: "prompts/fewshot_prompt.txt"
+few_shot:
+  examples_path: "prompts/few_shot_examples/banking77/banking_25perc_oos.txt"
+
+# 4. RUN CONTROL & PROCESSING
+# Parameters that control the behavior and scope of this specific experiment
+run_control:
+  # How often to log progress updates (e.g., every N examples)
+  log_every_n_examples: 2 # 10
+
+
+# 5. DATA SUBSET TO TEST IMPACT OF OOS THRESHOLD ON METRICS
+threshold:
+  # If true, commence threshold test 
+  # to process questions to check non-oos classes vs oos (out-of-scope) class
+  filter_oos_qns_only: false
+  # where we filter the dataframe later to keep only the 1st non-oos class as examples to input to LLM
+  first_class_banking: 'activate_my_card' # following idx2label
+  first_class_stackoverflow: 'wordpress' # following idx2label
+  first_class_oos: 'oos'
+  # The number of questions to filter and keep if the 'filter_oos_qns_only' flag is true
+  n_oos_qns: 100
+
+# 6. OUTPUT CONFIGURATION
+output_dir: "results/banking77_fewshot_llama3.2_3b_json"

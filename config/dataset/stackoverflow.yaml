@@ -5,7 +5,7 @@ name: "stackoverflow"    # options: 'banking', 'stackoverflow', 'oos'
 path: "data/stackoverflow"
 label_map_path: "data/stackoverflow/stackoverflow_idx2label.csv"
 
-# The names of the columns in train.csv
+# The names of the columns in train.tsv
 text_column: "text"
 label_column: "label"
 
