@@ -1,4 +1,5 @@
 # LLM Trust Lens - Open Intent Classification
+<img width="1664" height="928" alt="readme-openintentlogo" src="https://github.com/user-attachments/assets/bd0efc60-09ff-42d2-a17e-4286cc2b6115" />
 
 ## 1. Overview
 
