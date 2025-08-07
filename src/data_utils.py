@@ -51,6 +51,8 @@ def load_dataset_and_labels(dataset_config: dict):
                 
                 df['split'] = split
                 main_df = pd.concat([main_df, df], ignore_index=True)
+                # df - reset (AND bring back) indexes
+                main_df = main_df.reset_index(drop=True)
                 
             except Exception as e:
                 print(f"Error parsing {found_file_path}: {e}")
