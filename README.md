@@ -443,7 +443,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">85.72</td>
          <td style="text-align:center">87.87</td>
          <td style="text-align:center">80.35</td>
-         <td style="text-align:center">85.39</td>
+         <td style="text-align:center">80.99</td>
        </tr>
   </tbody>
 </table>
