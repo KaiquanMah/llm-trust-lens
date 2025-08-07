@@ -467,7 +467,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   * The figures below are in percentage terms (from 0.00% to 100.00%)
   * '-' refers to experiments which have yet to be conducted
   * We followed our sort order in section 7.1's table
-
+  * Even though the [2021 THUIAR paper](https://doi.org/10.48550/arXiv.2012.10209) states that their table 3 consists of open vs known Macro F1-scores, it does not make any sense. The Macro F1-score is an aggregated score across all classes - in this case open and known. Therefore we treat it as a typo in the paper, and take the paper's table 3 to mean class-specific open F1-score vs known F1-score, which we summarise for our experiments below.
 
 
 <table>
@@ -575,6 +575,122 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
   </tbody>
 </table>
+
+
+### 7.3 OOS/Open vs Known - Grouped Accuracy & Macro F1-score - 25% OOS Class
+* As an add-on for our project (which was not presented in the 2021 THUIAR paper), we summarise the **OOS/Open vs Known Grouped** Accuracy & Macro F1-score
+* We hope this helps to facilitate a comparison between 
+  * **Section 7.1's Table: Overall** Accuracy and Macro-F1 score from **Multi-class Classification**
+  * **Section 7.3's Table: OOS/Open vs Known Grouped** Accuracy and Macro-F1 score **from 'Binary' Classification**
+* Note that for the base "ADB (2021 THUIAR Paper)" row, we assume table 2 of the paper applies to both multi-class classification, and binary classification
+
+
+<table>
+  <!--2-row header: Dataset, Metric-->
+  <thead>
+    <tr style="background-color: #ff862f; color: white">
+      <th rowspan="2" style="text-align:left">Methods</th>
+      <th colspan="2" style="text-align:center">Banking77</th>
+      <th colspan="2" style="text-align:center">StackOverflow</th>
+      <th colspan="2" style="text-align:center">CLINC150OOS</th>
+    </tr>
+    <tr style="background-color: #ff862f; color: white">
+      <th style="text-align:center">Grouped Accuracy</th>
+      <th style="text-align:center">Grouped Macro F1-score</th>
+      <th style="text-align:center">Grouped Accuracy</th>
+      <th style="text-align:center">Grouped Macro F1-score</th>
+      <th style="text-align:center">Grouped Accuracy</th>
+      <th style="text-align:center">Grouped Macro F1-score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!--2021 THUIAR ADB Paper's Metrics-->
+    <tr style="background-color: #e0dedcff">
+      <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
+      <td style="text-align:center">78.85</td>
+      <td style="text-align:center">71.62</td>
+      <td style="text-align:center">86.72</td>
+      <td style="text-align:center">80.83</td>
+      <td style="text-align:center">87.59</td>
+      <td style="text-align:center">77.19</td>
+    </tr>
+    <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
+    <tr>
+      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:center">73.00</td>
+      <td style="text-align:center">42.00</td>
+      <td style="text-align:center">75.00</td>
+      <td style="text-align:center">45.00</td>
+      <td style="text-align:center">72.00</td>
+      <td style="text-align:center">42.00</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:center">73.00</td>
+      <td style="text-align:center">48.00</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">73.00</td>
+        <td style="text-align:center">45.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">74.00</td>
+        <td style="text-align:center">42.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">74.00</td>
+        <td style="text-align:center">42.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">72.00</td>
+        <td style="text-align:center">43.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <!--Our Metrics: fewshot models-->
+      <tr>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:center">74.00</td>
+         <td style="text-align:center">43.00</td>
+         <td style="text-align:center">78.00</td>
+         <td style="text-align:center">56.00</td>
+         <td style="text-align:center">72.00</td>
+         <td style="text-align:center">42.00</td>
+       </tr>
+       <tr>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:center">82.00</td>
+         <td style="text-align:center">73.00</td>
+         <td style="text-align:center">87.00</td>
+         <td style="text-align:center">85.00</td>
+         <td style="text-align:center">85.00</td>
+         <td style="text-align:center">82.00</td>
+       </tr>
+  </tbody>
+</table>
+
 
 
 
