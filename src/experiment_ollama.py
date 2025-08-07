@@ -108,13 +108,13 @@ def run_ollama_experiment(config_path: str):
 
         # Store result
         results.append({
-            'Index': index,  # Include the index in results
+            'Index': index,  # Add back index in results
             'text': text_input,
             'label': true_label,
-            'predicted': predicted,
-            'confidence': confidence,
             'dataset': dataset_config['name'],
-            'split': row.get('split')
+            'split': row.get('split'),
+            'predicted': predicted,
+            'confidence': confidence
         })
 
         # Log progress with ETA

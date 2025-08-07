@@ -171,12 +171,13 @@ def run_api_experiment(config_path: str):
 
         # Store result
         results.append({
+            'Index': index,  # Add back index in results
             'text': text_input,
             'label': true_label,
-            'predicted': predicted,
-            'confidence': confidence,
             'dataset': dataset_config['name'],
-            'split': row.get('split')
+            'split': row.get('split'),
+            'predicted': predicted,
+            'confidence': confidence
         })
 
         # Log progress with ETA
