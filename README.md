@@ -1,5 +1,5 @@
 # LLM Trust Lens - Open Intent Classification
-<img width="240" height="200" alt="readme-openintentlogo" src="https://github.com/user-attachments/assets/bd0efc60-09ff-42d2-a17e-4286cc2b6115" />
+<img width="240" height="150" alt="readme-openintentlogo" src="https://github.com/user-attachments/assets/bd0efc60-09ff-42d2-a17e-4286cc2b6115" />
 
 ## 1. Overview
 
@@ -336,6 +336,10 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   * **overall refers to all questions/examples across the entire dataset**
   * The figures below are in percentage terms (from 0.00% to 100.00%)
   * '-' refers to experiments which have yet to be conducted
+  * In terms of sort order, we have
+    * ADB (2021 THUIAR's paper) and our llama3.2:3b base model on top
+    * then sort from highest to lowest zeroshot model
+    * then we have our fewshot models
 
 
 <table>
@@ -445,9 +449,9 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
 </table>
 
 
-### 7.2 OOS/Open vs Known Macro F1-score - 25% OOS Class
+### 7.2 OOS/Open vs Known F1-score - 25% OOS Class
 
-* From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the OOS/Open vs Known Macro F1-scores.
+* From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the OOS/Open vs Known F1-scores.
 * Note that
   * **Non-embedding methods (zero-shot prompt, few-shot prompt) perform multi-class classification. So to get the 'known' class, we grouped all non-oos classes under 'known'**. Therefore for such experiments, we have
     * For multi-class classification
@@ -462,19 +466,20 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   * **Embedding methods (Adaptive Decision Boundary Clustering and Variational Autoencoder) currently perform only binary classification: open vs known**
   * The figures below are in percentage terms (from 0.00% to 100.00%)
   * '-' refers to experiments which have yet to be conducted
+  * We followed our sort order in section 7.1's table
 
 
 
 <table>
   <!--2-row header: Dataset, Open vs Known-->
   <thead>
-    <tr>
+    <tr style="background-color: #ff862f; color: white">
       <th rowspan="2" style="text-align:left">Methods</th>
       <th colspan="2" style="text-align:center">Banking77</th>
       <th colspan="2" style="text-align:center">StackOverflow</th>
       <th colspan="2" style="text-align:center">CLINC150OOS</th>
     </tr>
-    <tr>
+    <tr style="background-color: #ff862f; color: white">
       <th style="text-align:center">Open</th>
       <th style="text-align:center">Known</th>
       <th style="text-align:center">Open</th>
@@ -483,9 +488,9 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <th style="text-align:center">Known</th>
     </tr>
   </thead>
-  <!--2021 THUIAR ADB Paper's F1-->
   <tbody>
-    <tr>
+    <!--2021 THUIAR ADB Paper's F1-->
+    <tr style="background-color: #e0dedcff">
       <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">84.56</td>
       <td style="text-align:center">70.94</td>
@@ -494,8 +499,81 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">91.84</td>
       <td style="text-align:center">76.80</td>
     </tr>
+    <!--Our F1, follow our sort order in section 7.1's table-->
+    <tr>
+      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:center">85.00</td>
+      <td style="text-align:center">0.00</td>
+      <td style="text-align:center">86.00</td>
+      <td style="text-align:center">5.00</td>
+      <td style="text-align:center">83.00</td>
+      <td style="text-align:center">1.00</td>
+    </tr>
+    <tr>
+      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:center">84.00</td>
+      <td style="text-align:center">12.00</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+      <td style="text-align:center">-</td>
+    </tr>
+    <tr>
+        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">84.00</td>
+        <td style="text-align:center">5.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">85.00</td>
+        <td style="text-align:center">0.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">85.00</td>
+        <td style="text-align:center">0.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:center">84.00</td>
+        <td style="text-align:center">2.00</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+        <td style="text-align:center">-</td>
+      </tr>
+      <!--Our Metrics: fewshot models-->
+      <tr>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:center">85.00</td>
+         <td style="text-align:center">0.00</td>
+         <td style="text-align:center">87.00</td>
+         <td style="text-align:center">25.00</td>
+         <td style="text-align:center">84.00</td>
+         <td style="text-align:center">0.00</td>
+       </tr>
+       <tr>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:center">89.00</td>
+         <td style="text-align:center">56.00</td>
+         <td style="text-align:center">91.00</td>
+         <td style="text-align:center">79.00</td>
+         <td style="text-align:center">90.00</td>
+         <td style="text-align:center">75.00</td>
+       </tr>
   </tbody>
-  <!--Our F1-->
 </table>
 
 
