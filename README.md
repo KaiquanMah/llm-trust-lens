@@ -22,6 +22,7 @@ There are 2 ways to evaluate open intent classification:
 - **Multi-Model Support**: Evaluate both local models (via Ollama) and API-based models (Nebius, Google Gemini)
 - **Flexible Prompt Scenarios**: Support for both zero-shot and few-shot prompt scenarios
 - **Multiple Datasets**: Built-in support for Banking77, StackOverflow, and CLINC150OOS TSV datasets (Source: [2021 Adaptive Decision Boundary Clustering GitHub repo](https://github.com/thuiar/Adaptive-Decision-Boundary/tree/main/data)). For new datasets, bring them into the pipeline!
+- **Multiple Dataset Formats** - Support for CSV, TSV, JSON file formats
 - **Configurable Experiments**: YAML-based configuration system for easy experiment setup
 - **Traceable Results**: Generate LLM predictions, classification metrics and confusion matrix files for evaluation
 
@@ -96,7 +97,7 @@ GOOGLE_API_KEY = "your_google_api_key_here"
    python3 -m venv venv
    source venv/bin/activate
    ```
-3. **Dataset**: Use an existing TSV dataset or bring in new datasets into the [data folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data)
+3. **Dataset**: Use an existing CSV/TSV/JSON dataset or bring in new datasets into the [data folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data)
 4. **idx2label**: Use an existing idx2label.csv (mapping class indexes to labels) or create a new idx2label.csv in the [respective data folder]([https://github.com/KaiquanMah/llm-trust-lens/tree/main/data](https://github.com/KaiquanMah/llm-trust-lens/tree/main/data/banking)
    * To understand how to create a new idx2label.csv, please visit [analyse-results-zeroshot-fewshot, create-idx2label.ipynb](https://github.com/KaiquanMah/llm-trust-lens/blob/main/results/analysis/analyse-results-zeroshot-fewshot%2C%20create-idx2label.ipynb), then search for the sections near the end of the workbook using the **"idx2label_to_nonoos_listlabels" function**
 5. **Dataset yaml**: Use an existing dataset yaml file or create a new dataset yaml file in the [dataset yaml folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/config/dataset)
@@ -185,15 +186,19 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 ├── .env                               # File containing API keys. Follow the "Setup" section to create your own .env file
 ├── config
 │   ├── dataset                        # Dataset config. Naming convention: <dataset_name>.yaml
-│   │   ├── banking77.yaml
+│   │   ├── banking77.yaml             # dataset config for banking77 TSV files (to test support for TSVs - original design)
 │   │   ├── clinc150oos.yaml
-│   │   └── stackoverflow.yaml
+│   │   ├── stackoverflow.yaml
+│   │   ├── banking77_csv.yaml         # dataset config for CSV files (to test support for CSVs - add-on)
+│   │   └── banking77_json.yaml        # dataset config for JSON files (to test support for JSON - add-on)
 │   └── experiment                     # Experiment config. Naming convention: <ollama/api>_<modelprovider>_<modelname>_<method>_<dataset>.yaml
 │       ├── api_google_gemini-2.5-flash-preview-05-20_fewshot_banking77.yaml
 │       ├── api_nebius_qwen3-30b-a3b_fewshot_banking77.yaml
 │       ├── ollama_deepseek-r1_7b_zeroshot_banking77.yaml
 │       ├── ollama_gemma3_4b-it-qat_zeroshot_banking77.yaml
-│       ├── ollama_llama3_2_3b_fewshot_banking77.yaml
+│       ├── ollama_llama3_2_3b_fewshot_banking77.yaml          # experiment config for llama3.2:3b fewshot on banking77 TSV files
+│       ├── ollama_llama3_2_3b_fewshot_banking77_csv.yaml
+│       ├── ollama_llama3_2_3b_fewshot_banking77_json.yaml
 │       ├── ollama_llama3_2_3b_fewshot_banking77_thresholdtest.yaml
 │       ├── ollama_llama3_2_3b_fewshot_clinc150oos.yaml
 │       ├── ollama_llama3_2_3b_fewshot_stackoverflow.yaml
@@ -208,7 +213,9 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 │   │   ├── test.tsv
 │   │   └── train.tsv
 │   ├── oos
-│   └── stackoverflow
+│   ├── stackoverflow
+│   ├── banking_simulate_csv
+│   └── banking_simulate_json
 ├── debugger                          # Optional debugger directory to veryify ollama has been setup correctly
 │   └── debug_ollama.py
 ├── examples
@@ -284,6 +291,8 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 │   │   ├── metrics_llama3.2_3b_banking.txt                              # Multi-class classification metrics (OOS vs individual known classes)
 │   │   ├── metrics_llama3.2_3b_banking_open_vs_known.txt                # Binary classification metrics (OOS/Open vs known class)
 │   │   └── results_llama3.2_3b_banking_0_7.json                         # Results JSON: list of dictionaries, with 1 dictionary per classified example
+│   ├── banking77_fewshot_llama3.2_3b_csv
+│   ├── banking77_fewshot_llama3.2_3b_json
 │   ├── banking77_fewshot_nebiusqwen3-30b-a3b                            # Experiment folders from banking77, stackoverflow, oos pipeline test runs (after refactoring from Jupyter notebooks to GitHub repo)
 │   ├── banking77_fewshot_thresholdtest
 │   ├── banking77_fewshot_thresholdtest_only1notoos
