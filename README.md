@@ -694,6 +694,21 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
 
 
 
+### 7.4 Threshold Test When Recall Drops
+* As an add-on for our project, we evaluated how the count of known intents affects the recall of a LLM
+* Note that we
+  * performed threshold test using only llama3.2:3b (our base Ollama model)
+  * used the few-shot prompt method, with 'k' known intents and 1 example for every known intent class
+  * input 100 question strings from the 'OOS' class from each dataset into the LLM to predict an output class
+* **As we increase the number of known intents for a model to classify**
+  * **Precision stays at 100% BUT recall on ‘OOS’ class decreases**
+  * Intuitively, with increasingly more choices to choose from known intent classes, and with some classes similar to one another, it is reasonable to expect a LLM to be less able to classify the input question strings as the 'OOS'/Open class
+  * **And this contradicts table 3 from the [2021 THUIAR paper](https://arxiv.org/pdf/2012.10209), where the F1-score of the 'Open' class decreases as the percentage of known classes increase**
+
+<img width="923" height="420" alt="image" src="https://github.com/user-attachments/assets/86212ae1-6070-48bd-aae4-4bc3a88da1d8" />
+
+
+
 
 ## 8. References
 Here are references underpinning those methods we explored above
