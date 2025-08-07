@@ -108,6 +108,7 @@ def run_ollama_experiment(config_path: str):
 
         # Store result
         results.append({
+            'Index': index,  # Include the index in results
             'text': text_input,
             'label': true_label,
             'predicted': predicted,
