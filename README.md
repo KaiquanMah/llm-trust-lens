@@ -331,18 +331,22 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
 ### 7.1 Overall Accuracy & Macro F1-score - 25% OOS Class
 
 * From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the Overall Accuracy & Macro F1-scores.
-* Note that **overall refers to all questions/examples across the entire dataset**
+* Note that
+  * **overall refers to all questions/examples across the entire dataset**
+  * The figures below are in percentage terms (from 0.00% to 100.00%)
+  * '-' refers to experiments which have yet to be conducted
+
 
 <table>
   <!--2-row header: Dataset, Metric-->
   <thead>
-    <tr>
+    <tr style="background-color: #ff862f; color: white">
       <th rowspan="2" style="text-align:left">Methods</th>
       <th colspan="2" style="text-align:center">Banking77</th>
       <th colspan="2" style="text-align:center">StackOverflow</th>
       <th colspan="2" style="text-align:center">CLINC150OOS</th>
     </tr>
-    <tr>
+    <tr style="background-color: #ff862f; color: white">
       <th style="text-align:center">Overall Accuracy</th>
       <th style="text-align:center">Overall Macro F1-score</th>
       <th style="text-align:center">Overall Accuracy</th>
@@ -353,7 +357,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   </thead>
   <tbody>
     <!--2021 THUIAR ADB Paper's Metrics-->
-    <tr>
+    <tr style="background-color: #e0dedcff">
       <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">78.85</td>
       <td style="text-align:center">71.62</td>
@@ -366,7 +370,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     <tr>
       <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
       <td style="text-align:center">43.74</td>
-      <td style="text-align:center">53</td>
+      <td style="text-align:center">53.00</td>
       <td style="text-align:center">66.62</td>
       <td style="text-align:center">73.10</td>
       <td style="text-align:center">45.76</td>
@@ -455,6 +459,8 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       * **1 classification_report.txt - We use the F1 scores for open vs known in this report for the table**
       * 1 metrics.txt (Accuracy, Weighted F1, Macro F1)
   * **Embedding methods (Adaptive Decision Boundary Clustering and Variational Autoencoder) currently perform only binary classification: open vs known**
+  * The figures below are in percentage terms (from 0.00% to 100.00%)
+  * '-' refers to experiments which have yet to be conducted
 
 
 
