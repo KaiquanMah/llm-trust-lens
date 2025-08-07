@@ -579,8 +579,13 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
 
 
 
+## 8. References
+Here are references underpinning those methods we explored above
+* ADB Clustering (THUIAR): Zhang, H., et al (2021). Deep open intent classification with Adaptive Decision Boundary. arXiv. https://doi.org/10.48550/arXiv.2012.10209
+* Zero-shot Prompt: Roumeliotis, K.I., et al (2025). LLMs for product classification: zero-shot. NLP Journal, Vol 11. https://doi.org/10.1016/j.nlp.2025.100142
+* Few-shot Prompt: Parikh, S., et al (2023). Exploring zero and few-shot techniques for intent classification. arXiv. https://doi.org/10.48550/arXiv.2305.07157 
 
 
-## 8. License  
+## 9. License  
 This project is licensed under the MIT License - see the LICENSE file for details.
 
