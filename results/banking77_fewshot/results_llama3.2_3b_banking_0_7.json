@@ -70,23 +70,5 @@
         "split":"train",
         "predicted":"unable_to_verify_identity",
         "confidence":0.0
-    },
-    {
-        "Index":8,
-        "text":"What card or currency can I use to pay?",
-        "label":"oos",
-        "dataset":"banking",
-        "split":"train",
-        "predicted":"card_delivery_estimate",
-        "confidence":0.0
-    },
-    {
-        "Index":9,
-        "text":"I deposited some money, but the balance has not changed.",
-        "label":"balance_not_updated_after_cheque_or_cash_deposit",
-        "dataset":"banking",
-        "split":"train",
-        "predicted":"unable_to_verify_identity",
-        "confidence":0.0
     }
 ]
