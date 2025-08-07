@@ -1,13 +1,13 @@
                                                   precision    recall  f1-score   support
 
-                                             oos       0.33      0.50      0.40         2
+                                             oos       0.50      0.50      0.50         2
                                 activate_my_card       0.00      0.00      0.00         0
                                        age_limit       0.00      0.00      0.00         0
                                      atm_support       0.00      0.00      0.00         0
                                 automatic_top_up       0.00      0.00      0.00         0
          balance_not_updated_after_bank_transfer       0.00      0.00      0.00         0
 balance_not_updated_after_cheque_or_cash_deposit       1.00      1.00      1.00         1
-                         beneficiary_not_allowed       0.00      0.00      0.00         1
+                         beneficiary_not_allowed       1.00      1.00      1.00         1
                                  cancel_transfer       0.00      0.00      0.00         0
                             card_about_to_expire       0.00      0.00      0.00         0
                                     card_arrival       0.00      0.00      0.00         0
@@ -60,6 +60,6 @@ balance_not_updated_after_cheque_or_cash_deposit       1.00      1.00      1.00 
                              why_verify_identity       0.00      0.00      0.00         0
                    wrong_amount_of_cash_received       0.00      0.00      0.00         0
 
-                                        accuracy                           0.62         8
-                                       macro avg       0.07      0.08      0.07         8
-                                    weighted avg       0.58      0.62      0.60         8
+                                        accuracy                           0.75         8
+                                       macro avg       0.09      0.09      0.09         8
+                                    weighted avg       0.75      0.75      0.75         8
