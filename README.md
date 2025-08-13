@@ -173,9 +173,22 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 
 
 
-### 5.2. Embedding-based Methods (Adaptive Decision Boundary Clustering and Variational Autoencoder)
-TBC - to add to README after cleaning up, rerunning and checking notebooks
-
+### 5.2. Hybrid Embedding Method then Non-Embedding Method
+* Please visit the notebook in the [hybrid_embedding_nonembedding folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/examples/hybrid_embedding_nonembedding) for the workings
+* In the notebook, we
+  * **Finetuned BERT** only on known classes to
+    * Adapt BERT to the dataset's domain
+    * Move sentences from the same class closer, and move sentences from different classes further apart, to give "higher quality embeddings", which can be used to better differentiate between different classes
+  * Use finetuned BERT to generate embeddings
+  * **Trained a Variational Autoencoder (VAE) on binary classification (open class vs known class)**
+  * Stored embeddings in a FAISS (Facebook AI Similarity Search) vector store: IndexFlatIP (which uses cosine similarity to find the nearest neighbours)
+    * Output format: [faiss](https://huggingface.co/KaiquanMah/VAE-Banking77-OpenIntentClassification/blob/main/banking77_cosine_index.faiss), [CSV](https://huggingface.co/KaiquanMah/VAE-Banking77-OpenIntentClassification/blob/main/banking77_w_bert_embeddings_n_vae_predictions.csv)
+  * Retrieved 5 nearest sentence examples and classes for each input sentence's fewshot prompt
+    * Output formats available for use: [parquet](https://huggingface.co/KaiquanMah/VAE-Banking77-OpenIntentClassification/blob/main/banking77_few_shot_examples.parquet), [CSV](https://huggingface.co/KaiquanMah/VAE-Banking77-OpenIntentClassification/blob/main/banking77_5_nearest_few_shot_examples.csv), [ZIP of 1 fewshot text file per input sentence](https://huggingface.co/KaiquanMah/VAE-Banking77-OpenIntentClassification/blob/main/few_shot_examples.zip)
+  * Pickle file containing a list of row indexes for sentences "classified by VAE as the known class"
+  * Ran 2 separate pipelines
+    1. (After finetuned BERT -> Trained VAE -> ) Fewshot prompt on known subset of sentences (classified by VAE) only
+    2. (After finetuned BERT -> ) Fewshot prompt on full dataset
 
 
 ## 6. Folder Structure
