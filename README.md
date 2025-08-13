@@ -457,6 +457,35 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">80.35</td>
          <td style="text-align:center">80.99</td>
        </tr>
+      <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
+      <tr>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples reused across input sentences</b></td>
+         <td style="text-align:center">50.58</td>
+         <td style="text-align:center">50.63</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+       </tr>
+      <!--fewshot: total of 5 nearest examples for every input sentence, identified using BERT embeddings-->
+      <tr>
+         <td style="text-align:left">Hybrid Finetuned BERT --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:center">69.14</td>
+         <td style="text-align:center">78.92</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+      </tr>
+      <tr>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:center">64.15</td>
+         <td style="text-align:center">74.47</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+       </tr>
   </tbody>
 </table>
 
