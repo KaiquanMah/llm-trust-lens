@@ -746,8 +746,8 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <!--fewshot: total of 5 nearest examples for every input sentence, identified using BERT embeddings-->
       <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
-         <td style="text-align:center">72.67</td>
-         <td style="text-align:center">57.90</td>
+         <td style="text-align:center">78.51</td>
+         <td style="text-align:center">59.55</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
@@ -755,8 +755,8 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       </tr>
       <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
-         <td style="text-align:center">78.51</td>
-         <td style="text-align:center">59.55</td>
+         <td style="text-align:center">72.67</td>
+         <td style="text-align:center">57.90</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
