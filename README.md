@@ -565,6 +565,8 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <!--Our Metrics: fewshot models-->
+      <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
+      <!--the same set of examples are reused across all input sentences-->
       <tr>
          <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
          <td style="text-align:center">85.00</td>
@@ -583,14 +585,36 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">90.00</td>
          <td style="text-align:center">75.00</td>
        </tr>
-       <tr>
+     
+      <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
+      <tr>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:center">97.00</td>
+         <td style="text-align:center">8.00</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+       </tr>
+       
+      <!--fewshot: total of 5 nearest examples for every input sentence, identified using BERT embeddings-->
+      <tr>
+         <td style="text-align:left">Hybrid Finetuned BERT --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:center">87.00</td>
+         <td style="text-align:center">32.00</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+      </tr>
+      <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
-         <td style="text-align:center">89.00</td>
-         <td style="text-align:center">56.00</td>
-         <td style="text-align:center">91.00</td>
-         <td style="text-align:center">79.00</td>
-         <td style="text-align:center">90.00</td>
-         <td style="text-align:center">75.00</td>
+         <td style="text-align:center">83.00</td>
+         <td style="text-align:center">33.00</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
        </tr>
   </tbody>
 </table>
