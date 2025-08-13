@@ -637,6 +637,15 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">-</td>
       </tr>
       <tr>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE</td>
+         <td style="text-align:center">69.23</td>
+         <td style="text-align:center">48.71</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+       </tr>
+      <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">83.00</td>
          <td style="text-align:center">33.00</td>
@@ -782,6 +791,15 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
       </tr>
+      <tr>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE</td>
+         <td style="text-align:center">81.00</td>
+         <td style="text-align:center">16.00</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+         <td style="text-align:center">-</td>
+       </tr>
       <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">72.67</td>
