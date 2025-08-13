@@ -12,9 +12,9 @@ There are 2 ways to evaluate open intent classification:
 2. Multi-class Classification of open-intent/oos/unknown class vs individual known classes
 
 **Project Team Members**
-* Members: [Kaiquan Mah](https://www.linkedin.com/in/kaiquan-mah), [Michael Bernovskiy](https://www.linkedin.com/in/bernovskiy), [Ruslan Shuvalov](https://www.linkedin.com/in/rsshuvalov)
+* Members: [Kaiquan Mah](https://www.linkedin.com/in/kaiquan-mah)
 * Mentor: [Liat Friedman Antwarg](https://www.linkedin.com/in/liat-antwarg-friedman-a2367b6)
-* CitrusX Representatives: [Shlomit Finegold](https://www.linkedin.com/in/shlomit-finegold), [Dagan Eshar](https://www.linkedin.com/in/dagan), [Ran Emuna (left around mid-July 2025)](https://www.linkedin.com/in/ran-emuna-ba902579)
+* CitrusX Representatives: [Shlomit Finegold](https://www.linkedin.com/in/shlomit-finegold), [Dagan Eshar](https://www.linkedin.com/in/dagan), [Ran Emuna](https://www.linkedin.com/in/ran-emuna-ba902579)
 
 
 ## 2. Key Features
