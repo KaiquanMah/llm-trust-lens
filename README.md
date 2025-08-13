@@ -587,7 +587,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples reused across input sentences</td>
          <td style="text-align:center">97.00</td>
          <td style="text-align:center">8.00</td>
          <td style="text-align:center">-</td>
@@ -733,7 +733,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples reused across input sentences</td>
          <td style="text-align:center">94.19</td>
          <td style="text-align:center">52.27</td>
          <td style="text-align:center">-</td>
