@@ -437,8 +437,10 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <!--Our Metrics: fewshot models-->
+      <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
+      <!--the same set of examples are reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples per known class</b></td>
          <td style="text-align:center">14.09</td>
          <td style="text-align:center">16.30</td>
          <td style="text-align:center">69.67</td>
@@ -447,7 +449,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">28.09</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with <b>5 examples per known class</b></td>
          <td style="text-align:center">70.28</td>
          <td style="text-align:center">76.48</td>
          <td style="text-align:center">85.72</td>
@@ -568,7 +570,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
       <!--the same set of examples are reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples per known class</b></td>
          <td style="text-align:center">85.00</td>
          <td style="text-align:center">0.00</td>
          <td style="text-align:center">87.00</td>
@@ -577,7 +579,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">0.00</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with <b>5 examples per known class</b></td>
          <td style="text-align:center">89.00</td>
          <td style="text-align:center">56.00</td>
          <td style="text-align:center">91.00</td>
@@ -587,7 +589,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples reused across input sentences</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples reused across input sentences</b></td>
          <td style="text-align:center">97.00</td>
          <td style="text-align:center">8.00</td>
          <td style="text-align:center">-</td>
@@ -714,7 +716,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
       <!--the same set of examples are reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples per known class</b></td>
          <td style="text-align:center">74.00</td>
          <td style="text-align:center">43.00</td>
          <td style="text-align:center">78.00</td>
@@ -723,7 +725,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">42.00</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with <b>5 examples per known class</b></td>
          <td style="text-align:center">82.00</td>
          <td style="text-align:center">73.00</td>
          <td style="text-align:center">87.00</td>
@@ -733,7 +735,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples reused across input sentences</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples reused across input sentences</b></td>
          <td style="text-align:center">94.19</td>
          <td style="text-align:center">52.27</td>
          <td style="text-align:center">-</td>
