@@ -638,8 +638,8 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       </tr>
       <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE</td>
-         <td style="text-align:center">69.23</td>
-         <td style="text-align:center">48.71</td>
+         <td style="text-align:center">81.00</td>
+         <td style="text-align:center">16.00</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
@@ -793,8 +793,8 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       </tr>
       <tr>
          <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE</td>
-         <td style="text-align:center">81.00</td>
-         <td style="text-align:center">16.00</td>
+         <td style="text-align:center">69.23</td>
+         <td style="text-align:center">48.71</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
          <td style="text-align:center">-</td>
