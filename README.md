@@ -331,7 +331,8 @@ TBC - to add to README after cleaning up, rerunning and checking notebooks
 
 Please note that for the results section below, we will show only 
 * experiments using 25% of OOS classes, to compare to the THUIAR paper
-* zero-shot and few-shot experiments using pydantic enums to enforce allowed list of classes for prediction
+* zero-shot and few-shot experiments **using pydantic enums** to enforce allowed list of classes for prediction
+  * **we will not show the results of experiments we ran without pydantic enums, to simplify the results summary**
 
 For experiments with other percentage of OOS classes or where we initially explored not enforcing allowed list of classes, you can still access the results in the [results folder](https://github.com/KaiquanMah/llm-trust-lens/tree/main/results).
 
@@ -382,7 +383,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     </tr>
     <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
     <tr>
-      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
       <td style="text-align:center">43.74</td>
       <td style="text-align:center">53.00</td>
       <td style="text-align:center">66.62</td>
@@ -391,7 +392,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">55.79</td>
     </tr>
     <tr>
-      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot</td>
       <td style="text-align:center">53.86</td>
       <td style="text-align:center">63.97</td>
       <td style="text-align:center">-</td>
@@ -400,7 +401,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">-</td>
     </tr>
     <tr>
-        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot</td>
         <td style="text-align:center">48.17</td>
         <td style="text-align:center">57.48</td>
         <td style="text-align:center">-</td>
@@ -409,7 +410,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot</td>
         <td style="text-align:center">46.62</td>
         <td style="text-align:center">54.99</td>
         <td style="text-align:center">-</td>
@@ -418,7 +419,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot</td>
         <td style="text-align:center">44.58</td>
         <td style="text-align:center">52.69</td>
         <td style="text-align:center">-</td>
@@ -427,7 +428,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot</td>
         <td style="text-align:center">32.14</td>
         <td style="text-align:center">36.70</td>
         <td style="text-align:center">-</td>
@@ -437,7 +438,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       </tr>
       <!--Our Metrics: fewshot models-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
          <td style="text-align:center">14.09</td>
          <td style="text-align:center">16.30</td>
          <td style="text-align:center">69.67</td>
@@ -446,7 +447,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">28.09</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class</td>
          <td style="text-align:center">70.28</td>
          <td style="text-align:center">76.48</td>
          <td style="text-align:center">85.72</td>
@@ -510,7 +511,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     </tr>
     <!--Our F1, follow our sort order in section 7.1's table-->
     <tr>
-      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
       <td style="text-align:center">85.00</td>
       <td style="text-align:center">0.00</td>
       <td style="text-align:center">86.00</td>
@@ -519,7 +520,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">1.00</td>
     </tr>
     <tr>
-      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot</td>
       <td style="text-align:center">84.00</td>
       <td style="text-align:center">12.00</td>
       <td style="text-align:center">-</td>
@@ -528,7 +529,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">-</td>
     </tr>
     <tr>
-        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot</td>
         <td style="text-align:center">84.00</td>
         <td style="text-align:center">5.00</td>
         <td style="text-align:center">-</td>
@@ -537,7 +538,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot</td>
         <td style="text-align:center">85.00</td>
         <td style="text-align:center">0.00</td>
         <td style="text-align:center">-</td>
@@ -546,7 +547,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot</td>
         <td style="text-align:center">85.00</td>
         <td style="text-align:center">0.00</td>
         <td style="text-align:center">-</td>
@@ -555,7 +556,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot</td>
         <td style="text-align:center">84.00</td>
         <td style="text-align:center">2.00</td>
         <td style="text-align:center">-</td>
@@ -565,7 +566,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       </tr>
       <!--Our Metrics: fewshot models-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
          <td style="text-align:center">85.00</td>
          <td style="text-align:center">0.00</td>
          <td style="text-align:center">87.00</td>
@@ -574,7 +575,16 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">0.00</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class</td>
+         <td style="text-align:center">89.00</td>
+         <td style="text-align:center">56.00</td>
+         <td style="text-align:center">91.00</td>
+         <td style="text-align:center">79.00</td>
+         <td style="text-align:center">90.00</td>
+         <td style="text-align:center">75.00</td>
+       </tr>
+       <tr>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">89.00</td>
          <td style="text-align:center">56.00</td>
          <td style="text-align:center">91.00</td>
@@ -625,7 +635,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     </tr>
     <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
     <tr>
-      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
       <td style="text-align:center">73.00</td>
       <td style="text-align:center">42.00</td>
       <td style="text-align:center">75.00</td>
@@ -634,7 +644,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">42.00</td>
     </tr>
     <tr>
-      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot with Pydantic Enums</td>
+      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot</td>
       <td style="text-align:center">73.00</td>
       <td style="text-align:center">48.00</td>
       <td style="text-align:center">-</td>
@@ -643,7 +653,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">-</td>
     </tr>
     <tr>
-        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot</td>
         <td style="text-align:center">73.00</td>
         <td style="text-align:center">45.00</td>
         <td style="text-align:center">-</td>
@@ -652,7 +662,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot</td>
         <td style="text-align:center">74.00</td>
         <td style="text-align:center">42.00</td>
         <td style="text-align:center">-</td>
@@ -661,7 +671,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot</td>
         <td style="text-align:center">74.00</td>
         <td style="text-align:center">42.00</td>
         <td style="text-align:center">-</td>
@@ -670,7 +680,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot with Pydantic Enums</td>
+        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot</td>
         <td style="text-align:center">72.00</td>
         <td style="text-align:center">43.00</td>
         <td style="text-align:center">-</td>
@@ -680,7 +690,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       </tr>
       <!--Our Metrics: fewshot models-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with 5 examples per known class</td>
          <td style="text-align:center">74.00</td>
          <td style="text-align:center">43.00</td>
          <td style="text-align:center">78.00</td>
@@ -689,7 +699,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">42.00</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class, with Pydantic Enums</td>
+         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with 5 examples per known class</td>
          <td style="text-align:center">82.00</td>
          <td style="text-align:center">73.00</td>
          <td style="text-align:center">87.00</td>
