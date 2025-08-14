@@ -850,6 +850,8 @@ Here are references underpinning those methods we explored above
 * ADB Clustering (THUIAR): Zhang, H., et al (2021). Deep open intent classification with Adaptive Decision Boundary. arXiv. https://doi.org/10.48550/arXiv.2012.10209
 * Zero-shot Prompt: Roumeliotis, K.I., et al (2025). LLMs for product classification: zero-shot. NLP Journal, Vol 11. https://doi.org/10.1016/j.nlp.2025.100142
 * Few-shot Prompt: Parikh, S., et al (2023). Exploring zero and few-shot techniques for intent classification. arXiv. https://doi.org/10.48550/arXiv.2305.07157 
+* Encoder: Zawbaa, H., et al (2024). Out-of-scope classification with dual encoding and threshold. arXiv. https://doi.org/10.48550/arXiv.2405.19967
+* Hybrid BERT & one-shot: Castillo-Lopez, G., et al (2025). Intent recognition in multi-party conversations. arXiv. https://doi.org/10.48550/arXiv.2507.22289
 
 
 ## 9. License  
