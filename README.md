@@ -386,7 +386,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   </thead>
   <tbody>
     <!--2021 THUIAR ADB Paper's Metrics-->
-    <tr style="background-color: #e0dedcff">
+<!--     <tr style="background-color: #e0dedcff">
       <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">78.85</td>
       <td style="text-align:center">71.62</td>
@@ -394,7 +394,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">80.83</td>
       <td style="text-align:center">87.59</td>
       <td style="text-align:center">77.19</td>
-    </tr>
+    </tr> -->
     <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
     <tr>
       <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
@@ -545,7 +545,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   </thead>
   <tbody>
     <!--2021 THUIAR ADB Paper's F1-->
-    <tr style="background-color: #e0dedcff">
+<!--     <tr style="background-color: #e0dedcff">
       <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">84.56</td>
       <td style="text-align:center">70.94</td>
@@ -553,7 +553,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">78.82</td>
       <td style="text-align:center">91.84</td>
       <td style="text-align:center">76.80</td>
-    </tr>
+    </tr> -->
     <!--Our F1, follow our sort order in section 7.1's table-->
     <tr>
       <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
@@ -700,7 +700,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   </thead>
   <tbody>
     <!--2021 THUIAR ADB Paper's Metrics-->
-    <tr style="background-color: #e0dedcff">
+<!--     <tr style="background-color: #e0dedcff">
       <td style="text-align:left">ADB (2021 THUIAR Paper)</td>
       <td style="text-align:center">78.85</td>
       <td style="text-align:center">71.62</td>
@@ -708,7 +708,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">80.83</td>
       <td style="text-align:center">87.59</td>
       <td style="text-align:center">77.19</td>
-    </tr>
+    </tr> -->
     <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
     <tr>
       <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
