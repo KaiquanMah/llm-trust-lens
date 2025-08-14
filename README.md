@@ -361,7 +361,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
   * The figures below are in percentage terms (from 0.00% to 100.00%)
   * '-' refers to experiments which have yet to be conducted
   * In terms of sort order, we have
-    * ADB (2021 THUIAR's paper) and our llama3.2:3b base model on top
+    * our llama3.2:3b base model on top
     * then sort from highest to lowest zeroshot model
     * then we have our fewshot models
 
