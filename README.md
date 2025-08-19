@@ -403,7 +403,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     </tr> -->
     <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
     <tr>
-      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
+      <td style="text-align:left">Zero-Shot llama3.2:3b (Our Base Ollama/Local LLM)</td>
       <td style="text-align:center">43.74</td>
       <td style="text-align:center">53.00</td>
       <td style="text-align:center">66.62</td>
@@ -412,7 +412,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">55.79</td>
     </tr>
     <tr>
-      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot</td>
+      <td style="text-align:left">Zero-Shot qwen3:8b (Mixture-of-Experts LLM)</td>
       <td style="text-align:center">53.86</td>
       <td style="text-align:center">63.97</td>
       <td style="text-align:center">-</td>
@@ -421,7 +421,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">-</td>
     </tr>
     <tr>
-        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot gemma3:4b-it-qa (Instruction-Following & Quantised LLM)</td>
         <td style="text-align:center">48.17</td>
         <td style="text-align:center">57.48</td>
         <td style="text-align:center">-</td>
@@ -430,7 +430,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot mistral:7b (General-Purpose LLM)</td>
         <td style="text-align:center">46.62</td>
         <td style="text-align:center">54.99</td>
         <td style="text-align:center">-</td>
@@ -439,7 +439,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot tulu3:8b (Instruction-Following LLM)</td>
         <td style="text-align:center">44.58</td>
         <td style="text-align:center">52.69</td>
         <td style="text-align:center">-</td>
@@ -448,7 +448,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot deepseek-r1:7b (Reasoning LLM)</td>
         <td style="text-align:center">32.14</td>
         <td style="text-align:center">36.70</td>
         <td style="text-align:center">-</td>
@@ -460,7 +460,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
       <!--the same set of examples are reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples per known class</b></td>
+         <td style="text-align:left">Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 examples per known class</b></td>
          <td style="text-align:center">14.09</td>
          <td style="text-align:center">16.30</td>
          <td style="text-align:center">69.67</td>
@@ -469,7 +469,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">28.09</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with <b>5 examples per known class</b></td>
+         <td style="text-align:left">Few-Shot QWEN3-30B-A3B (Mixture-of-Experts API LLM) with <b>5 examples per known class</b></td>
          <td style="text-align:center">70.28</td>
          <td style="text-align:center">76.48</td>
          <td style="text-align:center">85.72</td>
@@ -479,7 +479,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples reused across input sentences</b></td>
+         <td style="text-align:left">Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 examples reused across input sentences</b></td>
          <td style="text-align:center">50.58</td>
          <td style="text-align:center">50.63</td>
          <td style="text-align:center">-</td>
@@ -489,7 +489,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 nearest examples for every input sentence, identified using BERT embeddings-->
       <tr>
-         <td style="text-align:left">Hybrid Finetuned BERT --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">69.14</td>
          <td style="text-align:center">78.92</td>
          <td style="text-align:center">-</td>
@@ -498,7 +498,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">-</td>
       </tr>
       <tr>
-         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">64.15</td>
          <td style="text-align:center">74.47</td>
          <td style="text-align:center">-</td>
@@ -508,6 +508,35 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
   </tbody>
 </table>
+
+
+#### What do the overall metrics tell us?
+* Zero-shot is not enough, lagging behind approaches using
+  * Few-shot with better models
+  * Hybrid embedding then non-embedding methods (with the 5 nearest fewshot examples providing relevant context to the LLM to classify each input sentence)
+* Focusing on small models (defined as models less than 10B parameters)
+  * qwen3:8b, a mixture-of-experts LLM, achieved the highest overall and OOS metrics
+    * This could be because the mixture-of-experts might have an "expert" specialising in the banking domain, which has a better understanding of nuances in banking to separate between the classes in the banking77 dataset
+    * While  tulu3:8b has the same number of parameters (8B), tulu did not perform as well as qwen3:8b
+* For llama3.2:3b few-shot (when we used 5 examples for every known class in the fewshot prompt)
+  * Count of fewshot examples are
+    * Banking77: 285 Few-shot Examples = 57 Known classes x 5 examples
+    * Stackoverflow: 75 Few-shot Examples = 15 Known classes x 5 examples
+    * CLINC150OOS: 570 Few-shot Examples = 114 Known classes x 5 examples
+  * Zooming into the middle (stackoverflow dataset), with less than 100 examples in the fewshot prompt, overall metrics increased alittle, while OOS F1 increased by approx 20% (from 5% to 25% OOS F1 score)
+  * Too many examples in the fewshot prompt can confuse a 'small' model (less than 10B parameters), observed for the Banking77 and CLINC150OOS datasets, where overall metrics dropped (while still being greater than 0%), and OOS F1 dropped to 0%
+* For fewshot (using 5 examples for every known class in the fewshot prompt), switching to a bigger model such as QWEN3-30B-A3B
+  * Increased overall metrics (relative to llama3.2:3b), and OOS metrics by a moderate to large extent
+  * We infer that many examples in a few-shot prompt provides additional context for a 'large' model (defined as greater than 10B parameters)
+* Comparing standalone fewshot (using llama3.2:3b) to hybrid approaches
+  * Hybrid approaches increased overall and OOS metrics
+  * **If we prioritise OOS F1, Hybrid BERT-VAE-Fewshot approach was the best model/technique**
+    * Standalone Fewshot OOS F1: 8%
+    * Hybrid BERT-Fewshot OOS F1: 32%
+    * **Hybrid BERT-VAE-Fewshot OOS F1: 33%**
+  * Observing how using a large model (greater than 10B parameters) such as QWEN3-30B-A3B can increase overall and OOS metrics, we expect a greater increase in overall and OOS metrics (approximately 40-60%) by using the **Hybrid BERT-VAE-Fewshot approach, with a large model (eg QWEN3-30B-A3B)**
+* For more information on the overall and OOS metrics, please reach out to the team where we have a presentation walking through the results in greater detail, beyond the tables presented here for the purpose of comparing to the [2021 THUIAR paper](https://doi.org/10.48550/arXiv.2012.10209)
+
 
 
 ### 7.2 OOS/Open vs Known F1-score - 25% OOS Class
@@ -562,7 +591,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     </tr> -->
     <!--Our F1, follow our sort order in section 7.1's table-->
     <tr>
-      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
+      <td style="text-align:left">Zero-Shot llama3.2:3b (Our Base Ollama/Local LLM)</td>
       <td style="text-align:center">85.00</td>
       <td style="text-align:center">0.00</td>
       <td style="text-align:center">86.00</td>
@@ -571,7 +600,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">1.00</td>
     </tr>
     <tr>
-      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot</td>
+      <td style="text-align:left">Zero-Shot qwen3:8b (Mixture-of-Experts LLM)</td>
       <td style="text-align:center">84.00</td>
       <td style="text-align:center">12.00</td>
       <td style="text-align:center">-</td>
@@ -580,7 +609,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">-</td>
     </tr>
     <tr>
-        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot gemma3:4b-it-qa (Instruction-Following & Quantised LLM)</td>
         <td style="text-align:center">84.00</td>
         <td style="text-align:center">5.00</td>
         <td style="text-align:center">-</td>
@@ -589,7 +618,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot mistral:7b (General-Purpose LLM)</td>
         <td style="text-align:center">85.00</td>
         <td style="text-align:center">0.00</td>
         <td style="text-align:center">-</td>
@@ -598,7 +627,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot tulu3:8b (Instruction-Following LLM)</td>
         <td style="text-align:center">85.00</td>
         <td style="text-align:center">0.00</td>
         <td style="text-align:center">-</td>
@@ -607,7 +636,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot deepseek-r1:7b (Reasoning LLM)</td>
         <td style="text-align:center">84.00</td>
         <td style="text-align:center">2.00</td>
         <td style="text-align:center">-</td>
@@ -619,7 +648,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
       <!--the same set of examples are reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples per known class</b></td>
+         <td style="text-align:left">Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 examples per known class</b></td>
          <td style="text-align:center">85.00</td>
          <td style="text-align:center">0.00</td>
          <td style="text-align:center">87.00</td>
@@ -628,7 +657,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">0.00</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with <b>5 examples per known class</b></td>
+         <td style="text-align:left">Few-Shot QWEN3-30B-A3B (Mixture-of-Experts API LLM) with <b>5 examples per known class</b></td>
          <td style="text-align:center">89.00</td>
          <td style="text-align:center">56.00</td>
          <td style="text-align:center">91.00</td>
@@ -638,7 +667,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples reused across input sentences</b></td>
+         <td style="text-align:left">Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 examples reused across input sentences</b></td>
          <td style="text-align:center">97.00</td>
          <td style="text-align:center">8.00</td>
          <td style="text-align:center">-</td>
@@ -648,7 +677,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 nearest examples for every input sentence, identified using BERT embeddings-->
       <tr>
-         <td style="text-align:left">Hybrid Finetuned BERT --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">87.00</td>
          <td style="text-align:center">32.00</td>
          <td style="text-align:center">-</td>
@@ -666,7 +695,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">-</td>
        </tr>
       <tr>
-         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">83.00</td>
          <td style="text-align:center">33.00</td>
          <td style="text-align:center">-</td>
@@ -717,7 +746,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
     </tr> -->
     <!--Our Metrics: base model on top, then sort from highest to lowest zeroshot model-->
     <tr>
-      <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Zero-Shot</td>
+      <td style="text-align:left">Zero-Shot llama3.2:3b (Our Base Ollama/Local LLM)</td>
       <td style="text-align:center">73.00</td>
       <td style="text-align:center">42.00</td>
       <td style="text-align:center">75.00</td>
@@ -726,7 +755,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">42.00</td>
     </tr>
     <tr>
-      <td style="text-align:left">qwen3:8b (Mixture-of-Experts LLM) Zero-Shot</td>
+      <td style="text-align:left">Zero-Shot qwen3:8b (Mixture-of-Experts LLM)</td>
       <td style="text-align:center">73.00</td>
       <td style="text-align:center">48.00</td>
       <td style="text-align:center">-</td>
@@ -735,7 +764,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <td style="text-align:center">-</td>
     </tr>
     <tr>
-        <td style="text-align:left">gemma3:4b-it-qa (Instruction-Following & Quantised LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot gemma3:4b-it-qa (Instruction-Following & Quantised LLM)</td>
         <td style="text-align:center">73.00</td>
         <td style="text-align:center">45.00</td>
         <td style="text-align:center">-</td>
@@ -744,7 +773,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">mistral:7b (General-Purpose LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot mistral:7b (General-Purpose LLM)</td>
         <td style="text-align:center">74.00</td>
         <td style="text-align:center">42.00</td>
         <td style="text-align:center">-</td>
@@ -753,7 +782,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">tulu3:8b (Instruction-Following LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot tulu3:8b (Instruction-Following LLM)</td>
         <td style="text-align:center">74.00</td>
         <td style="text-align:center">42.00</td>
         <td style="text-align:center">-</td>
@@ -762,7 +791,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
         <td style="text-align:center">-</td>
       </tr>
       <tr>
-        <td style="text-align:left">deepseek-r1:7b (Reasoning LLM) Zero-Shot</td>
+        <td style="text-align:left">Zero-Shot deepseek-r1:7b (Reasoning LLM)</td>
         <td style="text-align:center">72.00</td>
         <td style="text-align:center">43.00</td>
         <td style="text-align:center">-</td>
@@ -774,7 +803,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
       <!--fewshot: 5 examples for every known class. So total number of examples vary based on each dataset's number of known classes-->
       <!--the same set of examples are reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples per known class</b></td>
+         <td style="text-align:left">Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 examples per known class</b></td>
          <td style="text-align:center">74.00</td>
          <td style="text-align:center">43.00</td>
          <td style="text-align:center">78.00</td>
@@ -783,7 +812,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">42.00</td>
        </tr>
        <tr>
-         <td style="text-align:left">QWEN3-30B-A3B (Mixture-of-Experts API LLM) Few-Shot with <b>5 examples per known class</b></td>
+         <td style="text-align:left">Few-Shot QWEN3-30B-A3B (Mixture-of-Experts API LLM) with <b>5 examples per known class</b></td>
          <td style="text-align:center">82.00</td>
          <td style="text-align:center">73.00</td>
          <td style="text-align:center">87.00</td>
@@ -793,7 +822,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 examples for every input sentence, reused across all input sentences-->
       <tr>
-         <td style="text-align:left">llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 examples reused across input sentences</b></td>
+         <td style="text-align:left">Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 examples reused across input sentences</b></td>
          <td style="text-align:center">94.19</td>
          <td style="text-align:center">52.27</td>
          <td style="text-align:center">-</td>
@@ -803,7 +832,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
        </tr>
       <!--fewshot: total of 5 nearest examples for every input sentence, identified using BERT embeddings-->
       <tr>
-         <td style="text-align:left">Hybrid Finetuned BERT --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">78.51</td>
          <td style="text-align:center">59.55</td>
          <td style="text-align:center">-</td>
@@ -821,7 +850,7 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
          <td style="text-align:center">-</td>
        </tr>
       <tr>
-         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> llama3.2:3b (Our Base Ollama/Local LLM) Few-Shot with <b>5 nearest examples to input sentence</b></td>
+         <td style="text-align:left">Hybrid Finetuned BERT --> Trained VAE --> Few-Shot llama3.2:3b (Our Base Ollama/Local LLM) with <b>5 nearest examples to input sentence</b></td>
          <td style="text-align:center">72.67</td>
          <td style="text-align:center">57.90</td>
          <td style="text-align:center">-</td>
