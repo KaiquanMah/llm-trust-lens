@@ -25,6 +25,7 @@ There are 2 ways to evaluate open intent classification:
 - **Multiple Dataset Formats** - Support for CSV, TSV, JSON file formats
 - **Configurable Experiments**: YAML-based configuration system for easy experiment setup
 - **Traceable Results**: Generate LLM predictions, classification metrics and confusion matrix files for evaluation
+- **Hybrid Embedding and Non-Embedding Approach**: Explored 2 pipelines with a hybrid approach (currently in notebooks)
 
 
 ## 3. Setup
@@ -249,6 +250,8 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │   │   ├── 01l9a-openintent-nebiusqwen-clincoos-batchfull.ipynb
 │   │   ├── 01l9b-openintent-nebiusqwen-clincoos-downloadresults.ipynb
 │   │   └── 01l9c-openintent-nebiusqwen-c150oos-stitchresults.ipynb
+│   ├── hybrid_embedding_nonembedding
+│   │   └── 25perc_OOS_Finetune_BERT,_train_VAE,_apply_on_full_dataset,_get_5_nearest_examples_for_fewshot.ipynb
 │   ├── thresholdtest                 # Fewshot threshold test notebook examples
 │   │   ├── 01k1-openintent-ollama-llama3-2-3b-banking77-1notoos.ipynb
 │   │   ├── 01k1-openintent-ollama-llama3-2-3b-banking77-4notoos.ipynb
@@ -269,6 +272,7 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 │   └── terminal_workings             # Terminal workings on how to run the Ollama or API Model pipeline
 ├── prompts
 │   ├── archive_zeroshot_fewshot        # Archived zeroshot, fewshot prompts
+│   │   ├── fewshot_prompt_with_5_nearest_examples          # folder of 5-nearest-examples fewshot prompts (in CSV, parquet, zip of txt files format). We included the FAISS vector store containing our banking77 embeddings
 │   │   ├── fewshot_prompt_with_5hardcoded-previouslymisclassifiedexamples.txt
 │   │   ├── zeroshot_prompt_with_oos_in_intentlist.txt
 │   │   └── zeroshot_prompt_with_oos_in_intentlist_w_anchor_confidence.txt
