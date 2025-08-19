@@ -298,7 +298,8 @@ python src/experiment_api.py --config config/experiment/api_google_gemini-2.5-fl
 ├── results                                                      # Folder containing experiment results
 │   ├── analysis                                                 # Folder containing analysis of zeroshot, fewshot, threshold-test
 │   │   ├── analyse-results-fewshot-threshold-test.ipynb
-│   │   ├── analyse-results-zeroshot-fewshot, create-idx2label.ipynb
+│   │   ├── analyse-results-zeroshot-fewshot, create-idx2label.ipynb    # Analyse results for zeroshot, fewshot, hybrid approaches. Create idx2label
+│   │   ├── analyse-different-methods-sentence-level-errors_n_confusion-matrix.ipynb
 │   │   └── EDA_THUIAR_Banking_n_StackOverflow_n_OOS_Query_Classification_Datasets.ipynb
 │   ├── banking77_fewshot_google_gemini-2.5-flash-preview-05-20
 │   ├── banking77_fewshot_llama3.2_3b                                    # In each experiment folder
@@ -361,13 +362,14 @@ To analyse results in Jupyter notebooks instead, please visit the [results/analy
 
 * From experiments where we converted 25% of classes to 'OOS'/Open and ran the pipeline, below are the Overall Accuracy & Macro F1-scores.
 * Note that
-  * **overall refers to all questions/examples across the entire dataset**
+  * **overall refers to all questions/examples across the entire dataset (performing multi-class classification)**
   * The figures below are in percentage terms (from 0.00% to 100.00%)
   * '-' refers to experiments which have yet to be conducted
   * In terms of sort order, we have
     * our llama3.2:3b base model on top
     * then sort from highest to lowest zeroshot model
     * then we have our fewshot models
+    * then our hybrid models
 
 
 <table>
